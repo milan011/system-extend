@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.extend.erp.mapper.ErpWlbgmxMapper">
+
+  <resultMap type="com.extend.erp.domain.ErpWlbgmx" id="ErpWlbgmxResult">
+    <result property="WLBH"    column="WLBH"    />
+    <result property="WLMC"    column="WLMC"    />
+    <result property="GGXH"    column="GGXH"    />
+    <result property="PCH"    column="PCH"    />
+    <result property="BZ"    column="BZ"    />
+  </resultMap>
+
+ <sql id="selectErpWlbgmxVo">
+    select WLBH, WLMC, GGXH, PCH, BZ from WLBGMX
+  </sql>
+
+   <select id="selectErpWlbgmxList" parameterType="com.extend.erp.domain.ErpWlbgmx" resultMap="ErpWlbgmxResult">
+    <include refid="selectErpWlbgmxVo"/>
+    <where>
+      <if test="WLBH != null  and WLBH != ''"> and WLBH = #{WLBH}</if>
+      <if test="WLMC != null  and WLMC != ''"> and WLMC = #{WLMC}</if>
+      <if test="GGXH != null  and GGXH != ''"> and GGXH = #{GGXH}</if>
+      <if test="PCH != null  and PCH != ''"> and PCH = #{PCH}</if>
+      <if test="BZ != null  and BZ != ''"> and BZ = #{BZ}</if>
+    </where>
+  </select>
+
+  <select id="selectErpWlbgmxByWLBH" parameterType="String" resultMap="ErpWlbgmxResult">
+    <include refid="selectErpWlbgmxVo"/>
+    where WLBH = #{WLBH}
+  </select>
+
+  <insert id="insertErpWlbgmx" parameterType="com.extend.erp.domain.ErpWlbgmx">
+    insert into WLBGMX
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="WLBH != null and WLBH != ''">WLBH,</if>
+      <if test="WLMC != null and WLMC != ''">WLMC,</if>
+      <if test="GGXH != null">GGXH,</if>
+      <if test="PCH != null">PCH,</if>
+      <if test="BZ != null">BZ,</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="WLBH != null and WLBH != ''">#{WLBH},</if>
+      <if test="WLMC != null and WLMC != ''">#{WLMC},</if>
+      <if test="GGXH != null">#{GGXH},</if>
+      <if test="PCH != null">#{PCH},</if>
+      <if test="BZ != null">#{BZ},</if>
+    </trim>
+  </insert>
+
+  <update id="updateErpWlbgmx" parameterType="com.extend.erp.domain.ErpWlbgmx">
+    update WLBGMX
+    <trim prefix="SET" suffixOverrides=",">
+      <if test="WLMC != null and WLMC != ''">WLMC = #{WLMC},</if>
+      <if test="GGXH != null">GGXH = #{GGXH},</if>
+      <if test="PCH != null">PCH = #{PCH},</if>
+      <if test="BZ != null">BZ = #{BZ},</if>
+    </trim>
+    where WLBH = #{WLBH}
+  </update>
+
+  <delete id="deleteErpWlbgmxByWLBH" parameterType="String">
+    delete from WLBGMX where WLBH = #{WLBH}
+  </delete>
+
+  <delete id="deleteErpWlbgmxByWLBHs" parameterType="String">
+    delete from WLBGMX where WLBH in
+    <foreach item="WLBH" collection="array" open="(" separator="," close=")">
+      #{WLBH}
+    </foreach>
+  </delete>
+</mapper>

@@ -1,0 +1,734 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.extend.erp.mapper.ErpXsfpMapper">
+
+  <resultMap type="com.extend.erp.domain.ErpXsfp" id="ErpXsfpResult">
+    <result property="xsfpFpls"    column="XSFP_FPLS"    />
+    <result property="xsfpFpbh"    column="XSFP_FPBH"    />
+    <result property="xsfpYwbs"    column="XSFP_YWBS"    />
+    <result property="xsfpPjlx"    column="XSFP_PJLX"    />
+    <result property="xsfpZbpjlx"    column="XSFP_ZBPJLX"    />
+    <result property="xsfpHsdx"    column="XSFP_HSDX"    />
+    <result property="xsfpDjrq"    column="XSFP_DJRQ"    />
+    <result property="xsfpYwrq"    column="XSFP_YWRQ"    />
+    <result property="xsfpXgsj"    column="XSFP_XGSJ"    />
+    <result property="xsfpQcbz"    column="XSFP_QCBZ"    />
+    <result property="xsfpFpbz"    column="XSFP_FPBZ"    />
+    <result property="xsfpZfbz"    column="XSFP_ZFBZ"    />
+    <result property="xsfpZfxm"    column="XSFP_ZFXM"    />
+    <result property="xsfpYwbh"    column="XSFP_YWBH"    />
+    <result property="xsfpZlbh"    column="XSFP_ZLBH"    />
+    <result property="xsfpSfls"    column="XSFP_SFLS"    />
+    <result property="xsfpShdkh"    column="XSFP_SHDKH"    />
+    <result property="xsfpShdkhmc"    column="XSFP_SHDKHMC"    />
+    <result property="xsfpSodkh"    column="XSFP_SODKH"    />
+    <result property="xsfpSodkhmc"    column="XSFP_SODKHMC"    />
+    <result property="xsfpSpkh"    column="XSFP_SPKH"    />
+    <result property="xsfpSpkhmc"    column="XSFP_SPKHMC"    />
+    <result property="xsfpFkkh"    column="XSFP_FKKH"    />
+    <result property="xsfpFkkhmc"    column="XSFP_FKKHMC"    />
+    <result property="xsfpBmbh"    column="XSFP_BMBH"    />
+    <result property="xsfpRybh"    column="XSFP_RYBH"    />
+    <result property="xsfpRyxm"    column="XSFP_RYXM"    />
+    <result property="xsfpWbbh"    column="XSFP_WBBH"    />
+    <result property="xsfpHl"    column="XSFP_HL"    />
+    <result property="xsfpZkzc"    column="XSFP_ZKZC"    />
+    <result property="xsfpFsbh"    column="XSFP_FSBH"    />
+    <result property="xsfpJsbh"    column="XSFP_JSBH"    />
+    <result property="xsfpPjhm"    column="XSFP_PJHM"    />
+    <result property="xsfpHkrq"    column="XSFP_HKRQ"    />
+    <result property="xsfpYhbh"    column="XSFP_YHBH"    />
+    <result property="xsfpDhdd"    column="XSFP_DHDD"    />
+    <result property="xsfpDzhm"    column="XSFP_DZHM"    />
+    <result property="xsfpPznm"    column="XSFP_PZNM"    />
+    <result property="xsfpPzrq"    column="XSFP_PZRQ"    />
+    <result property="xsfpPzbh"    column="XSFP_PZBH"    />
+    <result property="xsfpPznd"    column="XSFP_PZND"    />
+    <result property="xsfpFwbz"    column="XSFP_FWBZ"    />
+    <result property="xsfpAddr"    column="XSFP_ADDR"    />
+    <result property="xsfpTele"    column="XSFP_TELE"    />
+    <result property="xsfpKhh"    column="XSFP_KHH"    />
+    <result property="xsfpYhzh"    column="XSFP_YHZH"    />
+    <result property="xsfpSh"    column="XSFP_SH"    />
+    <result property="xsfpDydate"    column="XSFP_DYDATE"    />
+    <result property="xsfpDyperson"    column="XSFP_DYPERSON"    />
+    <result property="xsfpSkbh"    column="XSFP_SKBH"    />
+    <result property="xsfpFhbh"    column="XSFP_FHBH"    />
+    <result property="xsfpZdxm"    column="XSFP_ZDXM"    />
+    <result property="xsfpJzysbz"    column="XSFP_JZYSBZ"    />
+    <result property="xsfpJzysxm"    column="XSFP_JZYSXM"    />
+    <result property="xsfpJzysrq"    column="XSFP_JZYSRQ"    />
+    <result property="xsfpJzbz"    column="XSFP_JZBZ"    />
+    <result property="xsfpJzxm"    column="XSFP_JZXM"    />
+    <result property="xsfpJzsj"    column="XSFP_JZSJ"    />
+    <result property="xsfpSfjz"    column="XSFP_SFJZ"    />
+    <result property="xsfpSfqxjz"    column="XSFP_SFQXJZ"    />
+    <result property="xsfpDqzk"    column="XSFP_DQZK"    />
+    <result property="xsfpSfsc"    column="XSFP_SFSC"    />
+    <result property="xsfpSfxg"    column="XSFP_SFXG"    />
+    <result property="xsfpSfqr"    column="XSFP_SFQR"    />
+    <result property="xsfpSfczx"    column="XSFP_SFCZX"    />
+    <result property="xsfpSfcdj"    column="XSFP_SFCDJ"    />
+    <result property="xsfpHtbh"    column="XSFP_HTBH"    />
+    <result property="xsfpHtls"    column="XSFP_HTLS"    />
+    <result property="xsfpFzbh"    column="XSFP_FZBH"    />
+    <result property="xsfpXzbh"    column="XSFP_XZBH"    />
+    <result property="xsfpShlc"    column="XSFP_SHLC"    />
+    <result property="xsfpShbz"    column="XSFP_SHBZ"    />
+    <result property="xsfpShrq"    column="XSFP_SHRQ"    />
+    <result property="xsfpShxm"    column="XSFP_SHXM"    />
+    <result property="xsfpLybh"    column="XSFP_LYBH"    />
+    <result property="xsfpLyls"    column="XSFP_LYLS"    />
+    <result property="xsfpC1"    column="XSFP_C1"    />
+    <result property="xsfpC2"    column="XSFP_C2"    />
+    <result property="xsfpC3"    column="XSFP_C3"    />
+    <result property="xsfpC4"    column="XSFP_C4"    />
+    <result property="xsfpC5"    column="XSFP_C5"    />
+    <result property="xsfpC6"    column="XSFP_C6"    />
+    <result property="xsfpC7"    column="XSFP_C7"    />
+    <result property="xsfpC8"    column="XSFP_C8"    />
+    <result property="xsfpC9"    column="XSFP_C9"    />
+    <result property="xsfpC10"    column="XSFP_C10"    />
+    <result property="xsfpU1"    column="XSFP_U1"    />
+    <result property="xsfpU2"    column="XSFP_U2"    />
+    <result property="xsfpU3"    column="XSFP_U3"    />
+    <result property="xsfpU4"    column="XSFP_U4"    />
+    <result property="xsfpU5"    column="XSFP_U5"    />
+    <result property="xsfpU6"    column="XSFP_U6"    />
+    <result property="xsfpBz"    column="XSFP_BZ"    />
+    <result property="xsfpGsbh"    column="XSFP_GSBH"    />
+    <result property="xsfpSybbh"    column="XSFP_SYBBH"    />
+    <result property="xsfpPqbh"    column="XSFP_PQBH"    />
+    <result property="xsfpGsbhbak"    column="XSFP_GSBHBAK"    />
+    <result property="xsfpGsmcbak"    column="XSFP_GSMCBAK"    />
+    <result property="xsfpBmmc"    column="XSFP_BMMC"    />
+    <result property="xsfpBmbhbak"    column="XSFP_BMBHBAK"    />
+    <result property="xsfpRybhbak"    column="XSFP_RYBHBAK"    />
+    <result property="xsfpRyxmbak"    column="XSFP_RYXMBAK"    />
+    <result property="xsfpSpdx"    column="XSFP_SPDX"    />
+    <result property="xsfpDrbs"    column="XSFP_DRBS"    />
+    <result property="xsfpHzbz"    column="XSFP_HZBZ"    />
+    <result property="xsfpHzr"    column="XSFP_HZR"    />
+    <result property="xsfpHzrq"    column="XSFP_HZRQ"    />
+    <result property="xsfpHzsm"    column="XSFP_HZSM"    />
+  </resultMap>
+
+  <resultMap id="ErpXsfpErpXsfpmxResult" type="com.extend.erp.domain.ErpXsfp" extends="ErpXsfpResult">
+    <collection property="erpXsfpmxList" notNullColumn="sub_XSFPMX_FPLS" javaType="java.util.List" resultMap="ErpXsfpmxResult" />
+  </resultMap>
+
+  <resultMap type="com.extend.erp.domain.ErpXsfpmx" id="ErpXsfpmxResult">
+    <result property="xsfpmxFpls"    column="sub_XSFPMX_FPLS"    />
+    <result property="xsfpmxFpfl"    column="sub_XSFPMX_FPFL"    />
+    <result property="xsfpmxXsxh"    column="sub_XSFPMX_XSXH"    />
+    <result property="xsfpmxFllx"    column="sub_XSFPMX_FLLX"    />
+    <result property="xsfpmxFlly"    column="sub_XSFPMX_FLLY"    />
+    <result property="xsfpmxCkbh"    column="sub_XSFPMX_CKBH"    />
+    <result property="xsfpmxWlbh"    column="sub_XSFPMX_WLBH"    />
+    <result property="xsfpmxWlmc"    column="sub_XSFPMX_WLMC"    />
+    <result property="xsfpmxPch"    column="sub_XSFPMX_PCH"    />
+    <result property="xsfpmxZyx1"    column="sub_XSFPMX_ZYX1"    />
+    <result property="xsfpmxZyx2"    column="sub_XSFPMX_ZYX2"    />
+    <result property="xsfpmxZyx3"    column="sub_XSFPMX_ZYX3"    />
+    <result property="xsfpmxZyx4"    column="sub_XSFPMX_ZYX4"    />
+    <result property="xsfpmxZyx5"    column="sub_XSFPMX_ZYX5"    />
+    <result property="xsfpmxWlzt"    column="sub_XSFPMX_WLZT"    />
+    <result property="xsfpmxWlbz"    column="sub_XSFPMX_WLBZ"    />
+    <result property="xsfpmxSzxm"    column="sub_XSFPMX_SZXM"    />
+    <result property="xsfpmxDdls"    column="sub_XSFPMX_DDLS"    />
+    <result property="xsfpmxDdfl"    column="sub_XSFPMX_DDFL"    />
+    <result property="xsfpmxDdbh"    column="sub_XSFPMX_DDBH"    />
+    <result property="xsfpmxTdls"    column="sub_XSFPMX_TDLS"    />
+    <result property="xsfpmxTdfl"    column="sub_XSFPMX_TDFL"    />
+    <result property="xsfpmxTdbh"    column="sub_XSFPMX_TDBH"    />
+    <result property="xsfpmxHtls"    column="sub_XSFPMX_HTLS"    />
+    <result property="xsfpmxHtfl"    column="sub_XSFPMX_HTFL"    />
+    <result property="xsfpmxHtbh"    column="sub_XSFPMX_HTBH"    />
+    <result property="xsfpmxPjls"    column="sub_XSFPMX_PJLS"    />
+    <result property="xsfpmxPjfl"    column="sub_XSFPMX_PJFL"    />
+    <result property="xsfpmxPjbh"    column="sub_XSFPMX_PJBH"    />
+    <result property="xsfpmxHdls"    column="sub_XSFPMX_HDLS"    />
+    <result property="xsfpmxHdfl"    column="sub_XSFPMX_HDFL"    />
+    <result property="xsfpmxHdbh"    column="sub_XSFPMX_HDBH"    />
+    <result property="xsfpmxFyls"    column="sub_XSFPMX_FYLS"    />
+    <result property="xsfpmxFyfl"    column="sub_XSFPMX_FYFL"    />
+    <result property="xsfpmxFybh"    column="sub_XSFPMX_FYBH"    />
+    <result property="xsfpmxYfpls"    column="sub_XSFPMX_YFPLS"    />
+    <result property="xsfpmxYfpfl"    column="sub_XSFPMX_YFPFL"    />
+    <result property="xsfpmxYfpbh"    column="sub_XSFPMX_YFPBH"    />
+    <result property="xsfpmxZsl"    column="sub_XSFPMX_ZSL"    />
+    <result property="xsfpmxFsl1"    column="sub_XSFPMX_FSL1"    />
+    <result property="xsfpmxFsl2"    column="sub_XSFPMX_FSL2"    />
+    <result property="xsfpmxYzhsj"    column="sub_XSFPMX_YZHSJ"    />
+    <result property="xsfpmxBzhsj"    column="sub_XSFPMX_BZHSJ"    />
+    <result property="xsfpmxDbzkbl"    column="sub_XSFPMX_DBZKBL"    />
+    <result property="xsfpmxZezkbl"    column="sub_XSFPMX_ZEZKBL"    />
+    <result property="xsfpmxYzkje"    column="sub_XSFPMX_YZKJE"    />
+    <result property="xsfpmxBzkje"    column="sub_XSFPMX_BZKJE"    />
+    <result property="xsfpmxYhse"    column="sub_XSFPMX_YHSE"    />
+    <result property="xsfpmxBhse"    column="sub_XSFPMX_BHSE"    />
+    <result property="xsfpmxSl"    column="sub_XSFPMX_SL"    />
+    <result property="xsfpmxYzxsj"    column="sub_XSFPMX_YZXSJ"    />
+    <result property="xsfpmxBzxsj"    column="sub_XSFPMX_BZXSJ"    />
+    <result property="xsfpmxYxse"    column="sub_XSFPMX_YXSE"    />
+    <result property="xsfpmxBxse"    column="sub_XSFPMX_BXSE"    />
+    <result property="xsfpmxYse"    column="sub_XSFPMX_YSE"    />
+    <result property="xsfpmxBse"    column="sub_XSFPMX_BSE"    />
+    <result property="xsfpmxSfhk"    column="sub_XSFPMX_SFHK"    />
+    <result property="xsfpmxHkbz"    column="sub_XSFPMX_HKBZ"    />
+    <result property="xsfpmxYhke"    column="sub_XSFPMX_YHKE"    />
+    <result property="xsfpmxBhke"    column="sub_XSFPMX_BHKE"    />
+    <result property="xsfpmxHksl"    column="sub_XSFPMX_HKSL"    />
+    <result property="xsfpmxHkfsl1"    column="sub_XSFPMX_HKFSL1"    />
+    <result property="xsfpmxHkfsl2"    column="sub_XSFPMX_HKFSL2"    />
+    <result property="xsfpmxSfth"    column="sub_XSFPMX_SFTH"    />
+    <result property="xsfpmxThbz"    column="sub_XSFPMX_THBZ"    />
+    <result property="xsfpmxThsl"    column="sub_XSFPMX_THSL"    />
+    <result property="xsfpmxThfsl1"    column="sub_XSFPMX_THFSL1"    />
+    <result property="xsfpmxThfsl2"    column="sub_XSFPMX_THFSL2"    />
+    <result property="xsfpmxDqzk"    column="sub_XSFPMX_DQZK"    />
+    <result property="xsfpmxSfck"    column="sub_XSFPMX_SFCK"    />
+    <result property="xsfpmxCkbz"    column="sub_XSFPMX_CKBZ"    />
+    <result property="xsfpmxCksl"    column="sub_XSFPMX_CKSL"    />
+    <result property="xsfpmxCkfsl1"    column="sub_XSFPMX_CKFSL1"    />
+    <result property="xsfpmxCkfsl2"    column="sub_XSFPMX_CKFSL2"    />
+    <result property="xsfpmxCkje"    column="sub_XSFPMX_CKJE"    />
+    <result property="xsfpmxTdzhsj"    column="sub_XSFPMX_TDZHSJ"    />
+    <result property="xsfpmxTdzsl"    column="sub_XSFPMX_TDZSL"    />
+    <result property="xsfpmxTdyhse"    column="sub_XSFPMX_TDYHSE"    />
+    <result property="xsfpmxTdbhse"    column="sub_XSFPMX_TDBHSE"    />
+    <result property="xsfpmxHzzsl"    column="sub_XSFPMX_HZZSL"    />
+    <result property="xsfpmxHzfsl1"    column="sub_XSFPMX_HZFSL1"    />
+    <result property="xsfpmxHzfsl2"    column="sub_XSFPMX_HZFSL2"    />
+    <result property="xsfpmxYhze"    column="sub_XSFPMX_YHZE"    />
+    <result property="xsfpmxBhze"    column="sub_XSFPMX_BHZE"    />
+    <result property="xsfpmxDczsl"    column="sub_XSFPMX_DCZSL"    />
+    <result property="xsfpmxDcfsl1"    column="sub_XSFPMX_DCFSL1"    />
+    <result property="xsfpmxDcfsl2"    column="sub_XSFPMX_DCFSL2"    />
+    <result property="xsfpmxYdce"    column="sub_XSFPMX_YDCE"    />
+    <result property="xsfpmxBdce"    column="sub_XSFPMX_BDCE"    />
+    <result property="xsfpmxLzrq"    column="sub_XSFPMX_LZRQ"    />
+    <result property="xsfpmxYhkrq"    column="sub_XSFPMX_YHKRQ"    />
+    <result property="xsfpmxZxpdyj"    column="sub_XSFPMX_ZXPDYJ"    />
+    <result property="xsfpmxZxtszc"    column="sub_XSFPMX_ZXTSZC"    />
+    <result property="xsfpmxYywrq"    column="sub_XSFPMX_YYWRQ"    />
+    <result property="xsfpmxC1"    column="sub_XSFPMX_C1"    />
+    <result property="xsfpmxC2"    column="sub_XSFPMX_C2"    />
+    <result property="xsfpmxC3"    column="sub_XSFPMX_C3"    />
+    <result property="xsfpmxC4"    column="sub_XSFPMX_C4"    />
+    <result property="xsfpmxC5"    column="sub_XSFPMX_C5"    />
+    <result property="xsfpmxC6"    column="sub_XSFPMX_C6"    />
+    <result property="xsfpmxC7"    column="sub_XSFPMX_C7"    />
+    <result property="xsfpmxC8"    column="sub_XSFPMX_C8"    />
+    <result property="xsfpmxC9"    column="sub_XSFPMX_C9"    />
+    <result property="xsfpmxC10"    column="sub_XSFPMX_C10"    />
+    <result property="xsfpmxU1"    column="sub_XSFPMX_U1"    />
+    <result property="xsfpmxU2"    column="sub_XSFPMX_U2"    />
+    <result property="xsfpmxU3"    column="sub_XSFPMX_U3"    />
+    <result property="xsfpmxU4"    column="sub_XSFPMX_U4"    />
+    <result property="xsfpmxU5"    column="sub_XSFPMX_U5"    />
+    <result property="xsfpmxU6"    column="sub_XSFPMX_U6"    />
+    <result property="xsfpmxYstdls"    column="sub_XSFPMX_YSTDLS"    />
+    <result property="xsfpmxYstdfl"    column="sub_XSFPMX_YSTDFL"    />
+    <result property="xsfpmxBcyhsl"    column="sub_XSFPMX_BCYHSL"    />
+    <result property="xsfpmxCkls"    column="sub_XSFPMX_CKLS"    />
+    <result property="xsfpmxCkfl"    column="sub_XSFPMX_CKFL"    />
+    <result property="xsfpmxJgys"    column="sub_XSFPMX_JGYS"    />
+    <result property="xsfpmxJgzc"    column="sub_XSFPMX_JGZC"    />
+    <result property="xsfpmxWlbhbak"    column="sub_XSFPMX_WLBHBAK"    />
+  </resultMap>
+
+  <sql id="selectErpXsfpVo">
+    select XSFP_FPLS, XSFP_FPBH, XSFP_YWBS, XSFP_PJLX, XSFP_ZBPJLX, XSFP_HSDX, XSFP_DJRQ, XSFP_YWRQ, XSFP_XGSJ, XSFP_QCBZ, XSFP_FPBZ, XSFP_ZFBZ, XSFP_ZFXM, XSFP_YWBH, XSFP_ZLBH, XSFP_SFLS, XSFP_SHDKH, XSFP_SHDKHMC, XSFP_SODKH, XSFP_SODKHMC, XSFP_SPKH, XSFP_SPKHMC, XSFP_FKKH, XSFP_FKKHMC, XSFP_BMBH, XSFP_RYBH, XSFP_RYXM, XSFP_WBBH, XSFP_HL, XSFP_ZKZC, XSFP_FSBH, XSFP_JSBH, XSFP_PJHM, XSFP_HKRQ, XSFP_YHBH, XSFP_DHDD, XSFP_DZHM, XSFP_PZNM, XSFP_PZRQ, XSFP_PZBH, XSFP_PZND, XSFP_FWBZ, XSFP_ADDR, XSFP_TELE, XSFP_KHH, XSFP_YHZH, XSFP_SH, XSFP_DYDATE, XSFP_DYPERSON, XSFP_SKBH, XSFP_FHBH, XSFP_ZDXM, XSFP_JZYSBZ, XSFP_JZYSXM, XSFP_JZYSRQ, XSFP_JZBZ, XSFP_JZXM, XSFP_JZSJ, XSFP_SFJZ, XSFP_SFQXJZ, XSFP_DQZK, XSFP_SFSC, XSFP_SFXG, XSFP_SFQR, XSFP_SFCZX, XSFP_SFCDJ, XSFP_HTBH, XSFP_HTLS, XSFP_FZBH, XSFP_XZBH, XSFP_SHLC, XSFP_SHBZ, XSFP_SHRQ, XSFP_SHXM, XSFP_LYBH, XSFP_LYLS, XSFP_C1, XSFP_C2, XSFP_C3, XSFP_C4, XSFP_C5, XSFP_C6, XSFP_C7, XSFP_C8, XSFP_C9, XSFP_C10, XSFP_U1, XSFP_U2, XSFP_U3, XSFP_U4, XSFP_U5, XSFP_U6, XSFP_BZ, XSFP_GSBH, XSFP_SYBBH, XSFP_PQBH, XSFP_GSBHBAK, XSFP_GSMCBAK, XSFP_BMMC, XSFP_BMBHBAK, XSFP_RYBHBAK, XSFP_RYXMBAK, XSFP_SPDX, XSFP_DRBS, XSFP_HZBZ, XSFP_HZR, XSFP_HZRQ, XSFP_HZSM from erp_xsfp
+  </sql>
+
+  <select id="selectErpXsfpList" parameterType="com.extend.erp.domain.ErpXsfp" resultMap="ErpXsfpResult">
+    <include refid="selectErpXsfpVo"/>
+    <where>
+      <if test="xsfpFpbh != null  and xsfpFpbh != ''"> and XSFP_FPBH = #{xsfpFpbh}</if>
+      <if test="xsfpYwbs != null  and xsfpYwbs != ''"> and XSFP_YWBS = #{xsfpYwbs}</if>
+      <if test="xsfpPjlx != null  and xsfpPjlx != ''"> and XSFP_PJLX = #{xsfpPjlx}</if>
+      <if test="xsfpZbpjlx != null  and xsfpZbpjlx != ''"> and XSFP_ZBPJLX = #{xsfpZbpjlx}</if>
+      <if test="xsfpHsdx != null  and xsfpHsdx != ''"> and XSFP_HSDX = #{xsfpHsdx}</if>
+      <if test="xsfpDjrq != null  and xsfpDjrq != ''"> and XSFP_DJRQ = #{xsfpDjrq}</if>
+      <if test="xsfpYwrq != null  and xsfpYwrq != ''"> and XSFP_YWRQ = #{xsfpYwrq}</if>
+      <if test="xsfpXgsj != null  and xsfpXgsj != ''"> and XSFP_XGSJ = #{xsfpXgsj}</if>
+      <if test="xsfpQcbz != null  and xsfpQcbz != ''"> and XSFP_QCBZ = #{xsfpQcbz}</if>
+      <if test="xsfpFpbz != null  and xsfpFpbz != ''"> and XSFP_FPBZ = #{xsfpFpbz}</if>
+      <if test="xsfpZfbz != null  and xsfpZfbz != ''"> and XSFP_ZFBZ = #{xsfpZfbz}</if>
+      <if test="xsfpZfxm != null  and xsfpZfxm != ''"> and XSFP_ZFXM = #{xsfpZfxm}</if>
+      <if test="xsfpYwbh != null  and xsfpYwbh != ''"> and XSFP_YWBH = #{xsfpYwbh}</if>
+      <if test="xsfpZlbh != null  and xsfpZlbh != ''"> and XSFP_ZLBH = #{xsfpZlbh}</if>
+      <if test="xsfpSfls != null  and xsfpSfls != ''"> and XSFP_SFLS = #{xsfpSfls}</if>
+      <if test="xsfpShdkh != null  and xsfpShdkh != ''"> and XSFP_SHDKH = #{xsfpShdkh}</if>
+      <if test="xsfpShdkhmc != null  and xsfpShdkhmc != ''"> and XSFP_SHDKHMC = #{xsfpShdkhmc}</if>
+      <if test="xsfpSodkh != null  and xsfpSodkh != ''"> and XSFP_SODKH = #{xsfpSodkh}</if>
+      <if test="xsfpSodkhmc != null  and xsfpSodkhmc != ''"> and XSFP_SODKHMC = #{xsfpSodkhmc}</if>
+      <if test="xsfpSpkh != null  and xsfpSpkh != ''"> and XSFP_SPKH = #{xsfpSpkh}</if>
+      <if test="xsfpSpkhmc != null  and xsfpSpkhmc != ''"> and XSFP_SPKHMC = #{xsfpSpkhmc}</if>
+      <if test="xsfpFkkh != null  and xsfpFkkh != ''"> and XSFP_FKKH = #{xsfpFkkh}</if>
+      <if test="xsfpFkkhmc != null  and xsfpFkkhmc != ''"> and XSFP_FKKHMC = #{xsfpFkkhmc}</if>
+      <if test="xsfpBmbh != null  and xsfpBmbh != ''"> and XSFP_BMBH = #{xsfpBmbh}</if>
+      <if test="xsfpRybh != null  and xsfpRybh != ''"> and XSFP_RYBH = #{xsfpRybh}</if>
+      <if test="xsfpRyxm != null  and xsfpRyxm != ''"> and XSFP_RYXM = #{xsfpRyxm}</if>
+      <if test="xsfpWbbh != null  and xsfpWbbh != ''"> and XSFP_WBBH = #{xsfpWbbh}</if>
+      <if test="xsfpHl != null "> and XSFP_HL = #{xsfpHl}</if>
+      <if test="xsfpZkzc != null  and xsfpZkzc != ''"> and XSFP_ZKZC = #{xsfpZkzc}</if>
+      <if test="xsfpFsbh != null  and xsfpFsbh != ''"> and XSFP_FSBH = #{xsfpFsbh}</if>
+      <if test="xsfpJsbh != null  and xsfpJsbh != ''"> and XSFP_JSBH = #{xsfpJsbh}</if>
+      <if test="xsfpPjhm != null  and xsfpPjhm != ''"> and XSFP_PJHM = #{xsfpPjhm}</if>
+      <if test="xsfpHkrq != null  and xsfpHkrq != ''"> and XSFP_HKRQ = #{xsfpHkrq}</if>
+      <if test="xsfpYhbh != null  and xsfpYhbh != ''"> and XSFP_YHBH = #{xsfpYhbh}</if>
+      <if test="xsfpDhdd != null  and xsfpDhdd != ''"> and XSFP_DHDD = #{xsfpDhdd}</if>
+      <if test="xsfpDzhm != null  and xsfpDzhm != ''"> and XSFP_DZHM = #{xsfpDzhm}</if>
+      <if test="xsfpPznm != null  and xsfpPznm != ''"> and XSFP_PZNM = #{xsfpPznm}</if>
+      <if test="xsfpPzrq != null  and xsfpPzrq != ''"> and XSFP_PZRQ = #{xsfpPzrq}</if>
+      <if test="xsfpPzbh != null  and xsfpPzbh != ''"> and XSFP_PZBH = #{xsfpPzbh}</if>
+      <if test="xsfpPznd != null  and xsfpPznd != ''"> and XSFP_PZND = #{xsfpPznd}</if>
+      <if test="xsfpFwbz != null  and xsfpFwbz != ''"> and XSFP_FWBZ = #{xsfpFwbz}</if>
+      <if test="xsfpAddr != null  and xsfpAddr != ''"> and XSFP_ADDR = #{xsfpAddr}</if>
+      <if test="xsfpTele != null  and xsfpTele != ''"> and XSFP_TELE = #{xsfpTele}</if>
+      <if test="xsfpKhh != null  and xsfpKhh != ''"> and XSFP_KHH = #{xsfpKhh}</if>
+      <if test="xsfpYhzh != null  and xsfpYhzh != ''"> and XSFP_YHZH = #{xsfpYhzh}</if>
+      <if test="xsfpSh != null  and xsfpSh != ''"> and XSFP_SH = #{xsfpSh}</if>
+      <if test="xsfpDydate != null  and xsfpDydate != ''"> and XSFP_DYDATE = #{xsfpDydate}</if>
+      <if test="xsfpDyperson != null  and xsfpDyperson != ''"> and XSFP_DYPERSON = #{xsfpDyperson}</if>
+      <if test="xsfpSkbh != null  and xsfpSkbh != ''"> and XSFP_SKBH = #{xsfpSkbh}</if>
+      <if test="xsfpFhbh != null  and xsfpFhbh != ''"> and XSFP_FHBH = #{xsfpFhbh}</if>
+      <if test="xsfpZdxm != null  and xsfpZdxm != ''"> and XSFP_ZDXM = #{xsfpZdxm}</if>
+      <if test="xsfpJzysbz != null  and xsfpJzysbz != ''"> and XSFP_JZYSBZ = #{xsfpJzysbz}</if>
+      <if test="xsfpJzysxm != null  and xsfpJzysxm != ''"> and XSFP_JZYSXM = #{xsfpJzysxm}</if>
+      <if test="xsfpJzysrq != null  and xsfpJzysrq != ''"> and XSFP_JZYSRQ = #{xsfpJzysrq}</if>
+      <if test="xsfpJzbz != null  and xsfpJzbz != ''"> and XSFP_JZBZ = #{xsfpJzbz}</if>
+      <if test="xsfpJzxm != null  and xsfpJzxm != ''"> and XSFP_JZXM = #{xsfpJzxm}</if>
+      <if test="xsfpJzsj != null  and xsfpJzsj != ''"> and XSFP_JZSJ = #{xsfpJzsj}</if>
+      <if test="xsfpSfjz != null  and xsfpSfjz != ''"> and XSFP_SFJZ = #{xsfpSfjz}</if>
+      <if test="xsfpSfqxjz != null  and xsfpSfqxjz != ''"> and XSFP_SFQXJZ = #{xsfpSfqxjz}</if>
+      <if test="xsfpDqzk != null  and xsfpDqzk != ''"> and XSFP_DQZK = #{xsfpDqzk}</if>
+      <if test="xsfpSfsc != null  and xsfpSfsc != ''"> and XSFP_SFSC = #{xsfpSfsc}</if>
+      <if test="xsfpSfxg != null  and xsfpSfxg != ''"> and XSFP_SFXG = #{xsfpSfxg}</if>
+      <if test="xsfpSfqr != null  and xsfpSfqr != ''"> and XSFP_SFQR = #{xsfpSfqr}</if>
+      <if test="xsfpSfczx != null  and xsfpSfczx != ''"> and XSFP_SFCZX = #{xsfpSfczx}</if>
+      <if test="xsfpSfcdj != null  and xsfpSfcdj != ''"> and XSFP_SFCDJ = #{xsfpSfcdj}</if>
+      <if test="xsfpHtbh != null  and xsfpHtbh != ''"> and XSFP_HTBH = #{xsfpHtbh}</if>
+      <if test="xsfpHtls != null  and xsfpHtls != ''"> and XSFP_HTLS = #{xsfpHtls}</if>
+      <if test="xsfpFzbh != null  and xsfpFzbh != ''"> and XSFP_FZBH = #{xsfpFzbh}</if>
+      <if test="xsfpXzbh != null  and xsfpXzbh != ''"> and XSFP_XZBH = #{xsfpXzbh}</if>
+      <if test="xsfpShlc != null  and xsfpShlc != ''"> and XSFP_SHLC = #{xsfpShlc}</if>
+      <if test="xsfpShbz != null  and xsfpShbz != ''"> and XSFP_SHBZ = #{xsfpShbz}</if>
+      <if test="xsfpShrq != null  and xsfpShrq != ''"> and XSFP_SHRQ = #{xsfpShrq}</if>
+      <if test="xsfpShxm != null  and xsfpShxm != ''"> and XSFP_SHXM = #{xsfpShxm}</if>
+      <if test="xsfpLybh != null  and xsfpLybh != ''"> and XSFP_LYBH = #{xsfpLybh}</if>
+      <if test="xsfpLyls != null  and xsfpLyls != ''"> and XSFP_LYLS = #{xsfpLyls}</if>
+      <if test="xsfpC1 != null  and xsfpC1 != ''"> and XSFP_C1 = #{xsfpC1}</if>
+      <if test="xsfpC2 != null  and xsfpC2 != ''"> and XSFP_C2 = #{xsfpC2}</if>
+      <if test="xsfpC3 != null  and xsfpC3 != ''"> and XSFP_C3 = #{xsfpC3}</if>
+      <if test="xsfpC4 != null  and xsfpC4 != ''"> and XSFP_C4 = #{xsfpC4}</if>
+      <if test="xsfpC5 != null  and xsfpC5 != ''"> and XSFP_C5 = #{xsfpC5}</if>
+      <if test="xsfpC6 != null  and xsfpC6 != ''"> and XSFP_C6 = #{xsfpC6}</if>
+      <if test="xsfpC7 != null  and xsfpC7 != ''"> and XSFP_C7 = #{xsfpC7}</if>
+      <if test="xsfpC8 != null  and xsfpC8 != ''"> and XSFP_C8 = #{xsfpC8}</if>
+      <if test="xsfpC9 != null  and xsfpC9 != ''"> and XSFP_C9 = #{xsfpC9}</if>
+      <if test="xsfpC10 != null  and xsfpC10 != ''"> and XSFP_C10 = #{xsfpC10}</if>
+      <if test="xsfpU1 != null "> and XSFP_U1 = #{xsfpU1}</if>
+      <if test="xsfpU2 != null "> and XSFP_U2 = #{xsfpU2}</if>
+      <if test="xsfpU3 != null "> and XSFP_U3 = #{xsfpU3}</if>
+      <if test="xsfpU4 != null "> and XSFP_U4 = #{xsfpU4}</if>
+      <if test="xsfpU5 != null "> and XSFP_U5 = #{xsfpU5}</if>
+      <if test="xsfpU6 != null "> and XSFP_U6 = #{xsfpU6}</if>
+      <if test="xsfpBz != null  and xsfpBz != ''"> and XSFP_BZ = #{xsfpBz}</if>
+      <if test="xsfpGsbh != null  and xsfpGsbh != ''"> and XSFP_GSBH = #{xsfpGsbh}</if>
+      <if test="xsfpSybbh != null  and xsfpSybbh != ''"> and XSFP_SYBBH = #{xsfpSybbh}</if>
+      <if test="xsfpPqbh != null  and xsfpPqbh != ''"> and XSFP_PQBH = #{xsfpPqbh}</if>
+      <if test="xsfpGsbhbak != null  and xsfpGsbhbak != ''"> and XSFP_GSBHBAK = #{xsfpGsbhbak}</if>
+      <if test="xsfpGsmcbak != null  and xsfpGsmcbak != ''"> and XSFP_GSMCBAK = #{xsfpGsmcbak}</if>
+      <if test="xsfpBmmc != null  and xsfpBmmc != ''"> and XSFP_BMMC = #{xsfpBmmc}</if>
+      <if test="xsfpBmbhbak != null  and xsfpBmbhbak != ''"> and XSFP_BMBHBAK = #{xsfpBmbhbak}</if>
+      <if test="xsfpRybhbak != null  and xsfpRybhbak != ''"> and XSFP_RYBHBAK = #{xsfpRybhbak}</if>
+      <if test="xsfpRyxmbak != null  and xsfpRyxmbak != ''"> and XSFP_RYXMBAK = #{xsfpRyxmbak}</if>
+      <if test="xsfpSpdx != null  and xsfpSpdx != ''"> and XSFP_SPDX = #{xsfpSpdx}</if>
+      <if test="xsfpDrbs != null  and xsfpDrbs != ''"> and XSFP_DRBS = #{xsfpDrbs}</if>
+      <if test="xsfpHzbz != null  and xsfpHzbz != ''"> and XSFP_HZBZ = #{xsfpHzbz}</if>
+      <if test="xsfpHzr != null  and xsfpHzr != ''"> and XSFP_HZR = #{xsfpHzr}</if>
+      <if test="xsfpHzrq != null  and xsfpHzrq != ''"> and XSFP_HZRQ = #{xsfpHzrq}</if>
+      <if test="xsfpHzsm != null  and xsfpHzsm != ''"> and XSFP_HZSM = #{xsfpHzsm}</if>
+    </where>
+  </select>
+
+  <select id="selectErpXsfpByXsfpFpls" parameterType="String" resultMap="ErpXsfpErpXsfpmxResult">
+    select a.XSFP_FPLS, a.XSFP_FPBH, a.XSFP_YWBS, a.XSFP_PJLX, a.XSFP_ZBPJLX, a.XSFP_HSDX, a.XSFP_DJRQ, a.XSFP_YWRQ, a.XSFP_XGSJ, a.XSFP_QCBZ, a.XSFP_FPBZ, a.XSFP_ZFBZ, a.XSFP_ZFXM, a.XSFP_YWBH, a.XSFP_ZLBH, a.XSFP_SFLS, a.XSFP_SHDKH, a.XSFP_SHDKHMC, a.XSFP_SODKH, a.XSFP_SODKHMC, a.XSFP_SPKH, a.XSFP_SPKHMC, a.XSFP_FKKH, a.XSFP_FKKHMC, a.XSFP_BMBH, a.XSFP_RYBH, a.XSFP_RYXM, a.XSFP_WBBH, a.XSFP_HL, a.XSFP_ZKZC, a.XSFP_FSBH, a.XSFP_JSBH, a.XSFP_PJHM, a.XSFP_HKRQ, a.XSFP_YHBH, a.XSFP_DHDD, a.XSFP_DZHM, a.XSFP_PZNM, a.XSFP_PZRQ, a.XSFP_PZBH, a.XSFP_PZND, a.XSFP_FWBZ, a.XSFP_ADDR, a.XSFP_TELE, a.XSFP_KHH, a.XSFP_YHZH, a.XSFP_SH, a.XSFP_DYDATE, a.XSFP_DYPERSON, a.XSFP_SKBH, a.XSFP_FHBH, a.XSFP_ZDXM, a.XSFP_JZYSBZ, a.XSFP_JZYSXM, a.XSFP_JZYSRQ, a.XSFP_JZBZ, a.XSFP_JZXM, a.XSFP_JZSJ, a.XSFP_SFJZ, a.XSFP_SFQXJZ, a.XSFP_DQZK, a.XSFP_SFSC, a.XSFP_SFXG, a.XSFP_SFQR, a.XSFP_SFCZX, a.XSFP_SFCDJ, a.XSFP_HTBH, a.XSFP_HTLS, a.XSFP_FZBH, a.XSFP_XZBH, a.XSFP_SHLC, a.XSFP_SHBZ, a.XSFP_SHRQ, a.XSFP_SHXM, a.XSFP_LYBH, a.XSFP_LYLS, a.XSFP_C1, a.XSFP_C2, a.XSFP_C3, a.XSFP_C4, a.XSFP_C5, a.XSFP_C6, a.XSFP_C7, a.XSFP_C8, a.XSFP_C9, a.XSFP_C10, a.XSFP_U1, a.XSFP_U2, a.XSFP_U3, a.XSFP_U4, a.XSFP_U5, a.XSFP_U6, a.XSFP_BZ, a.XSFP_GSBH, a.XSFP_SYBBH, a.XSFP_PQBH, a.XSFP_GSBHBAK, a.XSFP_GSMCBAK, a.XSFP_BMMC, a.XSFP_BMBHBAK, a.XSFP_RYBHBAK, a.XSFP_RYXMBAK, a.XSFP_SPDX, a.XSFP_DRBS, a.XSFP_HZBZ, a.XSFP_HZR, a.XSFP_HZRQ, a.XSFP_HZSM,
+    b.XSFPMX_FPLS as sub_XSFPMX_FPLS, b.XSFPMX_FPFL as sub_XSFPMX_FPFL, b.XSFPMX_XSXH as sub_XSFPMX_XSXH, b.XSFPMX_FLLX as sub_XSFPMX_FLLX, b.XSFPMX_FLLY as sub_XSFPMX_FLLY, b.XSFPMX_CKBH as sub_XSFPMX_CKBH, b.XSFPMX_WLBH as sub_XSFPMX_WLBH, b.XSFPMX_WLMC as sub_XSFPMX_WLMC, b.XSFPMX_PCH as sub_XSFPMX_PCH, b.XSFPMX_ZYX1 as sub_XSFPMX_ZYX1, b.XSFPMX_ZYX2 as sub_XSFPMX_ZYX2, b.XSFPMX_ZYX3 as sub_XSFPMX_ZYX3, b.XSFPMX_ZYX4 as sub_XSFPMX_ZYX4, b.XSFPMX_ZYX5 as sub_XSFPMX_ZYX5, b.XSFPMX_WLZT as sub_XSFPMX_WLZT, b.XSFPMX_WLBZ as sub_XSFPMX_WLBZ, b.XSFPMX_SZXM as sub_XSFPMX_SZXM, b.XSFPMX_DDLS as sub_XSFPMX_DDLS, b.XSFPMX_DDFL as sub_XSFPMX_DDFL, b.XSFPMX_DDBH as sub_XSFPMX_DDBH, b.XSFPMX_TDLS as sub_XSFPMX_TDLS, b.XSFPMX_TDFL as sub_XSFPMX_TDFL, b.XSFPMX_TDBH as sub_XSFPMX_TDBH, b.XSFPMX_HTLS as sub_XSFPMX_HTLS, b.XSFPMX_HTFL as sub_XSFPMX_HTFL, b.XSFPMX_HTBH as sub_XSFPMX_HTBH, b.XSFPMX_PJLS as sub_XSFPMX_PJLS, b.XSFPMX_PJFL as sub_XSFPMX_PJFL, b.XSFPMX_PJBH as sub_XSFPMX_PJBH, b.XSFPMX_HDLS as sub_XSFPMX_HDLS, b.XSFPMX_HDFL as sub_XSFPMX_HDFL, b.XSFPMX_HDBH as sub_XSFPMX_HDBH, b.XSFPMX_FYLS as sub_XSFPMX_FYLS, b.XSFPMX_FYFL as sub_XSFPMX_FYFL, b.XSFPMX_FYBH as sub_XSFPMX_FYBH, b.XSFPMX_YFPLS as sub_XSFPMX_YFPLS, b.XSFPMX_YFPFL as sub_XSFPMX_YFPFL, b.XSFPMX_YFPBH as sub_XSFPMX_YFPBH, b.XSFPMX_ZSL as sub_XSFPMX_ZSL, b.XSFPMX_FSL1 as sub_XSFPMX_FSL1, b.XSFPMX_FSL2 as sub_XSFPMX_FSL2, b.XSFPMX_YZHSJ as sub_XSFPMX_YZHSJ, b.XSFPMX_BZHSJ as sub_XSFPMX_BZHSJ, b.XSFPMX_DBZKBL as sub_XSFPMX_DBZKBL, b.XSFPMX_ZEZKBL as sub_XSFPMX_ZEZKBL, b.XSFPMX_YZKJE as sub_XSFPMX_YZKJE, b.XSFPMX_BZKJE as sub_XSFPMX_BZKJE, b.XSFPMX_YHSE as sub_XSFPMX_YHSE, b.XSFPMX_BHSE as sub_XSFPMX_BHSE, b.XSFPMX_SL as sub_XSFPMX_SL, b.XSFPMX_YZXSJ as sub_XSFPMX_YZXSJ, b.XSFPMX_BZXSJ as sub_XSFPMX_BZXSJ, b.XSFPMX_YXSE as sub_XSFPMX_YXSE, b.XSFPMX_BXSE as sub_XSFPMX_BXSE, b.XSFPMX_YSE as sub_XSFPMX_YSE, b.XSFPMX_BSE as sub_XSFPMX_BSE, b.XSFPMX_SFHK as sub_XSFPMX_SFHK, b.XSFPMX_HKBZ as sub_XSFPMX_HKBZ, b.XSFPMX_YHKE as sub_XSFPMX_YHKE, b.XSFPMX_BHKE as sub_XSFPMX_BHKE, b.XSFPMX_HKSL as sub_XSFPMX_HKSL, b.XSFPMX_HKFSL1 as sub_XSFPMX_HKFSL1, b.XSFPMX_HKFSL2 as sub_XSFPMX_HKFSL2, b.XSFPMX_SFTH as sub_XSFPMX_SFTH, b.XSFPMX_THBZ as sub_XSFPMX_THBZ, b.XSFPMX_THSL as sub_XSFPMX_THSL, b.XSFPMX_THFSL1 as sub_XSFPMX_THFSL1, b.XSFPMX_THFSL2 as sub_XSFPMX_THFSL2, b.XSFPMX_DQZK as sub_XSFPMX_DQZK, b.XSFPMX_SFCK as sub_XSFPMX_SFCK, b.XSFPMX_CKBZ as sub_XSFPMX_CKBZ, b.XSFPMX_CKSL as sub_XSFPMX_CKSL, b.XSFPMX_CKFSL1 as sub_XSFPMX_CKFSL1, b.XSFPMX_CKFSL2 as sub_XSFPMX_CKFSL2, b.XSFPMX_CKJE as sub_XSFPMX_CKJE, b.XSFPMX_TDZHSJ as sub_XSFPMX_TDZHSJ, b.XSFPMX_TDZSL as sub_XSFPMX_TDZSL, b.XSFPMX_TDYHSE as sub_XSFPMX_TDYHSE, b.XSFPMX_TDBHSE as sub_XSFPMX_TDBHSE, b.XSFPMX_HZZSL as sub_XSFPMX_HZZSL, b.XSFPMX_HZFSL1 as sub_XSFPMX_HZFSL1, b.XSFPMX_HZFSL2 as sub_XSFPMX_HZFSL2, b.XSFPMX_YHZE as sub_XSFPMX_YHZE, b.XSFPMX_BHZE as sub_XSFPMX_BHZE, b.XSFPMX_DCZSL as sub_XSFPMX_DCZSL, b.XSFPMX_DCFSL1 as sub_XSFPMX_DCFSL1, b.XSFPMX_DCFSL2 as sub_XSFPMX_DCFSL2, b.XSFPMX_YDCE as sub_XSFPMX_YDCE, b.XSFPMX_BDCE as sub_XSFPMX_BDCE, b.XSFPMX_LZRQ as sub_XSFPMX_LZRQ, b.XSFPMX_YHKRQ as sub_XSFPMX_YHKRQ, b.XSFPMX_ZXPDYJ as sub_XSFPMX_ZXPDYJ, b.XSFPMX_ZXTSZC as sub_XSFPMX_ZXTSZC, b.XSFPMX_YYWRQ as sub_XSFPMX_YYWRQ, b.XSFPMX_C1 as sub_XSFPMX_C1, b.XSFPMX_C2 as sub_XSFPMX_C2, b.XSFPMX_C3 as sub_XSFPMX_C3, b.XSFPMX_C4 as sub_XSFPMX_C4, b.XSFPMX_C5 as sub_XSFPMX_C5, b.XSFPMX_C6 as sub_XSFPMX_C6, b.XSFPMX_C7 as sub_XSFPMX_C7, b.XSFPMX_C8 as sub_XSFPMX_C8, b.XSFPMX_C9 as sub_XSFPMX_C9, b.XSFPMX_C10 as sub_XSFPMX_C10, b.XSFPMX_U1 as sub_XSFPMX_U1, b.XSFPMX_U2 as sub_XSFPMX_U2, b.XSFPMX_U3 as sub_XSFPMX_U3, b.XSFPMX_U4 as sub_XSFPMX_U4, b.XSFPMX_U5 as sub_XSFPMX_U5, b.XSFPMX_U6 as sub_XSFPMX_U6, b.XSFPMX_YSTDLS as sub_XSFPMX_YSTDLS, b.XSFPMX_YSTDFL as sub_XSFPMX_YSTDFL, b.XSFPMX_BCYHSL as sub_XSFPMX_BCYHSL, b.XSFPMX_CKLS as sub_XSFPMX_CKLS, b.XSFPMX_CKFL as sub_XSFPMX_CKFL, b.XSFPMX_JGYS as sub_XSFPMX_JGYS, b.XSFPMX_JGZC as sub_XSFPMX_JGZC, b.XSFPMX_WLBHBAK as sub_XSFPMX_WLBHBAK
+    from erp_xsfp a
+    left join erp_xsfpmx b on b.XSFPMX_FPLS = a.XSFP_FPLS
+    where a.XSFP_FPLS = #{xsfpFpls}
+  </select>
+
+  <insert id="insertErpXsfp" parameterType="com.extend.erp.domain.ErpXsfp">
+    insert into erp_xsfp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="xsfpFpls != null">XSFP_FPLS,</if>
+      <if test="xsfpFpbh != null">XSFP_FPBH,</if>
+      <if test="xsfpYwbs != null">XSFP_YWBS,</if>
+      <if test="xsfpPjlx != null">XSFP_PJLX,</if>
+      <if test="xsfpZbpjlx != null">XSFP_ZBPJLX,</if>
+      <if test="xsfpHsdx != null">XSFP_HSDX,</if>
+      <if test="xsfpDjrq != null">XSFP_DJRQ,</if>
+      <if test="xsfpYwrq != null">XSFP_YWRQ,</if>
+      <if test="xsfpXgsj != null">XSFP_XGSJ,</if>
+      <if test="xsfpQcbz != null">XSFP_QCBZ,</if>
+      <if test="xsfpFpbz != null">XSFP_FPBZ,</if>
+      <if test="xsfpZfbz != null">XSFP_ZFBZ,</if>
+      <if test="xsfpZfxm != null">XSFP_ZFXM,</if>
+      <if test="xsfpYwbh != null">XSFP_YWBH,</if>
+      <if test="xsfpZlbh != null">XSFP_ZLBH,</if>
+      <if test="xsfpSfls != null">XSFP_SFLS,</if>
+      <if test="xsfpShdkh != null">XSFP_SHDKH,</if>
+      <if test="xsfpShdkhmc != null">XSFP_SHDKHMC,</if>
+      <if test="xsfpSodkh != null">XSFP_SODKH,</if>
+      <if test="xsfpSodkhmc != null">XSFP_SODKHMC,</if>
+      <if test="xsfpSpkh != null">XSFP_SPKH,</if>
+      <if test="xsfpSpkhmc != null">XSFP_SPKHMC,</if>
+      <if test="xsfpFkkh != null">XSFP_FKKH,</if>
+      <if test="xsfpFkkhmc != null">XSFP_FKKHMC,</if>
+      <if test="xsfpBmbh != null">XSFP_BMBH,</if>
+      <if test="xsfpRybh != null">XSFP_RYBH,</if>
+      <if test="xsfpRyxm != null">XSFP_RYXM,</if>
+      <if test="xsfpWbbh != null">XSFP_WBBH,</if>
+      <if test="xsfpHl != null">XSFP_HL,</if>
+      <if test="xsfpZkzc != null">XSFP_ZKZC,</if>
+      <if test="xsfpFsbh != null">XSFP_FSBH,</if>
+      <if test="xsfpJsbh != null">XSFP_JSBH,</if>
+      <if test="xsfpPjhm != null">XSFP_PJHM,</if>
+      <if test="xsfpHkrq != null">XSFP_HKRQ,</if>
+      <if test="xsfpYhbh != null">XSFP_YHBH,</if>
+      <if test="xsfpDhdd != null">XSFP_DHDD,</if>
+      <if test="xsfpDzhm != null">XSFP_DZHM,</if>
+      <if test="xsfpPznm != null">XSFP_PZNM,</if>
+      <if test="xsfpPzrq != null">XSFP_PZRQ,</if>
+      <if test="xsfpPzbh != null">XSFP_PZBH,</if>
+      <if test="xsfpPznd != null">XSFP_PZND,</if>
+      <if test="xsfpFwbz != null">XSFP_FWBZ,</if>
+      <if test="xsfpAddr != null">XSFP_ADDR,</if>
+      <if test="xsfpTele != null">XSFP_TELE,</if>
+      <if test="xsfpKhh != null">XSFP_KHH,</if>
+      <if test="xsfpYhzh != null">XSFP_YHZH,</if>
+      <if test="xsfpSh != null">XSFP_SH,</if>
+      <if test="xsfpDydate != null">XSFP_DYDATE,</if>
+      <if test="xsfpDyperson != null">XSFP_DYPERSON,</if>
+      <if test="xsfpSkbh != null">XSFP_SKBH,</if>
+      <if test="xsfpFhbh != null">XSFP_FHBH,</if>
+      <if test="xsfpZdxm != null">XSFP_ZDXM,</if>
+      <if test="xsfpJzysbz != null">XSFP_JZYSBZ,</if>
+      <if test="xsfpJzysxm != null">XSFP_JZYSXM,</if>
+      <if test="xsfpJzysrq != null">XSFP_JZYSRQ,</if>
+      <if test="xsfpJzbz != null">XSFP_JZBZ,</if>
+      <if test="xsfpJzxm != null">XSFP_JZXM,</if>
+      <if test="xsfpJzsj != null">XSFP_JZSJ,</if>
+      <if test="xsfpSfjz != null">XSFP_SFJZ,</if>
+      <if test="xsfpSfqxjz != null">XSFP_SFQXJZ,</if>
+      <if test="xsfpDqzk != null">XSFP_DQZK,</if>
+      <if test="xsfpSfsc != null">XSFP_SFSC,</if>
+      <if test="xsfpSfxg != null">XSFP_SFXG,</if>
+      <if test="xsfpSfqr != null">XSFP_SFQR,</if>
+      <if test="xsfpSfczx != null">XSFP_SFCZX,</if>
+      <if test="xsfpSfcdj != null">XSFP_SFCDJ,</if>
+      <if test="xsfpHtbh != null">XSFP_HTBH,</if>
+      <if test="xsfpHtls != null">XSFP_HTLS,</if>
+      <if test="xsfpFzbh != null">XSFP_FZBH,</if>
+      <if test="xsfpXzbh != null">XSFP_XZBH,</if>
+      <if test="xsfpShlc != null">XSFP_SHLC,</if>
+      <if test="xsfpShbz != null">XSFP_SHBZ,</if>
+      <if test="xsfpShrq != null">XSFP_SHRQ,</if>
+      <if test="xsfpShxm != null">XSFP_SHXM,</if>
+      <if test="xsfpLybh != null">XSFP_LYBH,</if>
+      <if test="xsfpLyls != null">XSFP_LYLS,</if>
+      <if test="xsfpC1 != null">XSFP_C1,</if>
+      <if test="xsfpC2 != null">XSFP_C2,</if>
+      <if test="xsfpC3 != null">XSFP_C3,</if>
+      <if test="xsfpC4 != null">XSFP_C4,</if>
+      <if test="xsfpC5 != null">XSFP_C5,</if>
+      <if test="xsfpC6 != null">XSFP_C6,</if>
+      <if test="xsfpC7 != null">XSFP_C7,</if>
+      <if test="xsfpC8 != null">XSFP_C8,</if>
+      <if test="xsfpC9 != null">XSFP_C9,</if>
+      <if test="xsfpC10 != null">XSFP_C10,</if>
+      <if test="xsfpU1 != null">XSFP_U1,</if>
+      <if test="xsfpU2 != null">XSFP_U2,</if>
+      <if test="xsfpU3 != null">XSFP_U3,</if>
+      <if test="xsfpU4 != null">XSFP_U4,</if>
+      <if test="xsfpU5 != null">XSFP_U5,</if>
+      <if test="xsfpU6 != null">XSFP_U6,</if>
+      <if test="xsfpBz != null">XSFP_BZ,</if>
+      <if test="xsfpGsbh != null">XSFP_GSBH,</if>
+      <if test="xsfpSybbh != null">XSFP_SYBBH,</if>
+      <if test="xsfpPqbh != null">XSFP_PQBH,</if>
+      <if test="xsfpGsbhbak != null">XSFP_GSBHBAK,</if>
+      <if test="xsfpGsmcbak != null">XSFP_GSMCBAK,</if>
+      <if test="xsfpBmmc != null">XSFP_BMMC,</if>
+      <if test="xsfpBmbhbak != null">XSFP_BMBHBAK,</if>
+      <if test="xsfpRybhbak != null">XSFP_RYBHBAK,</if>
+      <if test="xsfpRyxmbak != null">XSFP_RYXMBAK,</if>
+      <if test="xsfpSpdx != null">XSFP_SPDX,</if>
+      <if test="xsfpDrbs != null">XSFP_DRBS,</if>
+      <if test="xsfpHzbz != null">XSFP_HZBZ,</if>
+      <if test="xsfpHzr != null">XSFP_HZR,</if>
+      <if test="xsfpHzrq != null">XSFP_HZRQ,</if>
+      <if test="xsfpHzsm != null">XSFP_HZSM,</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="xsfpFpls != null">#{xsfpFpls},</if>
+      <if test="xsfpFpbh != null">#{xsfpFpbh},</if>
+      <if test="xsfpYwbs != null">#{xsfpYwbs},</if>
+      <if test="xsfpPjlx != null">#{xsfpPjlx},</if>
+      <if test="xsfpZbpjlx != null">#{xsfpZbpjlx},</if>
+      <if test="xsfpHsdx != null">#{xsfpHsdx},</if>
+      <if test="xsfpDjrq != null">#{xsfpDjrq},</if>
+      <if test="xsfpYwrq != null">#{xsfpYwrq},</if>
+      <if test="xsfpXgsj != null">#{xsfpXgsj},</if>
+      <if test="xsfpQcbz != null">#{xsfpQcbz},</if>
+      <if test="xsfpFpbz != null">#{xsfpFpbz},</if>
+      <if test="xsfpZfbz != null">#{xsfpZfbz},</if>
+      <if test="xsfpZfxm != null">#{xsfpZfxm},</if>
+      <if test="xsfpYwbh != null">#{xsfpYwbh},</if>
+      <if test="xsfpZlbh != null">#{xsfpZlbh},</if>
+      <if test="xsfpSfls != null">#{xsfpSfls},</if>
+      <if test="xsfpShdkh != null">#{xsfpShdkh},</if>
+      <if test="xsfpShdkhmc != null">#{xsfpShdkhmc},</if>
+      <if test="xsfpSodkh != null">#{xsfpSodkh},</if>
+      <if test="xsfpSodkhmc != null">#{xsfpSodkhmc},</if>
+      <if test="xsfpSpkh != null">#{xsfpSpkh},</if>
+      <if test="xsfpSpkhmc != null">#{xsfpSpkhmc},</if>
+      <if test="xsfpFkkh != null">#{xsfpFkkh},</if>
+      <if test="xsfpFkkhmc != null">#{xsfpFkkhmc},</if>
+      <if test="xsfpBmbh != null">#{xsfpBmbh},</if>
+      <if test="xsfpRybh != null">#{xsfpRybh},</if>
+      <if test="xsfpRyxm != null">#{xsfpRyxm},</if>
+      <if test="xsfpWbbh != null">#{xsfpWbbh},</if>
+      <if test="xsfpHl != null">#{xsfpHl},</if>
+      <if test="xsfpZkzc != null">#{xsfpZkzc},</if>
+      <if test="xsfpFsbh != null">#{xsfpFsbh},</if>
+      <if test="xsfpJsbh != null">#{xsfpJsbh},</if>
+      <if test="xsfpPjhm != null">#{xsfpPjhm},</if>
+      <if test="xsfpHkrq != null">#{xsfpHkrq},</if>
+      <if test="xsfpYhbh != null">#{xsfpYhbh},</if>
+      <if test="xsfpDhdd != null">#{xsfpDhdd},</if>
+      <if test="xsfpDzhm != null">#{xsfpDzhm},</if>
+      <if test="xsfpPznm != null">#{xsfpPznm},</if>
+      <if test="xsfpPzrq != null">#{xsfpPzrq},</if>
+      <if test="xsfpPzbh != null">#{xsfpPzbh},</if>
+      <if test="xsfpPznd != null">#{xsfpPznd},</if>
+      <if test="xsfpFwbz != null">#{xsfpFwbz},</if>
+      <if test="xsfpAddr != null">#{xsfpAddr},</if>
+      <if test="xsfpTele != null">#{xsfpTele},</if>
+      <if test="xsfpKhh != null">#{xsfpKhh},</if>
+      <if test="xsfpYhzh != null">#{xsfpYhzh},</if>
+      <if test="xsfpSh != null">#{xsfpSh},</if>
+      <if test="xsfpDydate != null">#{xsfpDydate},</if>
+      <if test="xsfpDyperson != null">#{xsfpDyperson},</if>
+      <if test="xsfpSkbh != null">#{xsfpSkbh},</if>
+      <if test="xsfpFhbh != null">#{xsfpFhbh},</if>
+      <if test="xsfpZdxm != null">#{xsfpZdxm},</if>
+      <if test="xsfpJzysbz != null">#{xsfpJzysbz},</if>
+      <if test="xsfpJzysxm != null">#{xsfpJzysxm},</if>
+      <if test="xsfpJzysrq != null">#{xsfpJzysrq},</if>
+      <if test="xsfpJzbz != null">#{xsfpJzbz},</if>
+      <if test="xsfpJzxm != null">#{xsfpJzxm},</if>
+      <if test="xsfpJzsj != null">#{xsfpJzsj},</if>
+      <if test="xsfpSfjz != null">#{xsfpSfjz},</if>
+      <if test="xsfpSfqxjz != null">#{xsfpSfqxjz},</if>
+      <if test="xsfpDqzk != null">#{xsfpDqzk},</if>
+      <if test="xsfpSfsc != null">#{xsfpSfsc},</if>
+      <if test="xsfpSfxg != null">#{xsfpSfxg},</if>
+      <if test="xsfpSfqr != null">#{xsfpSfqr},</if>
+      <if test="xsfpSfczx != null">#{xsfpSfczx},</if>
+      <if test="xsfpSfcdj != null">#{xsfpSfcdj},</if>
+      <if test="xsfpHtbh != null">#{xsfpHtbh},</if>
+      <if test="xsfpHtls != null">#{xsfpHtls},</if>
+      <if test="xsfpFzbh != null">#{xsfpFzbh},</if>
+      <if test="xsfpXzbh != null">#{xsfpXzbh},</if>
+      <if test="xsfpShlc != null">#{xsfpShlc},</if>
+      <if test="xsfpShbz != null">#{xsfpShbz},</if>
+      <if test="xsfpShrq != null">#{xsfpShrq},</if>
+      <if test="xsfpShxm != null">#{xsfpShxm},</if>
+      <if test="xsfpLybh != null">#{xsfpLybh},</if>
+      <if test="xsfpLyls != null">#{xsfpLyls},</if>
+      <if test="xsfpC1 != null">#{xsfpC1},</if>
+      <if test="xsfpC2 != null">#{xsfpC2},</if>
+      <if test="xsfpC3 != null">#{xsfpC3},</if>
+      <if test="xsfpC4 != null">#{xsfpC4},</if>
+      <if test="xsfpC5 != null">#{xsfpC5},</if>
+      <if test="xsfpC6 != null">#{xsfpC6},</if>
+      <if test="xsfpC7 != null">#{xsfpC7},</if>
+      <if test="xsfpC8 != null">#{xsfpC8},</if>
+      <if test="xsfpC9 != null">#{xsfpC9},</if>
+      <if test="xsfpC10 != null">#{xsfpC10},</if>
+      <if test="xsfpU1 != null">#{xsfpU1},</if>
+      <if test="xsfpU2 != null">#{xsfpU2},</if>
+      <if test="xsfpU3 != null">#{xsfpU3},</if>
+      <if test="xsfpU4 != null">#{xsfpU4},</if>
+      <if test="xsfpU5 != null">#{xsfpU5},</if>
+      <if test="xsfpU6 != null">#{xsfpU6},</if>
+      <if test="xsfpBz != null">#{xsfpBz},</if>
+      <if test="xsfpGsbh != null">#{xsfpGsbh},</if>
+      <if test="xsfpSybbh != null">#{xsfpSybbh},</if>
+      <if test="xsfpPqbh != null">#{xsfpPqbh},</if>
+      <if test="xsfpGsbhbak != null">#{xsfpGsbhbak},</if>
+      <if test="xsfpGsmcbak != null">#{xsfpGsmcbak},</if>
+      <if test="xsfpBmmc != null">#{xsfpBmmc},</if>
+      <if test="xsfpBmbhbak != null">#{xsfpBmbhbak},</if>
+      <if test="xsfpRybhbak != null">#{xsfpRybhbak},</if>
+      <if test="xsfpRyxmbak != null">#{xsfpRyxmbak},</if>
+      <if test="xsfpSpdx != null">#{xsfpSpdx},</if>
+      <if test="xsfpDrbs != null">#{xsfpDrbs},</if>
+      <if test="xsfpHzbz != null">#{xsfpHzbz},</if>
+      <if test="xsfpHzr != null">#{xsfpHzr},</if>
+      <if test="xsfpHzrq != null">#{xsfpHzrq},</if>
+      <if test="xsfpHzsm != null">#{xsfpHzsm},</if>
+    </trim>
+  </insert>
+
+  <update id="updateErpXsfp" parameterType="com.extend.erp.domain.ErpXsfp">
+    update erp_xsfp
+    <trim prefix="SET" suffixOverrides=",">
+      <if test="xsfpFpbh != null">XSFP_FPBH = #{xsfpFpbh},</if>
+      <if test="xsfpYwbs != null">XSFP_YWBS = #{xsfpYwbs},</if>
+      <if test="xsfpPjlx != null">XSFP_PJLX = #{xsfpPjlx},</if>
+      <if test="xsfpZbpjlx != null">XSFP_ZBPJLX = #{xsfpZbpjlx},</if>
+      <if test="xsfpHsdx != null">XSFP_HSDX = #{xsfpHsdx},</if>
+      <if test="xsfpDjrq != null">XSFP_DJRQ = #{xsfpDjrq},</if>
+      <if test="xsfpYwrq != null">XSFP_YWRQ = #{xsfpYwrq},</if>
+      <if test="xsfpXgsj != null">XSFP_XGSJ = #{xsfpXgsj},</if>
+      <if test="xsfpQcbz != null">XSFP_QCBZ = #{xsfpQcbz},</if>
+      <if test="xsfpFpbz != null">XSFP_FPBZ = #{xsfpFpbz},</if>
+      <if test="xsfpZfbz != null">XSFP_ZFBZ = #{xsfpZfbz},</if>
+      <if test="xsfpZfxm != null">XSFP_ZFXM = #{xsfpZfxm},</if>
+      <if test="xsfpYwbh != null">XSFP_YWBH = #{xsfpYwbh},</if>
+      <if test="xsfpZlbh != null">XSFP_ZLBH = #{xsfpZlbh},</if>
+      <if test="xsfpSfls != null">XSFP_SFLS = #{xsfpSfls},</if>
+      <if test="xsfpShdkh != null">XSFP_SHDKH = #{xsfpShdkh},</if>
+      <if test="xsfpShdkhmc != null">XSFP_SHDKHMC = #{xsfpShdkhmc},</if>
+      <if test="xsfpSodkh != null">XSFP_SODKH = #{xsfpSodkh},</if>
+      <if test="xsfpSodkhmc != null">XSFP_SODKHMC = #{xsfpSodkhmc},</if>
+      <if test="xsfpSpkh != null">XSFP_SPKH = #{xsfpSpkh},</if>
+      <if test="xsfpSpkhmc != null">XSFP_SPKHMC = #{xsfpSpkhmc},</if>
+      <if test="xsfpFkkh != null">XSFP_FKKH = #{xsfpFkkh},</if>
+      <if test="xsfpFkkhmc != null">XSFP_FKKHMC = #{xsfpFkkhmc},</if>
+      <if test="xsfpBmbh != null">XSFP_BMBH = #{xsfpBmbh},</if>
+      <if test="xsfpRybh != null">XSFP_RYBH = #{xsfpRybh},</if>
+      <if test="xsfpRyxm != null">XSFP_RYXM = #{xsfpRyxm},</if>
+      <if test="xsfpWbbh != null">XSFP_WBBH = #{xsfpWbbh},</if>
+      <if test="xsfpHl != null">XSFP_HL = #{xsfpHl},</if>
+      <if test="xsfpZkzc != null">XSFP_ZKZC = #{xsfpZkzc},</if>
+      <if test="xsfpFsbh != null">XSFP_FSBH = #{xsfpFsbh},</if>
+      <if test="xsfpJsbh != null">XSFP_JSBH = #{xsfpJsbh},</if>
+      <if test="xsfpPjhm != null">XSFP_PJHM = #{xsfpPjhm},</if>
+      <if test="xsfpHkrq != null">XSFP_HKRQ = #{xsfpHkrq},</if>
+      <if test="xsfpYhbh != null">XSFP_YHBH = #{xsfpYhbh},</if>
+      <if test="xsfpDhdd != null">XSFP_DHDD = #{xsfpDhdd},</if>
+      <if test="xsfpDzhm != null">XSFP_DZHM = #{xsfpDzhm},</if>
+      <if test="xsfpPznm != null">XSFP_PZNM = #{xsfpPznm},</if>
+      <if test="xsfpPzrq != null">XSFP_PZRQ = #{xsfpPzrq},</if>
+      <if test="xsfpPzbh != null">XSFP_PZBH = #{xsfpPzbh},</if>
+      <if test="xsfpPznd != null">XSFP_PZND = #{xsfpPznd},</if>
+      <if test="xsfpFwbz != null">XSFP_FWBZ = #{xsfpFwbz},</if>
+      <if test="xsfpAddr != null">XSFP_ADDR = #{xsfpAddr},</if>
+      <if test="xsfpTele != null">XSFP_TELE = #{xsfpTele},</if>
+      <if test="xsfpKhh != null">XSFP_KHH = #{xsfpKhh},</if>
+      <if test="xsfpYhzh != null">XSFP_YHZH = #{xsfpYhzh},</if>
+      <if test="xsfpSh != null">XSFP_SH = #{xsfpSh},</if>
+      <if test="xsfpDydate != null">XSFP_DYDATE = #{xsfpDydate},</if>
+      <if test="xsfpDyperson != null">XSFP_DYPERSON = #{xsfpDyperson},</if>
+      <if test="xsfpSkbh != null">XSFP_SKBH = #{xsfpSkbh},</if>
+      <if test="xsfpFhbh != null">XSFP_FHBH = #{xsfpFhbh},</if>
+      <if test="xsfpZdxm != null">XSFP_ZDXM = #{xsfpZdxm},</if>
+      <if test="xsfpJzysbz != null">XSFP_JZYSBZ = #{xsfpJzysbz},</if>
+      <if test="xsfpJzysxm != null">XSFP_JZYSXM = #{xsfpJzysxm},</if>
+      <if test="xsfpJzysrq != null">XSFP_JZYSRQ = #{xsfpJzysrq},</if>
+      <if test="xsfpJzbz != null">XSFP_JZBZ = #{xsfpJzbz},</if>
+      <if test="xsfpJzxm != null">XSFP_JZXM = #{xsfpJzxm},</if>
+      <if test="xsfpJzsj != null">XSFP_JZSJ = #{xsfpJzsj},</if>
+      <if test="xsfpSfjz != null">XSFP_SFJZ = #{xsfpSfjz},</if>
+      <if test="xsfpSfqxjz != null">XSFP_SFQXJZ = #{xsfpSfqxjz},</if>
+      <if test="xsfpDqzk != null">XSFP_DQZK = #{xsfpDqzk},</if>
+      <if test="xsfpSfsc != null">XSFP_SFSC = #{xsfpSfsc},</if>
+      <if test="xsfpSfxg != null">XSFP_SFXG = #{xsfpSfxg},</if>
+      <if test="xsfpSfqr != null">XSFP_SFQR = #{xsfpSfqr},</if>
+      <if test="xsfpSfczx != null">XSFP_SFCZX = #{xsfpSfczx},</if>
+      <if test="xsfpSfcdj != null">XSFP_SFCDJ = #{xsfpSfcdj},</if>
+      <if test="xsfpHtbh != null">XSFP_HTBH = #{xsfpHtbh},</if>
+      <if test="xsfpHtls != null">XSFP_HTLS = #{xsfpHtls},</if>
+      <if test="xsfpFzbh != null">XSFP_FZBH = #{xsfpFzbh},</if>
+      <if test="xsfpXzbh != null">XSFP_XZBH = #{xsfpXzbh},</if>
+      <if test="xsfpShlc != null">XSFP_SHLC = #{xsfpShlc},</if>
+      <if test="xsfpShbz != null">XSFP_SHBZ = #{xsfpShbz},</if>
+      <if test="xsfpShrq != null">XSFP_SHRQ = #{xsfpShrq},</if>
+      <if test="xsfpShxm != null">XSFP_SHXM = #{xsfpShxm},</if>
+      <if test="xsfpLybh != null">XSFP_LYBH = #{xsfpLybh},</if>
+      <if test="xsfpLyls != null">XSFP_LYLS = #{xsfpLyls},</if>
+      <if test="xsfpC1 != null">XSFP_C1 = #{xsfpC1},</if>
+      <if test="xsfpC2 != null">XSFP_C2 = #{xsfpC2},</if>
+      <if test="xsfpC3 != null">XSFP_C3 = #{xsfpC3},</if>
+      <if test="xsfpC4 != null">XSFP_C4 = #{xsfpC4},</if>
+      <if test="xsfpC5 != null">XSFP_C5 = #{xsfpC5},</if>
+      <if test="xsfpC6 != null">XSFP_C6 = #{xsfpC6},</if>
+      <if test="xsfpC7 != null">XSFP_C7 = #{xsfpC7},</if>
+      <if test="xsfpC8 != null">XSFP_C8 = #{xsfpC8},</if>
+      <if test="xsfpC9 != null">XSFP_C9 = #{xsfpC9},</if>
+      <if test="xsfpC10 != null">XSFP_C10 = #{xsfpC10},</if>
+      <if test="xsfpU1 != null">XSFP_U1 = #{xsfpU1},</if>
+      <if test="xsfpU2 != null">XSFP_U2 = #{xsfpU2},</if>
+      <if test="xsfpU3 != null">XSFP_U3 = #{xsfpU3},</if>
+      <if test="xsfpU4 != null">XSFP_U4 = #{xsfpU4},</if>
+      <if test="xsfpU5 != null">XSFP_U5 = #{xsfpU5},</if>
+      <if test="xsfpU6 != null">XSFP_U6 = #{xsfpU6},</if>
+      <if test="xsfpBz != null">XSFP_BZ = #{xsfpBz},</if>
+      <if test="xsfpGsbh != null">XSFP_GSBH = #{xsfpGsbh},</if>
+      <if test="xsfpSybbh != null">XSFP_SYBBH = #{xsfpSybbh},</if>
+      <if test="xsfpPqbh != null">XSFP_PQBH = #{xsfpPqbh},</if>
+      <if test="xsfpGsbhbak != null">XSFP_GSBHBAK = #{xsfpGsbhbak},</if>
+      <if test="xsfpGsmcbak != null">XSFP_GSMCBAK = #{xsfpGsmcbak},</if>
+      <if test="xsfpBmmc != null">XSFP_BMMC = #{xsfpBmmc},</if>
+      <if test="xsfpBmbhbak != null">XSFP_BMBHBAK = #{xsfpBmbhbak},</if>
+      <if test="xsfpRybhbak != null">XSFP_RYBHBAK = #{xsfpRybhbak},</if>
+      <if test="xsfpRyxmbak != null">XSFP_RYXMBAK = #{xsfpRyxmbak},</if>
+      <if test="xsfpSpdx != null">XSFP_SPDX = #{xsfpSpdx},</if>
+      <if test="xsfpDrbs != null">XSFP_DRBS = #{xsfpDrbs},</if>
+      <if test="xsfpHzbz != null">XSFP_HZBZ = #{xsfpHzbz},</if>
+      <if test="xsfpHzr != null">XSFP_HZR = #{xsfpHzr},</if>
+      <if test="xsfpHzrq != null">XSFP_HZRQ = #{xsfpHzrq},</if>
+      <if test="xsfpHzsm != null">XSFP_HZSM = #{xsfpHzsm},</if>
+    </trim>
+    where XSFP_FPLS = #{xsfpFpls}
+  </update>
+
+  <delete id="deleteErpXsfpByXsfpFpls" parameterType="String">
+    delete from erp_xsfp where XSFP_FPLS = #{xsfpFpls}
+  </delete>
+
+  <delete id="deleteErpXsfpByXsfpFplss" parameterType="String">
+    delete from erp_xsfp where XSFP_FPLS in
+    <foreach item="xsfpFpls" collection="array" open="(" separator="," close=")">
+      #{xsfpFpls}
+    </foreach>
+  </delete>
+
+  <delete id="deleteErpXsfpmxByXsfpmxFplss" parameterType="String">
+    delete from erp_xsfpmx where XSFPMX_FPLS in
+    <foreach item="xsfpmxFpls" collection="array" open="(" separator="," close=")">
+      #{xsfpmxFpls}
+    </foreach>
+  </delete>
+
+  <delete id="deleteErpXsfpmxByXsfpmxFpls" parameterType="String">
+    delete from erp_xsfpmx where XSFPMX_FPLS = #{xsfpmxFpls}
+  </delete>
+
+  <insert id="batchErpXsfpmx">
+    insert into erp_xsfpmx( XSFPMX_FPLS, XSFPMX_FPFL, XSFPMX_XSXH, XSFPMX_FLLX, XSFPMX_FLLY, XSFPMX_CKBH, XSFPMX_WLBH, XSFPMX_WLMC, XSFPMX_PCH, XSFPMX_ZYX1, XSFPMX_ZYX2, XSFPMX_ZYX3, XSFPMX_ZYX4, XSFPMX_ZYX5, XSFPMX_WLZT, XSFPMX_WLBZ, XSFPMX_SZXM, XSFPMX_DDLS, XSFPMX_DDFL, XSFPMX_DDBH, XSFPMX_TDLS, XSFPMX_TDFL, XSFPMX_TDBH, XSFPMX_HTLS, XSFPMX_HTFL, XSFPMX_HTBH, XSFPMX_PJLS, XSFPMX_PJFL, XSFPMX_PJBH, XSFPMX_HDLS, XSFPMX_HDFL, XSFPMX_HDBH, XSFPMX_FYLS, XSFPMX_FYFL, XSFPMX_FYBH, XSFPMX_YFPLS, XSFPMX_YFPFL, XSFPMX_YFPBH, XSFPMX_ZSL, XSFPMX_FSL1, XSFPMX_FSL2, XSFPMX_YZHSJ, XSFPMX_BZHSJ, XSFPMX_DBZKBL, XSFPMX_ZEZKBL, XSFPMX_YZKJE, XSFPMX_BZKJE, XSFPMX_YHSE, XSFPMX_BHSE, XSFPMX_SL, XSFPMX_YZXSJ, XSFPMX_BZXSJ, XSFPMX_YXSE, XSFPMX_BXSE, XSFPMX_YSE, XSFPMX_BSE, XSFPMX_SFHK, XSFPMX_HKBZ, XSFPMX_YHKE, XSFPMX_BHKE, XSFPMX_HKSL, XSFPMX_HKFSL1, XSFPMX_HKFSL2, XSFPMX_SFTH, XSFPMX_THBZ, XSFPMX_THSL, XSFPMX_THFSL1, XSFPMX_THFSL2, XSFPMX_DQZK, XSFPMX_SFCK, XSFPMX_CKBZ, XSFPMX_CKSL, XSFPMX_CKFSL1, XSFPMX_CKFSL2, XSFPMX_CKJE, XSFPMX_TDZHSJ, XSFPMX_TDZSL, XSFPMX_TDYHSE, XSFPMX_TDBHSE, XSFPMX_HZZSL, XSFPMX_HZFSL1, XSFPMX_HZFSL2, XSFPMX_YHZE, XSFPMX_BHZE, XSFPMX_DCZSL, XSFPMX_DCFSL1, XSFPMX_DCFSL2, XSFPMX_YDCE, XSFPMX_BDCE, XSFPMX_LZRQ, XSFPMX_YHKRQ, XSFPMX_ZXPDYJ, XSFPMX_ZXTSZC, XSFPMX_YYWRQ, XSFPMX_C1, XSFPMX_C2, XSFPMX_C3, XSFPMX_C4, XSFPMX_C5, XSFPMX_C6, XSFPMX_C7, XSFPMX_C8, XSFPMX_C9, XSFPMX_C10, XSFPMX_U1, XSFPMX_U2, XSFPMX_U3, XSFPMX_U4, XSFPMX_U5, XSFPMX_U6, XSFPMX_YSTDLS, XSFPMX_YSTDFL, XSFPMX_BCYHSL, XSFPMX_CKLS, XSFPMX_CKFL, XSFPMX_JGYS, XSFPMX_JGZC, XSFPMX_WLBHBAK) values
+    <foreach item="item" index="index" collection="list" separator=",">
+      ( #{item.xsfpmxFpls}, #{item.xsfpmxFpfl}, #{item.xsfpmxXsxh}, #{item.xsfpmxFllx}, #{item.xsfpmxFlly}, #{item.xsfpmxCkbh}, #{item.xsfpmxWlbh}, #{item.xsfpmxWlmc}, #{item.xsfpmxPch}, #{item.xsfpmxZyx1}, #{item.xsfpmxZyx2}, #{item.xsfpmxZyx3}, #{item.xsfpmxZyx4}, #{item.xsfpmxZyx5}, #{item.xsfpmxWlzt}, #{item.xsfpmxWlbz}, #{item.xsfpmxSzxm}, #{item.xsfpmxDdls}, #{item.xsfpmxDdfl}, #{item.xsfpmxDdbh}, #{item.xsfpmxTdls}, #{item.xsfpmxTdfl}, #{item.xsfpmxTdbh}, #{item.xsfpmxHtls}, #{item.xsfpmxHtfl}, #{item.xsfpmxHtbh}, #{item.xsfpmxPjls}, #{item.xsfpmxPjfl}, #{item.xsfpmxPjbh}, #{item.xsfpmxHdls}, #{item.xsfpmxHdfl}, #{item.xsfpmxHdbh}, #{item.xsfpmxFyls}, #{item.xsfpmxFyfl}, #{item.xsfpmxFybh}, #{item.xsfpmxYfpls}, #{item.xsfpmxYfpfl}, #{item.xsfpmxYfpbh}, #{item.xsfpmxZsl}, #{item.xsfpmxFsl1}, #{item.xsfpmxFsl2}, #{item.xsfpmxYzhsj}, #{item.xsfpmxBzhsj}, #{item.xsfpmxDbzkbl}, #{item.xsfpmxZezkbl}, #{item.xsfpmxYzkje}, #{item.xsfpmxBzkje}, #{item.xsfpmxYhse}, #{item.xsfpmxBhse}, #{item.xsfpmxSl}, #{item.xsfpmxYzxsj}, #{item.xsfpmxBzxsj}, #{item.xsfpmxYxse}, #{item.xsfpmxBxse}, #{item.xsfpmxYse}, #{item.xsfpmxBse}, #{item.xsfpmxSfhk}, #{item.xsfpmxHkbz}, #{item.xsfpmxYhke}, #{item.xsfpmxBhke}, #{item.xsfpmxHksl}, #{item.xsfpmxHkfsl1}, #{item.xsfpmxHkfsl2}, #{item.xsfpmxSfth}, #{item.xsfpmxThbz}, #{item.xsfpmxThsl}, #{item.xsfpmxThfsl1}, #{item.xsfpmxThfsl2}, #{item.xsfpmxDqzk}, #{item.xsfpmxSfck}, #{item.xsfpmxCkbz}, #{item.xsfpmxCksl}, #{item.xsfpmxCkfsl1}, #{item.xsfpmxCkfsl2}, #{item.xsfpmxCkje}, #{item.xsfpmxTdzhsj}, #{item.xsfpmxTdzsl}, #{item.xsfpmxTdyhse}, #{item.xsfpmxTdbhse}, #{item.xsfpmxHzzsl}, #{item.xsfpmxHzfsl1}, #{item.xsfpmxHzfsl2}, #{item.xsfpmxYhze}, #{item.xsfpmxBhze}, #{item.xsfpmxDczsl}, #{item.xsfpmxDcfsl1}, #{item.xsfpmxDcfsl2}, #{item.xsfpmxYdce}, #{item.xsfpmxBdce}, #{item.xsfpmxLzrq}, #{item.xsfpmxYhkrq}, #{item.xsfpmxZxpdyj}, #{item.xsfpmxZxtszc}, #{item.xsfpmxYywrq}, #{item.xsfpmxC1}, #{item.xsfpmxC2}, #{item.xsfpmxC3}, #{item.xsfpmxC4}, #{item.xsfpmxC5}, #{item.xsfpmxC6}, #{item.xsfpmxC7}, #{item.xsfpmxC8}, #{item.xsfpmxC9}, #{item.xsfpmxC10}, #{item.xsfpmxU1}, #{item.xsfpmxU2}, #{item.xsfpmxU3}, #{item.xsfpmxU4}, #{item.xsfpmxU5}, #{item.xsfpmxU6}, #{item.xsfpmxYstdls}, #{item.xsfpmxYstdfl}, #{item.xsfpmxBcyhsl}, #{item.xsfpmxCkls}, #{item.xsfpmxCkfl}, #{item.xsfpmxJgys}, #{item.xsfpmxJgzc}, #{item.xsfpmxWlbhbak})
+    </foreach>
+  </insert>
+</mapper>
