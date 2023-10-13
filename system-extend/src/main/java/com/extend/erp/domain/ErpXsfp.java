@@ -2,6 +2,7 @@ package com.extend.erp.domain;
 
 import java.util.List;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.ruoyi.common.annotation.DataSource;
 import com.ruoyi.common.enums.DataSourceType;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -16,7 +17,8 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * @date 2023-10-13
  */
 @DataSource(value = DataSourceType.SLAVE)
-public class ErpXsfp extends BaseEntity
+@TableName("XSFP")
+public class ErpXsfp
 {
     private static final long serialVersionUID = 1L;
 
@@ -452,7 +454,7 @@ public class ErpXsfp extends BaseEntity
     private String xsfpHzsm;
 
     /** 销售发票明细信息 */
-    private List<ErpXsfpmx> erpXsfpmxList;
+    //private List<ErpXsfpmx> erpXsfpmxList;
 
     public void setXsfpFpls(String xsfpFpls) 
     {
@@ -1427,15 +1429,15 @@ public class ErpXsfp extends BaseEntity
         return xsfpHzsm;
     }
 
-    public List<ErpXsfpmx> getErpXsfpmxList()
+    /*public List<ErpXsfpmx> getErpXsfpmxList()
     {
         return erpXsfpmxList;
-    }
+    }*/
 
-    public void setErpXsfpmxList(List<ErpXsfpmx> erpXsfpmxList)
+    /*public void setErpXsfpmxList(List<ErpXsfpmx> erpXsfpmxList)
     {
         this.erpXsfpmxList = erpXsfpmxList;
-    }
+    }*/
 
     @Override
     public String toString() {
@@ -1548,7 +1550,7 @@ public class ErpXsfp extends BaseEntity
             .append("xsfpHzr", getXsfpHzr())
             .append("xsfpHzrq", getXsfpHzrq())
             .append("xsfpHzsm", getXsfpHzsm())
-            .append("erpXsfpmxList", getErpXsfpmxList())
+            //.append("erpXsfpmxList", getErpXsfpmxList())
             .toString();
     }
 }

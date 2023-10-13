@@ -66,7 +66,9 @@ public class ErpXsfpController extends BaseController
     @GetMapping(value = "/{xsfpFpls}")
     public AjaxResult getInfo(@PathVariable("xsfpFpls") String xsfpFpls)
     {
-        return success(erpXsfpService.selectErpXsfpByXsfpFpls(xsfpFpls));
+        //return success(erpXsfpService.selectErpXsfpByXsfpFpls(xsfpFpls));
+        return success(erpXsfpService.getXsfpInfo());
+
     }
 
     /**

@@ -27,6 +27,8 @@ public interface IErpXsfpService
      */
     public List<ErpXsfp> selectErpXsfpList(ErpXsfp erpXsfp);
 
+    public ErpXsfp getXsfpInfo();
+
     /**
      * 新增销售发票
      * 
