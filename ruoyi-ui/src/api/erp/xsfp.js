@@ -3,7 +3,7 @@ import request from '@/utils/request'
 // 查询销售发票列表
 export function listXsfp(query) {
   return request({
-    url: '/system/xsfp/list',
+    url: '/erp/xsfp/list',
     method: 'get',
     params: query
   })
@@ -12,7 +12,7 @@ export function listXsfp(query) {
 // 查询销售发票详细
 export function getXsfp(xsfpFpls) {
   return request({
-    url: '/system/xsfp/' + xsfpFpls,
+    url: '/erp/xsfp/' + xsfpFpls,
     method: 'get'
   })
 }
@@ -20,7 +20,7 @@ export function getXsfp(xsfpFpls) {
 // 新增销售发票
 export function addXsfp(data) {
   return request({
-    url: '/system/xsfp',
+    url: '/erp/xsfp',
     method: 'post',
     data: data
   })
@@ -29,7 +29,7 @@ export function addXsfp(data) {
 // 修改销售发票
 export function updateXsfp(data) {
   return request({
-    url: '/system/xsfp',
+    url: '/erp/xsfp',
     method: 'put',
     data: data
   })
@@ -38,7 +38,7 @@ export function updateXsfp(data) {
 // 删除销售发票
 export function delXsfp(xsfpFpls) {
   return request({
-    url: '/system/xsfp/' + xsfpFpls,
+    url: '/erp/xsfp/' + xsfpFpls,
     method: 'delete'
   })
 }

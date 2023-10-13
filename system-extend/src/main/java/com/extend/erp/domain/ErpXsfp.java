@@ -1,6 +1,9 @@
 package com.extend.erp.domain;
 
 import java.util.List;
+
+import com.ruoyi.common.annotation.DataSource;
+import com.ruoyi.common.enums.DataSourceType;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
@@ -12,6 +15,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * @author wcg
  * @date 2023-10-13
  */
+@DataSource(value = DataSourceType.SLAVE)
 public class ErpXsfp extends BaseEntity
 {
     private static final long serialVersionUID = 1L;

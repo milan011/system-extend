@@ -1,6 +1,9 @@
 package com.extend.erp.service.impl;
 
 import java.util.List;
+
+import com.ruoyi.common.annotation.DataSource;
+import com.ruoyi.common.enums.DataSourceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
@@ -18,6 +21,7 @@ import com.extend.erp.service.IErpXsfpService;
  * @date 2023-10-13
  */
 @Service
+@DataSource(value = DataSourceType.SLAVE)
 public class ErpXsfpServiceImpl implements IErpXsfpService 
 {
     @Autowired
