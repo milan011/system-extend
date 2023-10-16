@@ -5,6 +5,7 @@ import java.util.List;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.ruoyi.common.annotation.DataSource;
 import com.ruoyi.common.enums.DataSourceType;
+import lombok.Data;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
@@ -18,6 +19,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  */
 @DataSource(value = DataSourceType.SLAVE)
 @TableName("XSFP")
+@Data
 public class ErpXsfp
 {
     private static final long serialVersionUID = 1L;

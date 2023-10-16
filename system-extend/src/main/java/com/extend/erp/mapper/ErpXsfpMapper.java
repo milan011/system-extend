@@ -25,7 +25,6 @@ public interface ErpXsfpMapper extends BaseMapper<ErpXsfp>
    */
   public ErpXsfp selectErpXsfpByXsfpFpls(String xsfpFpls);
 
-
   /**
    * 查询销售发票列表
    *
