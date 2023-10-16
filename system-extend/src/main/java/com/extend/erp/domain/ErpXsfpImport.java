@@ -32,10 +32,6 @@ public class ErpXsfpImport {
   @Excel(name = "人员姓名")
   private String xsfpRyxm;
 
-  /** 部门编号 */
-  @Excel(name = "部门编号")
-  private String xsfpBmbh;
-
   public String getXsfpZlbh() {
     return xsfpZlbh;
   }
@@ -88,7 +84,6 @@ public class ErpXsfpImport {
         .append("xsfpShdkhmc", getXsfpShdkhmc())
         .append("xsfpBmbh", getXsfpBmbh())
         .append("xsfpRyxm", getXsfpRyxm())
-        .append("xsfpBmbh", getXsfpBmbh())
         .toString();
   }
 }
