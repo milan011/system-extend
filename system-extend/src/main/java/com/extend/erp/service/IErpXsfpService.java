@@ -1,9 +1,10 @@
 package com.extend.erp.service;
 
-import java.util.List;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.extend.erp.domain.ErpXsfp;
 import com.extend.erp.domain.ErpXsfpImport;
-import com.ruoyi.common.core.domain.entity.SysUser;
+
+import java.util.List;
 
 /**
  * 销售发票Service接口
@@ -11,7 +12,7 @@ import com.ruoyi.common.core.domain.entity.SysUser;
  * @author wcg
  * @date 2023-10-13
  */
-public interface IErpXsfpService 
+public interface IErpXsfpService
 {
     /**
      * 查询销售发票

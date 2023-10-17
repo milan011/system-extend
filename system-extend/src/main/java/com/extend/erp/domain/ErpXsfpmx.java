@@ -16,7 +16,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * @date 2023-10-13
  */
 @DataSource(value = DataSourceType.SLAVE)
-public class ErpXsfpmx extends BaseEntity
+public class ErpXsfpmx
 {
     private static final long serialVersionUID = 1L;
 

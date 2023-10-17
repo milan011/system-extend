@@ -2,10 +2,16 @@ package com.extend.erp.service.impl;
 
 import java.util.List;
 import cn.hutool.core.convert.Convert;
+import cn.hutool.core.map.MapUtil;
+import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.extend.erp.convert.ErpXsfpConvert;
+import com.extend.erp.convert.ErpXsfpMxConvert;
 import com.extend.erp.domain.ErpXsfpImport;
+import com.extend.erp.mapper.ErpXsfpMxMapper;
 import com.ruoyi.common.annotation.DataSource;
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.enums.DataSourceType;
@@ -36,6 +42,9 @@ public class ErpXsfpServiceImpl implements IErpXsfpService
 {
   @Autowired
   private ErpXsfpMapper erpXsfpMapper;
+
+  @Autowired
+  private ErpXsfpMxMapper erpXsfpMxMapper;
 
   /**
    * 查询销售发票
@@ -163,8 +172,10 @@ public class ErpXsfpServiceImpl implements IErpXsfpService
   @Transactional
   public String importXsfp(List<ErpXsfpImport> xsfpExcelList, Boolean isUpdateSupport, String operName){
 
-    // 发票相关
+    // 发票list
     List<ErpXsfp> xsfpList = new ArrayList<>(xsfpExcelList.size());
+    //发票明细list
+    List<ErpXsfpmx> erpXsfpmxList = new ArrayList<ErpXsfpmx>();
 
     /*List<Player> newList = new ArrayList<>();
     playerList.stream().filter(distinctByKey(p -> p.getName()))  //filter保留true的值
@@ -188,6 +199,18 @@ public class ErpXsfpServiceImpl implements IErpXsfpService
       xsfpInfo.setXsfpFpls(Convert.toStr(currentLs));
       xsfpList.add(xsfpInfo);
     }
+
+    //发票明细-流水号对应
+    Map<String, String> fpLsMap = MapUtil.newHashMap();
+
+    xsfpList.forEach(fpItem-> fpLsMap.put(fpItem.getXsfpFpbh(), fpItem.getXsfpFpls()));
+    xsfpExcelList.forEach(fp->{
+      ErpXsfpmx xsfpmxInfo = ErpXsfpMxConvert.INSTANCE.convert(fp);
+      xsfpmxInfo.setXsfpmxFpls(fpLsMap.get(fp.getXsfpFpbh()));
+      erpXsfpmxList.add(xsfpmxInfo);
+    });
+
+    //erpXsfpMapper.batchErpXsfpmx(erpXsfpmxList);
 
     String message = "导入发票成功了";
 

@@ -1,7 +1,10 @@
 package com.extend.erp.mapper;
 
 import java.util.List;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.extend.erp.domain.ErpWlbgmx;
+import com.extend.erp.domain.ErpXsfp;
 
 /**
  * 物料Mapper接口
@@ -9,7 +12,7 @@ import com.extend.erp.domain.ErpWlbgmx;
  * @author wcg
  * @date 2023-07-11
  */
-public interface ErpWlbgmxMapper 
+public interface ErpWlbgmxMapper extends BaseMapper<ErpWlbgmx>
 {
     /**
      * 查询物料

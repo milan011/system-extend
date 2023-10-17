@@ -7,9 +7,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
-public interface ErpXsfpConvert {
-  ErpXsfpConvert INSTANCE = Mappers.getMapper(ErpXsfpConvert.class);
-
-  ErpXsfp convert(ErpXsfpImport bean);
+public interface ErpXsfpMxConvert {
+  ErpXsfpMxConvert INSTANCE = Mappers.getMapper(ErpXsfpMxConvert.class);
+  ErpXsfpmx convert(ErpXsfpImport bean);
 
 }

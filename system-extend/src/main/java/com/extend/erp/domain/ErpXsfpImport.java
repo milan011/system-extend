@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 
 @Data
 public class ErpXsfpImport {
+
   @Excel(name = "发票编号")
   private String xsfpFpbh;
 
