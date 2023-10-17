@@ -38,7 +38,7 @@ import com.extend.erp.service.IErpXsfpService;
  */
 @Service
 @DataSource(value = DataSourceType.SLAVE)
-public class ErpXsfpServiceImpl implements IErpXsfpService
+public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> implements IErpXsfpService
 {
   @Autowired
   private ErpXsfpMapper erpXsfpMapper;
@@ -180,7 +180,7 @@ public class ErpXsfpServiceImpl implements IErpXsfpService
     /*List<Player> newList = new ArrayList<>();
     playerList.stream().filter(distinctByKey(p -> p.getName()))  //filter保留true的值
         .forEach(newList::add);*/
-    Integer lastLs =  Convert.toInt("1418573");
+    Integer lastLs =  Convert.toInt("1418677");
     //根据发票编号确定导入的发票基本信息
     List<ErpXsfpImport> fpInfoList = new ArrayList<>();
     xsfpExcelList.stream()
@@ -212,7 +212,10 @@ public class ErpXsfpServiceImpl implements IErpXsfpService
 
     //erpXsfpMapper.batchErpXsfpmx(erpXsfpmxList);
 
-    xsfpList.forEach(fp-> erpXsfpMapper.insert(fp));
+    //xsfpList.forEach(fp-> erpXsfpMapper.insert(fp));
+    //xsfpList.forEach(this::save);
+
+    this.saveBatch(xsfpList);
 
     String message = "导入发票成功了";
 

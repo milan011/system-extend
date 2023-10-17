@@ -1,5 +1,6 @@
 package com.extend.erp.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.extend.erp.domain.ErpXsfp;
 import com.extend.erp.domain.ErpXsfpImport;
@@ -12,7 +13,7 @@ import java.util.List;
  * @author wcg
  * @date 2023-10-13
  */
-public interface IErpXsfpService
+public interface IErpXsfpService  extends IService<ErpXsfp>
 {
     /**
      * 查询销售发票
