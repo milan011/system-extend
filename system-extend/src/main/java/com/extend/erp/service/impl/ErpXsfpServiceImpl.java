@@ -4,11 +4,19 @@ import java.util.List;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.extend.erp.convert.ErpXsfpConvert;
+import com.extend.erp.domain.ErpXsfpImport;
 import com.ruoyi.common.annotation.DataSource;
+import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.enums.DataSourceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
+
 import com.ruoyi.common.utils.StringUtils;
 import org.springframework.transaction.annotation.Transactional;
 import com.extend.erp.domain.ErpXsfpmx;
@@ -142,4 +150,53 @@ public class ErpXsfpServiceImpl implements IErpXsfpService
       }
     }
   }
+
+  /**
+   * 导入发票数据
+   *
+   * @param xsfpExcelList 发票数据列表
+   * @param isUpdateSupport 是否更新支持，如果已存在，则进行更新数据
+   * @param operName 操作用户
+   * @return 结果
+   */
+  @Override
+  @Transactional
+  public String importXsfp(List<ErpXsfpImport> xsfpExcelList, Boolean isUpdateSupport, String operName){
+
+    // 发票相关
+    List<ErpXsfp> xsfpList = new ArrayList<>(xsfpExcelList.size());
+
+    /*List<Player> newList = new ArrayList<>();
+    playerList.stream().filter(distinctByKey(p -> p.getName()))  //filter保留true的值
+        .forEach(newList::add);*/
+
+    //根据发票编号确定导入的发票基本信息
+    List<ErpXsfpImport> fpInfoList = new ArrayList<>();
+    xsfpExcelList.stream()
+                 .filter(distinctByKey(ErpXsfpImport::getXsfpFpbh))  //filter保留true的值
+                 .forEach(fpInfoList::add);
+
+    fpInfoList.forEach(xsfpExcel ->{
+      ErpXsfp xsfpInfo = ErpXsfpConvert.INSTANCE.convert(xsfpExcel);
+      xsfpList.add(xsfpInfo);
+    });
+
+    String message = "导入发票成功了";
+
+    return message;
+  }
+
+
+  static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
+
+    Map<Object, Boolean> seen = new ConcurrentHashMap<>();
+
+    //putIfAbsent方法添加键值对，如果map集合中没有该key对应的值，则直接添加，并返回null，如果已经存在对应的值，则依旧为原来的值。
+
+    //如果返回null表示添加数据成功(不重复)，不重复(null==null :TRUE)
+
+    return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
+
+  }
+
 }

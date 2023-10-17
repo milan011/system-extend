@@ -39,8 +39,8 @@ public class ErpXsfpmx extends BaseEntity
     @Excel(name = "仓库名称")
     private String xsfpmxCkbh;
 
-    /** 产品编号 */
-    @Excel(name = "产品编号")
+    /** 物料编号 */
+    @Excel(name = "物料编号")
     private String xsfpmxWlbh;
 
     /** 产品名称 */
@@ -154,8 +154,8 @@ public class ErpXsfpmx extends BaseEntity
     @Excel(name = "辅助数量")
     private BigDecimal xsfpmxFsl2;
 
-    /** 原主含税价 */
-    @Excel(name = "原主含税价")
+    /** 开票价 */
+    @Excel(name = "开票价")
     private BigDecimal xsfpmxYzhsj;
 
     /** 本主含税价 */

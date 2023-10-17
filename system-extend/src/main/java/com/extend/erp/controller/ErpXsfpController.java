@@ -77,16 +77,8 @@ public class ErpXsfpController extends BaseController
 
     ExcelUtil<ErpXsfpImport> util = new ExcelUtil<ErpXsfpImport>(ErpXsfpImport.class);
     List<ErpXsfpImport> xsfpExcelList = util.importExcel(file.getInputStream());
-
-    // 发票相关
-    List<ErpXsfp> xsfpList = new ArrayList<>(xsfpExcelList.size());
-
-    xsfpExcelList.forEach(xsfpExcel ->{
-      ErpXsfp xsfpInfo = ErpXsfpConvert.INSTANCE.convert(xsfpExcel);
-      xsfpList.add(xsfpInfo);
-    });
-
-    String message = "导入发票成功了";
+    String operName = getUsername();
+    String message = erpXsfpService.importXsfp(xsfpExcelList, updateSupport, operName);
 
     return success(message);
   }

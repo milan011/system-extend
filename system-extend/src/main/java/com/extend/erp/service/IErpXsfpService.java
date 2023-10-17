@@ -2,6 +2,8 @@ package com.extend.erp.service;
 
 import java.util.List;
 import com.extend.erp.domain.ErpXsfp;
+import com.extend.erp.domain.ErpXsfpImport;
+import com.ruoyi.common.core.domain.entity.SysUser;
 
 /**
  * 销售发票Service接口
@@ -60,4 +62,14 @@ public interface IErpXsfpService
      * @return 结果
      */
     public int deleteErpXsfpByXsfpFpls(String xsfpFpls);
+
+    /**
+     * 导入发票数据
+     *
+     * @param xsfpExcelList 发票数据列表
+     * @param isUpdateSupport 是否更新支持，如果已存在，则进行更新数据
+     * @param operName 操作用户
+     * @return 结果
+     */
+    public String importXsfp(List<ErpXsfpImport> xsfpExcelList, Boolean isUpdateSupport, String operName);
 }
