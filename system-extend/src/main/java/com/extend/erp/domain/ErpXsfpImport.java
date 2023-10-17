@@ -43,6 +43,38 @@ public class ErpXsfpImport {
   @Excel(name = "开票价")
   private BigDecimal xsfpmxYzhsj;
 
+  public String getXsfpmxWlbh() {
+    return xsfpmxWlbh;
+  }
+
+  public void setXsfpmxWlbh(String xsfpmxWlbh) {
+    this.xsfpmxWlbh = xsfpmxWlbh;
+  }
+
+  public BigDecimal getXsfpmxZsl() {
+    return xsfpmxZsl;
+  }
+
+  public void setXsfpmxZsl(BigDecimal xsfpmxZsl) {
+    this.xsfpmxZsl = xsfpmxZsl;
+  }
+
+  public BigDecimal getXsfpmxYzhsj() {
+    return xsfpmxYzhsj;
+  }
+
+  public void setXsfpmxYzhsj(BigDecimal xsfpmxYzhsj) {
+    this.xsfpmxYzhsj = xsfpmxYzhsj;
+  }
+
+  public BigDecimal getXsfpmxYhse() {
+    return xsfpmxYhse;
+  }
+
+  public void setXsfpmxYhse(BigDecimal xsfpmxYhse) {
+    this.xsfpmxYhse = xsfpmxYhse;
+  }
+
   /** 含税金额 */
   @Excel(name = "含税金额")
   private BigDecimal xsfpmxYhse;

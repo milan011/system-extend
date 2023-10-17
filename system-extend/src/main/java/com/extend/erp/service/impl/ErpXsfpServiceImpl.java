@@ -212,6 +212,8 @@ public class ErpXsfpServiceImpl implements IErpXsfpService
 
     //erpXsfpMapper.batchErpXsfpmx(erpXsfpmxList);
 
+    xsfpList.forEach(fp-> erpXsfpMapper.insert(fp));
+
     String message = "导入发票成功了";
 
     return message;
