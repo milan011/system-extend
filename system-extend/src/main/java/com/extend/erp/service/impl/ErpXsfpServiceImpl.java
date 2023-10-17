@@ -1,7 +1,7 @@
 package com.extend.erp.service.impl;
 
 import java.util.List;
-
+import cn.hutool.core.convert.Convert;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.extend.erp.convert.ErpXsfpConvert;
@@ -169,17 +169,25 @@ public class ErpXsfpServiceImpl implements IErpXsfpService
     /*List<Player> newList = new ArrayList<>();
     playerList.stream().filter(distinctByKey(p -> p.getName()))  //filter保留true的值
         .forEach(newList::add);*/
-
+    Integer lastLs =  Convert.toInt("1418573");
     //根据发票编号确定导入的发票基本信息
     List<ErpXsfpImport> fpInfoList = new ArrayList<>();
     xsfpExcelList.stream()
                  .filter(distinctByKey(ErpXsfpImport::getXsfpFpbh))  //filter保留true的值
                  .forEach(fpInfoList::add);
 
-    fpInfoList.forEach(xsfpExcel ->{
+    /*fpInfoList.forEach(xsfpExcel ->{
       ErpXsfp xsfpInfo = ErpXsfpConvert.INSTANCE.convert(xsfpExcel);
       xsfpList.add(xsfpInfo);
-    });
+    });*/
+
+    for (ErpXsfpImport xsfpExcel : fpInfoList) {
+      fpInfoList.indexOf(xsfpExcel); //如果是Set还没有这个方法
+      Integer currentLs = lastLs + fpInfoList.indexOf(xsfpExcel) + 1;
+      ErpXsfp xsfpInfo = ErpXsfpConvert.INSTANCE.convert(xsfpExcel);
+      xsfpInfo.setXsfpFpls(Convert.toStr(currentLs));
+      xsfpList.add(xsfpInfo);
+    }
 
     String message = "导入发票成功了";
 
