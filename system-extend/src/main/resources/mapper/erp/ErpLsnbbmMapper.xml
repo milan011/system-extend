@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.extend.erp.mapper.ErpLsnbbmMapper">
+
+  <resultMap type="com.extend.erp.domain.ErpLsnbbm" id="ErpLsnbbmResult">
+    <result property="lsnbbmXtbh"    column="LSNBBM_XTBH"    />
+    <result property="lsnbbmNmbh"    column="LSNBBM_NMBH"    />
+    <result property="lsnbbmNmmc"    column="LSNBBM_NMMC"    />
+    <result property="lsnbbmDqnm"    column="LSNBBM_DQNM"    />
+    <result property="lsnbbmNmcd"    column="LSNBBM_NMCD"    />
+    <result property="lsnbbmFwzq"    column="LSNBBM_FWZQ"    />
+  </resultMap>
+
+  <sql id="selectErpLsnbbmVo">
+    select LSNBBM_XTBH, LSNBBM_NMBH, LSNBBM_NMMC, LSNBBM_DQNM, LSNBBM_NMCD, LSNBBM_FWZQ from LSNBBM
+  </sql>
+
+  <select id="selectErpLsnbbmList" parameterType="com.extend.erp.domain.ErpLsnbbm" resultMap="ErpLsnbbmResult">
+    <include refid="selectErpLsnbbmVo"/>
+    <where>
+      <if test="lsnbbmNmmc != null  and lsnbbmNmmc != ''"> and LSNBBM_NMMC = #{lsnbbmNmmc}</if>
+    </where>
+  </select>
+
+  <select id="selectErpLsnbbmByLsnbbmNmbh" parameterType="String" resultMap="ErpLsnbbmResult">
+    <include refid="selectErpLsnbbmVo"/>
+    where LSNBBM_NMBH = #{lsnbbmXtbh}
+  </select>
+
+  <insert id="insertErpLsnbbm" parameterType="com.extend.erp.domain.ErpLsnbbm">
+    insert into LSNBBM
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lsnbbmXtbh != null and lsnbbmXtbh != ''">LSNBBM_XTBH,</if>
+      <if test="lsnbbmNmbh != null and lsnbbmNmbh != ''">LSNBBM_NMBH,</if>
+      <if test="lsnbbmNmmc != null and lsnbbmNmmc != ''">LSNBBM_NMMC,</if>
+      <if test="lsnbbmDqnm != null and lsnbbmDqnm != ''">LSNBBM_DQNM,</if>
+      <if test="lsnbbmNmcd != null">LSNBBM_NMCD,</if>
+      <if test="lsnbbmFwzq != null">LSNBBM_FWZQ,</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lsnbbmXtbh != null and lsnbbmXtbh != ''">#{lsnbbmXtbh},</if>
+      <if test="lsnbbmNmbh != null and lsnbbmNmbh != ''">#{lsnbbmNmbh},</if>
+      <if test="lsnbbmNmmc != null and lsnbbmNmmc != ''">#{lsnbbmNmmc},</if>
+      <if test="lsnbbmDqnm != null and lsnbbmDqnm != ''">#{lsnbbmDqnm},</if>
+      <if test="lsnbbmNmcd != null">#{lsnbbmNmcd},</if>
+      <if test="lsnbbmFwzq != null">#{lsnbbmFwzq},</if>
+    </trim>
+  </insert>
+
+  <update id="updateErpLsnbbm" parameterType="com.extend.erp.domain.ErpLsnbbm">
+    update LSNBBM
+    <trim prefix="SET" suffixOverrides=",">
+      <if test="lsnbbmNmbh != null and lsnbbmNmbh != ''">LSNBBM_NMBH = #{lsnbbmNmbh},</if>
+      <if test="lsnbbmNmmc != null and lsnbbmNmmc != ''">LSNBBM_NMMC = #{lsnbbmNmmc},</if>
+      <if test="lsnbbmDqnm != null and lsnbbmDqnm != ''">LSNBBM_DQNM = #{lsnbbmDqnm},</if>
+      <if test="lsnbbmNmcd != null">LSNBBM_NMCD = #{lsnbbmNmcd},</if>
+      <if test="lsnbbmFwzq != null">LSNBBM_FWZQ = #{lsnbbmFwzq},</if>
+    </trim>
+    where LSNBBM_XTBH = #{lsnbbmXtbh}
+  </update>
+
+  <delete id="deleteErpLsnbbmByLsnbbmXtbh" parameterType="String">
+    delete from LSNBBM where LSNBBM_XTBH = #{lsnbbmXtbh}
+  </delete>
+
+  <delete id="deleteErpLsnbbmByLsnbbmXtbhs" parameterType="String">
+    delete from LSNBBM where LSNBBM_XTBH in
+    <foreach item="lsnbbmXtbh" collection="array" open="(" separator="," close=")">
+      #{lsnbbmXtbh}
+    </foreach>
+  </delete>
+</mapper>

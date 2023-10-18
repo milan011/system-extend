@@ -13,6 +13,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.extend.erp.convert.ErpXsfpConvert;
 import com.extend.erp.convert.ErpXsfpMxConvert;
+import com.extend.erp.domain.ErpLsnbbm;
 import com.extend.erp.domain.ErpXsfpImport;
 import com.extend.erp.mapper.ErpXsfpMxMapper;
 import com.extend.erp.service.IErpXsfpMxService;
@@ -49,6 +50,9 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
 
   @Autowired
   private EprXsfpMxServiceImpl xsfpmxService;
+
+  @Autowired
+  private ErpLsnbbmServiceImpl lsnbbmService;
 
   /**
    * 查询销售发票
@@ -180,14 +184,18 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
     List<ErpXsfp> xsfpList = new ArrayList<>(xsfpExcelList.size());
     //发票明细list
     List<ErpXsfpmx> erpXsfpmxList = new ArrayList<ErpXsfpmx>();
+    //当前销售发票流水号
+    ErpLsnbbm lsnbbm = lsnbbmService.selectErpLsnbbmByLsnbbmNmbh("XSFPLS");
+    Integer lastFpls = Convert.toInt(lsnbbm.getLsnbbmDqnm());
 
+    //日期设置
     String currentDate = DateUtil.format(DateUtil.date(), "yyyyMMdd");
     String currentTime = StrUtil.subSufByLength(Convert.toStr(DateUtil.date().getTime()), 6);
 
     /*List<Player> newList = new ArrayList<>();
     playerList.stream().filter(distinctByKey(p -> p.getName()))  //filter保留true的值
         .forEach(newList::add);*/
-    Integer lastLs =  Convert.toInt("1418680");
+
     //根据发票编号确定导入的发票基本信息
     List<ErpXsfpImport> fpInfoList = new ArrayList<>();
     xsfpExcelList.stream()
@@ -201,7 +209,7 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
 
     for (ErpXsfpImport xsfpExcel : fpInfoList) {
       fpInfoList.indexOf(xsfpExcel); //如果是Set还没有这个方法
-      Integer currentLs = lastLs + fpInfoList.indexOf(xsfpExcel) + 1;
+      Integer currentLs = lastFpls + fpInfoList.indexOf(xsfpExcel) + 1;
       ErpXsfp xsfpInfo = ErpXsfpConvert.INSTANCE.convert(xsfpExcel);
       xsfpInfo.setXsfpFpls(Convert.toStr(currentLs));
       xsfpInfo.setXsfpDjrq(currentDate);
@@ -229,6 +237,14 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
 
     /*this.saveBatch(xsfpList);
     xsfpmxService.saveBatch(erpXsfpmxList);*/
+
+    //String needSetLs = String.valueOf(fpLsMap.entrySet().stream().reduce((first, second) -> second).get());
+
+    //最后一条发票流水
+    Map.Entry<String, String> needSetLsMap = fpLsMap.entrySet().stream().reduce((first, second) -> second).get();
+    String needSetLs = needSetLsMap.getValue();
+    lsnbbm.setLsnbbmDqnm(needSetLs);
+    //lsnbbmService.saveOrUpdate(lsnbbm);
 
     String message = "导入发票成功了";
 
