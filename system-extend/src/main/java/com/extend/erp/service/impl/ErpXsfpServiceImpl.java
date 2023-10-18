@@ -2,8 +2,11 @@ package com.extend.erp.service.impl;
 
 import java.util.List;
 import cn.hutool.core.convert.Convert;
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.core.util.RandomUtil;
+import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -12,6 +15,7 @@ import com.extend.erp.convert.ErpXsfpConvert;
 import com.extend.erp.convert.ErpXsfpMxConvert;
 import com.extend.erp.domain.ErpXsfpImport;
 import com.extend.erp.mapper.ErpXsfpMxMapper;
+import com.extend.erp.service.IErpXsfpMxService;
 import com.ruoyi.common.annotation.DataSource;
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.enums.DataSourceType;
@@ -44,7 +48,7 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
   private ErpXsfpMapper erpXsfpMapper;
 
   @Autowired
-  private ErpXsfpMxMapper erpXsfpMxMapper;
+  private EprXsfpMxServiceImpl xsfpmxService;
 
   /**
    * 查询销售发票
@@ -177,10 +181,13 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
     //发票明细list
     List<ErpXsfpmx> erpXsfpmxList = new ArrayList<ErpXsfpmx>();
 
+    String currentDate = DateUtil.format(DateUtil.date(), "yyyyMMdd");
+    String currentTime = StrUtil.subSufByLength(Convert.toStr(DateUtil.date().getTime()), 6);
+
     /*List<Player> newList = new ArrayList<>();
     playerList.stream().filter(distinctByKey(p -> p.getName()))  //filter保留true的值
         .forEach(newList::add);*/
-    Integer lastLs =  Convert.toInt("1418677");
+    Integer lastLs =  Convert.toInt("1418680");
     //根据发票编号确定导入的发票基本信息
     List<ErpXsfpImport> fpInfoList = new ArrayList<>();
     xsfpExcelList.stream()
@@ -197,6 +204,9 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
       Integer currentLs = lastLs + fpInfoList.indexOf(xsfpExcel) + 1;
       ErpXsfp xsfpInfo = ErpXsfpConvert.INSTANCE.convert(xsfpExcel);
       xsfpInfo.setXsfpFpls(Convert.toStr(currentLs));
+      xsfpInfo.setXsfpDjrq(currentDate);
+      xsfpInfo.setXsfpYwrq(currentDate);
+      xsfpInfo.setXsfpXgsj(currentDate + ' ' + currentTime);
       xsfpList.add(xsfpInfo);
     }
 
@@ -207,6 +217,8 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
     xsfpExcelList.forEach(fp->{
       ErpXsfpmx xsfpmxInfo = ErpXsfpMxConvert.INSTANCE.convert(fp);
       xsfpmxInfo.setXsfpmxFpls(fpLsMap.get(fp.getXsfpFpbh()));
+      xsfpmxInfo.setXsfpmxLzrq(currentDate);
+      xsfpmxInfo.setXsfpmxFpfl(RandomUtil.randomNumbers(10)); //发票分类?  与流水均为主键
       erpXsfpmxList.add(xsfpmxInfo);
     });
 
@@ -215,7 +227,8 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
     //xsfpList.forEach(fp-> erpXsfpMapper.insert(fp));
     //xsfpList.forEach(this::save);
 
-    this.saveBatch(xsfpList);
+    /*this.saveBatch(xsfpList);
+    xsfpmxService.saveBatch(erpXsfpmxList);*/
 
     String message = "导入发票成功了";
 

@@ -31,6 +31,10 @@ public class ErpXsfpImport {
   @Excel(name = "人员姓名")
   private String xsfpRyxm;
 
+  /** 制单人 */
+  @Excel(name = "制单人")
+  private String xsfpZdxm;
+
   /** 物料编号 */
   @Excel(name = "物料编号")
   private String xsfpmxWlbh;
@@ -125,6 +129,14 @@ public class ErpXsfpImport {
 
   public void setXsfpFpbh(String xsfpFpbh) {
     this.xsfpFpbh = xsfpFpbh;
+  }
+
+  public String getXsfpZdxm() {
+    return xsfpZdxm;
+  }
+
+  public void setXsfpZdxm(String xsfpZdxm) {
+    this.xsfpZdxm = xsfpZdxm;
   }
 
   @Override

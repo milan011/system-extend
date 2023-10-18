@@ -2,6 +2,7 @@ package com.extend.erp.domain;
 
 import java.math.BigDecimal;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.ruoyi.common.annotation.DataSource;
 import com.ruoyi.common.enums.DataSourceType;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -16,6 +17,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * @date 2023-10-13
  */
 @DataSource(value = DataSourceType.SLAVE)
+@TableName("XSFPMX")
 public class ErpXsfpmx
 {
     private static final long serialVersionUID = 1L;
