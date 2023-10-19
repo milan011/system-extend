@@ -1,6 +1,7 @@
 package com.extend.erp.service.impl;
 
-import java.util.List;
+import java.util.*;
+
 import cn.hutool.core.convert.Convert;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.map.MapUtil;
@@ -22,8 +23,7 @@ import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.enums.DataSourceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.ArrayList;
-import java.util.Map;
+
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -202,6 +202,10 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
                  .filter(distinctByKey(ErpXsfpImport::getXsfpFpbh))  //filter保留true的值
                  .forEach(fpInfoList::add);
 
+    //获取数据中所有客户
+    Map<String, Object> customMap = getCustomMap(xsfpExcelList);
+
+
     /*fpInfoList.forEach(xsfpExcel ->{
       ErpXsfp xsfpInfo = ErpXsfpConvert.INSTANCE.convert(xsfpExcel);
       xsfpList.add(xsfpInfo);
@@ -209,7 +213,7 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
 
     for (ErpXsfpImport xsfpExcel : fpInfoList) {
       fpInfoList.indexOf(xsfpExcel); //如果是Set还没有这个方法
-      Integer currentLs = lastFpls + fpInfoList.indexOf(xsfpExcel) + 1;
+      Integer currentLs = lastFpls + fpInfoList.indexOf(xsfpExcel);
       ErpXsfp xsfpInfo = ErpXsfpConvert.INSTANCE.convert(xsfpExcel);
       xsfpInfo.setXsfpFpls(Convert.toStr(currentLs));
       xsfpInfo.setXsfpDjrq(currentDate);
@@ -239,14 +243,14 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
     //xsfpList.forEach(fp-> erpXsfpMapper.insert(fp));
     //xsfpList.forEach(this::save);
 
-    /*this.saveBatch(xsfpList);
-    xsfpmxService.saveBatch(erpXsfpmxList);*/
+    this.saveBatch(xsfpList);
+    xsfpmxService.saveBatch(erpXsfpmxList);
 
     //String needSetLs = String.valueOf(fpLsMap.entrySet().stream().reduce((first, second) -> second).get());
 
     //最后一条发票流水
     Map.Entry<String, String> needSetLsMap = fpLsMap.entrySet().stream().reduce((first, second) -> second).get();
-    String needSetLs = needSetLsMap.getValue();
+    String needSetLs = Convert.toStr(Convert.toInt(needSetLsMap.getValue()) + 1);
     lsnbbm.setLsnbbmDqnm(needSetLs);
     lsnbbmService.updateErpLsnbbm(lsnbbm);
 
@@ -266,6 +270,23 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
 
     return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
 
+  }
+
+  private Map<String, Object> getCustomMap(List<ErpXsfpImport> xsfpExcelList){
+
+    Map<String, Object> customMap = MapUtil.newHashMap();
+    HashSet<String> customSet = new HashSet<>();
+    List<String> customList = new ArrayList<>();
+    xsfpExcelList.forEach(fp-> {
+      customList.add(fp.getXsfpShdkhmc());
+      customSet.add(fp.getXsfpShdkhmc());
+    });
+
+    customSet.forEach(custom->{
+      System.out.println(custom);
+    });
+
+    return customMap;
   }
 
 }
