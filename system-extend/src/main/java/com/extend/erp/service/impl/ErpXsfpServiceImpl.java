@@ -215,6 +215,10 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
       xsfpInfo.setXsfpDjrq(currentDate);
       xsfpInfo.setXsfpYwrq(currentDate);
       xsfpInfo.setXsfpXgsj(currentDate + ' ' + currentTime);
+      xsfpInfo.setXsfpShbz("1");
+      xsfpInfo.setXsfpShxm(" ");
+      xsfpInfo.setXsfpShlc("免审");
+      xsfpInfo.setXsfpShrq(currentDate);
       xsfpList.add(xsfpInfo);
     }
 
@@ -244,7 +248,7 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
     Map.Entry<String, String> needSetLsMap = fpLsMap.entrySet().stream().reduce((first, second) -> second).get();
     String needSetLs = needSetLsMap.getValue();
     lsnbbm.setLsnbbmDqnm(needSetLs);
-    //lsnbbmService.saveOrUpdate(lsnbbm);
+    lsnbbmService.updateErpLsnbbm(lsnbbm);
 
     String message = "导入发票成功了";
 

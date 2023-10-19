@@ -58,7 +58,7 @@
       <if test="lsnbbmNmcd != null">LSNBBM_NMCD = #{lsnbbmNmcd},</if>
       <if test="lsnbbmFwzq != null">LSNBBM_FWZQ = #{lsnbbmFwzq},</if>
     </trim>
-    where LSNBBM_XTBH = #{lsnbbmXtbh}
+    where LSNBBM_XTBH = #{lsnbbmXtbh} and LSNBBM_NMBH = #{lsnbbmNmbh}
   </update>
 
   <delete id="deleteErpLsnbbmByLsnbbmXtbh" parameterType="String">
