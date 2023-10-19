@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.extend.erp.mapper.ErpZwwldwMapper">
+
+  <resultMap type="com.extend.erp.domain.ErpZwwldw" id="ErpZwwldwResult">
+    <result property="zwwldwDwbh"    column="ZWWLDW_DWBH"    />
+    <result property="zwwldwDwmc"    column="ZWWLDW_DWMC"    />
+    <result property="zwwldwDwjc"    column="ZWWLDW_DWJC"    />
+    <result property="zwwldwDqbh"    column="ZWWLDW_DQBH"    />
+    <result property="zwwldwLbbh"    column="ZWWLDW_LBBH"    />
+    <result property="zwwldwAddr"    column="ZWWLDW_ADDR"    />
+    <result property="zwwldwTele"    column="ZWWLDW_TELE"    />
+    <result property="zwwldwKhh"    column="ZWWLDW_KHH"    />
+    <result property="zwwldwYhzh"    column="ZWWLDW_YHZH"    />
+    <result property="zwwldwSh"    column="ZWWLDW_SH"    />
+    <result property="zwwldwZxxe"    column="ZWWLDW_ZXXE"    />
+    <result property="zwwldwLxr"    column="ZWWLDW_LXR"    />
+    <result property="zwwldwEml"    column="ZWWLDW_EML"    />
+    <result property="zwwldwPyjm"    column="ZWWLDW_PYJM"    />
+    <result property="zwwldwDytmh"    column="ZWWLDW_DYTMH"    />
+    <result property="zwwldwSffc"    column="ZWWLDW_SFFC"    />
+    <result property="zwwldwSyzt"    column="ZWWLDW_SYZT"    />
+    <result property="zwwldwKhjb"    column="ZWWLDW_KHJB"    />
+  </resultMap>
+
+  <sql id="selectErpZwwldwVo">
+    select ZWWLDW_DWBH, ZWWLDW_DWMC, ZWWLDW_DWJC, ZWWLDW_DQBH, ZWWLDW_LBBH, ZWWLDW_ADDR, ZWWLDW_TELE, ZWWLDW_KHH, ZWWLDW_YHZH, ZWWLDW_SH, ZWWLDW_ZXXE, ZWWLDW_LXR, ZWWLDW_EML, ZWWLDW_PYJM, ZWWLDW_DYTMH, ZWWLDW_SFFC, ZWWLDW_SYZT, ZWWLDW_KHJB from erp_zwwldw
+  </sql>
+
+  <select id="selectErpZwwldwList" parameterType="com.extend.erp.domain.ErpZwwldw" resultMap="ErpZwwldwResult">
+    <include refid="selectErpZwwldwVo"/>
+    <where>
+      <if test="zwwldwDwmc != null  and zwwldwDwmc != ''"> and ZWWLDW_DWMC = #{zwwldwDwmc}</if>
+      <if test="zwwldwLxr != null  and zwwldwLxr != ''"> and ZWWLDW_LXR = #{zwwldwLxr}</if>
+      <if test="zwwldwEml != null  and zwwldwEml != ''"> and ZWWLDW_EML = #{zwwldwEml}</if>
+      <if test="zwwldwPyjm != null  and zwwldwPyjm != ''"> and ZWWLDW_PYJM = #{zwwldwPyjm}</if>
+      <if test="zwwldwDytmh != null  and zwwldwDytmh != ''"> and ZWWLDW_DYTMH = #{zwwldwDytmh}</if>
+      <if test="zwwldwSffc != null  and zwwldwSffc != ''"> and ZWWLDW_SFFC = #{zwwldwSffc}</if>
+      <if test="zwwldwSyzt != null  and zwwldwSyzt != ''"> and ZWWLDW_SYZT = #{zwwldwSyzt}</if>
+      <if test="zwwldwKhjb != null  and zwwldwKhjb != ''"> and ZWWLDW_KHJB = #{zwwldwKhjb}</if>
+    </where>
+  </select>
+
+  <select id="selectErpZwwldwByZwwldwDwbh" parameterType="String" resultMap="ErpZwwldwResult">
+    <include refid="selectErpZwwldwVo"/>
+    where ZWWLDW_DWBH = #{zwwldwDwbh}
+  </select>
+
+  <insert id="insertErpZwwldw" parameterType="com.extend.erp.domain.ErpZwwldw">
+    insert into erp_zwwldw
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="zwwldwDwbh != null">ZWWLDW_DWBH,</if>
+      <if test="zwwldwDwmc != null and zwwldwDwmc != ''">ZWWLDW_DWMC,</if>
+      <if test="zwwldwDwjc != null">ZWWLDW_DWJC,</if>
+      <if test="zwwldwDqbh != null">ZWWLDW_DQBH,</if>
+      <if test="zwwldwLbbh != null">ZWWLDW_LBBH,</if>
+      <if test="zwwldwAddr != null">ZWWLDW_ADDR,</if>
+      <if test="zwwldwTele != null">ZWWLDW_TELE,</if>
+      <if test="zwwldwKhh != null">ZWWLDW_KHH,</if>
+      <if test="zwwldwYhzh != null">ZWWLDW_YHZH,</if>
+      <if test="zwwldwSh != null">ZWWLDW_SH,</if>
+      <if test="zwwldwZxxe != null">ZWWLDW_ZXXE,</if>
+      <if test="zwwldwLxr != null">ZWWLDW_LXR,</if>
+      <if test="zwwldwEml != null">ZWWLDW_EML,</if>
+      <if test="zwwldwPyjm != null">ZWWLDW_PYJM,</if>
+      <if test="zwwldwDytmh != null">ZWWLDW_DYTMH,</if>
+      <if test="zwwldwSffc != null and zwwldwSffc != ''">ZWWLDW_SFFC,</if>
+      <if test="zwwldwSyzt != null and zwwldwSyzt != ''">ZWWLDW_SYZT,</if>
+      <if test="zwwldwKhjb != null and zwwldwKhjb != ''">ZWWLDW_KHJB,</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="zwwldwDwbh != null">#{zwwldwDwbh},</if>
+      <if test="zwwldwDwmc != null and zwwldwDwmc != ''">#{zwwldwDwmc},</if>
+      <if test="zwwldwDwjc != null">#{zwwldwDwjc},</if>
+      <if test="zwwldwDqbh != null">#{zwwldwDqbh},</if>
+      <if test="zwwldwLbbh != null">#{zwwldwLbbh},</if>
+      <if test="zwwldwAddr != null">#{zwwldwAddr},</if>
+      <if test="zwwldwTele != null">#{zwwldwTele},</if>
+      <if test="zwwldwKhh != null">#{zwwldwKhh},</if>
+      <if test="zwwldwYhzh != null">#{zwwldwYhzh},</if>
+      <if test="zwwldwSh != null">#{zwwldwSh},</if>
+      <if test="zwwldwZxxe != null">#{zwwldwZxxe},</if>
+      <if test="zwwldwLxr != null">#{zwwldwLxr},</if>
+      <if test="zwwldwEml != null">#{zwwldwEml},</if>
+      <if test="zwwldwPyjm != null">#{zwwldwPyjm},</if>
+      <if test="zwwldwDytmh != null">#{zwwldwDytmh},</if>
+      <if test="zwwldwSffc != null and zwwldwSffc != ''">#{zwwldwSffc},</if>
+      <if test="zwwldwSyzt != null and zwwldwSyzt != ''">#{zwwldwSyzt},</if>
+      <if test="zwwldwKhjb != null and zwwldwKhjb != ''">#{zwwldwKhjb},</if>
+    </trim>
+  </insert>
+
+  <update id="updateErpZwwldw" parameterType="com.extend.erp.domain.ErpZwwldw">
+    update erp_zwwldw
+    <trim prefix="SET" suffixOverrides=",">
+      <if test="zwwldwDwmc != null and zwwldwDwmc != ''">ZWWLDW_DWMC = #{zwwldwDwmc},</if>
+      <if test="zwwldwDwjc != null">ZWWLDW_DWJC = #{zwwldwDwjc},</if>
+      <if test="zwwldwDqbh != null">ZWWLDW_DQBH = #{zwwldwDqbh},</if>
+      <if test="zwwldwLbbh != null">ZWWLDW_LBBH = #{zwwldwLbbh},</if>
+      <if test="zwwldwAddr != null">ZWWLDW_ADDR = #{zwwldwAddr},</if>
+      <if test="zwwldwTele != null">ZWWLDW_TELE = #{zwwldwTele},</if>
+      <if test="zwwldwKhh != null">ZWWLDW_KHH = #{zwwldwKhh},</if>
+      <if test="zwwldwYhzh != null">ZWWLDW_YHZH = #{zwwldwYhzh},</if>
+      <if test="zwwldwSh != null">ZWWLDW_SH = #{zwwldwSh},</if>
+      <if test="zwwldwZxxe != null">ZWWLDW_ZXXE = #{zwwldwZxxe},</if>
+      <if test="zwwldwLxr != null">ZWWLDW_LXR = #{zwwldwLxr},</if>
+      <if test="zwwldwEml != null">ZWWLDW_EML = #{zwwldwEml},</if>
+      <if test="zwwldwPyjm != null">ZWWLDW_PYJM = #{zwwldwPyjm},</if>
+      <if test="zwwldwDytmh != null">ZWWLDW_DYTMH = #{zwwldwDytmh},</if>
+      <if test="zwwldwSffc != null and zwwldwSffc != ''">ZWWLDW_SFFC = #{zwwldwSffc},</if>
+      <if test="zwwldwSyzt != null and zwwldwSyzt != ''">ZWWLDW_SYZT = #{zwwldwSyzt},</if>
+      <if test="zwwldwKhjb != null and zwwldwKhjb != ''">ZWWLDW_KHJB = #{zwwldwKhjb},</if>
+    </trim>
+    where ZWWLDW_DWBH = #{zwwldwDwbh}
+  </update>
+
+  <delete id="deleteErpZwwldwByZwwldwDwbh" parameterType="String">
+    delete from erp_zwwldw where ZWWLDW_DWBH = #{zwwldwDwbh}
+  </delete>
+
+  <delete id="deleteErpZwwldwByZwwldwDwbhs" parameterType="String">
+    delete from erp_zwwldw where ZWWLDW_DWBH in
+    <foreach item="zwwldwDwbh" collection="array" open="(" separator="," close=")">
+      #{zwwldwDwbh}
+    </foreach>
+  </delete>
+</mapper>

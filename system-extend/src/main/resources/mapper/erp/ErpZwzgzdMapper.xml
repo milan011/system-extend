@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.extend.erp.mapper.ErpZwzgzdMapper">
+
+  <resultMap type="com.extend.erp.domain.ErpZwzgzd" id="ErpZwzgzdResult">
+    <result property="zwzgzdZgbh"    column="ZWZGZD_ZGBH"    />
+    <result property="zwzgzdZgxm"    column="ZWZGZD_ZGXM"    />
+    <result property="zwzgzdBmbh"    column="ZWZGZD_BMBH"    />
+    <result property="zwzgzdDz"    column="ZWZGZD_DZ"    />
+    <result property="zwzgzdDh"    column="ZWZGZD_DH"    />
+    <result property="zwzgzdYb"    column="ZWZGZD_YB"    />
+    <result property="zwzgzdXyxe"    column="ZWZGZD_XYXE"    />
+    <result property="zwzgzdLbbh"    column="ZWZGZD_LBBH"    />
+    <result property="zwzgzdPyjm"    column="ZWZGZD_PYJM"    />
+    <result property="zwzgzdDytmh"    column="ZWZGZD_DYTMH"    />
+    <result property="zwzgzdSjhm"    column="ZWZGZD_SJHM"    />
+    <result property="zwzgzdEmail"    column="ZWZGZD_EMAIL"    />
+    <result property="zwzgzdCzybh"    column="ZWZGZD_CZYBH"    />
+    <result property="zwzgzdXydj"    column="ZWZGZD_XYDJ"    />
+    <result property="zwzgzdYwy"    column="ZWZGZD_YWY"    />
+    <result property="zwzgzdSffc"    column="ZWZGZD_SFFC"    />
+  </resultMap>
+
+  <sql id="selectErpZwzgzdVo">
+    select ZWZGZD_ZGBH, ZWZGZD_ZGXM, ZWZGZD_BMBH, ZWZGZD_DZ, ZWZGZD_DH, ZWZGZD_YB, ZWZGZD_XYXE, ZWZGZD_LBBH, ZWZGZD_PYJM, ZWZGZD_DYTMH, ZWZGZD_SJHM, ZWZGZD_EMAIL, ZWZGZD_CZYBH, ZWZGZD_XYDJ, ZWZGZD_YWY, ZWZGZD_SFFC from erp_zwzgzd
+  </sql>
+
+  <select id="selectErpZwzgzdList" parameterType="com.extend.erp.domain.ErpZwzgzd" resultMap="ErpZwzgzdResult">
+    <include refid="selectErpZwzgzdVo"/>
+    <where>
+      <if test="zwzgzdZgxm != null  and zwzgzdZgxm != ''"> and ZWZGZD_ZGXM = #{zwzgzdZgxm}</if>
+      <if test="zwzgzdBmbh != null  and zwzgzdBmbh != ''"> and ZWZGZD_BMBH = #{zwzgzdBmbh}</if>
+    </where>
+  </select>
+
+  <select id="selectErpZwzgzdByZwzgzdZgbh" parameterType="String" resultMap="ErpZwzgzdResult">
+    <include refid="selectErpZwzgzdVo"/>
+    where ZWZGZD_ZGBH = #{zwzgzdZgbh}
+  </select>
+
+  <insert id="insertErpZwzgzd" parameterType="com.extend.erp.domain.ErpZwzgzd">
+    insert into erp_zwzgzd
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="zwzgzdZgbh != null">ZWZGZD_ZGBH,</if>
+      <if test="zwzgzdZgxm != null and zwzgzdZgxm != ''">ZWZGZD_ZGXM,</if>
+      <if test="zwzgzdBmbh != null and zwzgzdBmbh != ''">ZWZGZD_BMBH,</if>
+      <if test="zwzgzdDz != null">ZWZGZD_DZ,</if>
+      <if test="zwzgzdDh != null">ZWZGZD_DH,</if>
+      <if test="zwzgzdYb != null">ZWZGZD_YB,</if>
+      <if test="zwzgzdXyxe != null">ZWZGZD_XYXE,</if>
+      <if test="zwzgzdLbbh != null">ZWZGZD_LBBH,</if>
+      <if test="zwzgzdPyjm != null">ZWZGZD_PYJM,</if>
+      <if test="zwzgzdDytmh != null">ZWZGZD_DYTMH,</if>
+      <if test="zwzgzdSjhm != null">ZWZGZD_SJHM,</if>
+      <if test="zwzgzdEmail != null">ZWZGZD_EMAIL,</if>
+      <if test="zwzgzdCzybh != null">ZWZGZD_CZYBH,</if>
+      <if test="zwzgzdXydj != null and zwzgzdXydj != ''">ZWZGZD_XYDJ,</if>
+      <if test="zwzgzdYwy != null and zwzgzdYwy != ''">ZWZGZD_YWY,</if>
+      <if test="zwzgzdSffc != null and zwzgzdSffc != ''">ZWZGZD_SFFC,</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="zwzgzdZgbh != null">#{zwzgzdZgbh},</if>
+      <if test="zwzgzdZgxm != null and zwzgzdZgxm != ''">#{zwzgzdZgxm},</if>
+      <if test="zwzgzdBmbh != null and zwzgzdBmbh != ''">#{zwzgzdBmbh},</if>
+      <if test="zwzgzdDz != null">#{zwzgzdDz},</if>
+      <if test="zwzgzdDh != null">#{zwzgzdDh},</if>
+      <if test="zwzgzdYb != null">#{zwzgzdYb},</if>
+      <if test="zwzgzdXyxe != null">#{zwzgzdXyxe},</if>
+      <if test="zwzgzdLbbh != null">#{zwzgzdLbbh},</if>
+      <if test="zwzgzdPyjm != null">#{zwzgzdPyjm},</if>
+      <if test="zwzgzdDytmh != null">#{zwzgzdDytmh},</if>
+      <if test="zwzgzdSjhm != null">#{zwzgzdSjhm},</if>
+      <if test="zwzgzdEmail != null">#{zwzgzdEmail},</if>
+      <if test="zwzgzdCzybh != null">#{zwzgzdCzybh},</if>
+      <if test="zwzgzdXydj != null and zwzgzdXydj != ''">#{zwzgzdXydj},</if>
+      <if test="zwzgzdYwy != null and zwzgzdYwy != ''">#{zwzgzdYwy},</if>
+      <if test="zwzgzdSffc != null and zwzgzdSffc != ''">#{zwzgzdSffc},</if>
+    </trim>
+  </insert>
+
+  <update id="updateErpZwzgzd" parameterType="com.extend.erp.domain.ErpZwzgzd">
+    update erp_zwzgzd
+    <trim prefix="SET" suffixOverrides=",">
+      <if test="zwzgzdZgxm != null and zwzgzdZgxm != ''">ZWZGZD_ZGXM = #{zwzgzdZgxm},</if>
+      <if test="zwzgzdBmbh != null and zwzgzdBmbh != ''">ZWZGZD_BMBH = #{zwzgzdBmbh},</if>
+      <if test="zwzgzdDz != null">ZWZGZD_DZ = #{zwzgzdDz},</if>
+      <if test="zwzgzdDh != null">ZWZGZD_DH = #{zwzgzdDh},</if>
+      <if test="zwzgzdYb != null">ZWZGZD_YB = #{zwzgzdYb},</if>
+      <if test="zwzgzdXyxe != null">ZWZGZD_XYXE = #{zwzgzdXyxe},</if>
+      <if test="zwzgzdLbbh != null">ZWZGZD_LBBH = #{zwzgzdLbbh},</if>
+      <if test="zwzgzdPyjm != null">ZWZGZD_PYJM = #{zwzgzdPyjm},</if>
+      <if test="zwzgzdDytmh != null">ZWZGZD_DYTMH = #{zwzgzdDytmh},</if>
+      <if test="zwzgzdSjhm != null">ZWZGZD_SJHM = #{zwzgzdSjhm},</if>
+      <if test="zwzgzdEmail != null">ZWZGZD_EMAIL = #{zwzgzdEmail},</if>
+      <if test="zwzgzdCzybh != null">ZWZGZD_CZYBH = #{zwzgzdCzybh},</if>
+      <if test="zwzgzdXydj != null and zwzgzdXydj != ''">ZWZGZD_XYDJ = #{zwzgzdXydj},</if>
+      <if test="zwzgzdYwy != null and zwzgzdYwy != ''">ZWZGZD_YWY = #{zwzgzdYwy},</if>
+      <if test="zwzgzdSffc != null and zwzgzdSffc != ''">ZWZGZD_SFFC = #{zwzgzdSffc},</if>
+    </trim>
+    where ZWZGZD_ZGBH = #{zwzgzdZgbh}
+  </update>
+
+  <delete id="deleteErpZwzgzdByZwzgzdZgbh" parameterType="String">
+    delete from erp_zwzgzd where ZWZGZD_ZGBH = #{zwzgzdZgbh}
+  </delete>
+
+  <delete id="deleteErpZwzgzdByZwzgzdZgbhs" parameterType="String">
+    delete from erp_zwzgzd where ZWZGZD_ZGBH in
+    <foreach item="zwzgzdZgbh" collection="array" open="(" separator="," close=")">
+      #{zwzgzdZgbh}
+    </foreach>
+  </delete>
+</mapper>
