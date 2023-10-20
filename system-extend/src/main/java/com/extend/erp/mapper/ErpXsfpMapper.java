@@ -106,4 +106,9 @@ public interface ErpXsfpMapper extends BaseMapper<ErpXsfp>
         .eq(erpXsfp.getXsfpFpbh() != null, ErpXsfp::getXsfpFpbh, erpXsfp.getXsfpFpbh())
         .orderByDesc(ErpXsfp::getXsfpDjrq));
   }
+
+  default ErpXsfp getXsfpInfoByFpbh(String fpbh){
+
+    return selectOne(new LambdaQueryWrapper<ErpXsfp>().eq(ErpXsfp::getXsfpFpbh, fpbh));
+  }
 }

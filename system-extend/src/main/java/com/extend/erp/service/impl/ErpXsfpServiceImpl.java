@@ -21,6 +21,9 @@ import com.extend.erp.service.IErpXsfpMxService;
 import com.ruoyi.common.annotation.DataSource;
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.enums.DataSourceType;
+import com.ruoyi.common.exception.ServiceException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,6 +46,9 @@ import com.extend.erp.service.IErpXsfpService;
 @DataSource(value = DataSourceType.SLAVE)
 public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> implements IErpXsfpService
 {
+
+  private static final Logger log = LoggerFactory.getLogger(ErpXsfpServiceImpl.class);
+
   @Autowired
   private ErpXsfpMapper erpXsfpMapper;
 
@@ -184,6 +190,18 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
   @Transactional
   public String importXsfp(List<ErpXsfpImport> xsfpExcelList, Boolean isUpdateSupport, String operName){
 
+    if (StringUtils.isNull(xsfpExcelList) || xsfpExcelList.size() == 0)
+    {
+      throw new ServiceException("导入发票数据不能为空！");
+    }
+
+    //校验导入数据是否合规
+    Map<String, String> importDataCheck = importValidate(xsfpExcelList);
+
+    if(!importDataCheck.get("passed").equals("200")){
+      throw new ServiceException(importDataCheck.get("msg"));
+    }
+
     // 发票list
     List<ErpXsfp> xsfpList = new ArrayList<>(xsfpExcelList.size());
     //发票明细list
@@ -236,13 +254,19 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
       xsfpInfo.setXsfpSpkhmc(customMap.get(xsfpExcel.getXsfpShdkh()).getZwwldwDwmc());
       xsfpInfo.setXsfpFkkh(xsfpExcel.getXsfpShdkh());
       xsfpInfo.setXsfpFkkhmc(customMap.get(xsfpExcel.getXsfpShdkh()).getZwwldwDwmc());
+      xsfpInfo.setXsfpAddr(customMap.get(xsfpExcel.getXsfpShdkh()).getZwwldwAddr());
+      xsfpInfo.setXsfpTele(customMap.get(xsfpExcel.getXsfpShdkh()).getZwwldwTele());
+      xsfpInfo.setXsfpKhh(customMap.get(xsfpExcel.getXsfpShdkh()).getZwwldwKhh());
+      xsfpInfo.setXsfpYhzh(customMap.get(xsfpExcel.getXsfpShdkh()).getZwwldwYhzh());
+      xsfpInfo.setXsfpSh(customMap.get(xsfpExcel.getXsfpShdkh()).getZwwldwSh());
       xsfpInfo.setXsfpRyxm(salesmanMap.get(xsfpExcel.getXsfpRybh()).getZwzgzdZgxm());
       xsfpInfo.setXsfpPjlx("BZCPFP");
       xsfpInfo.setXsfpZbpjlx("BZYW");
-      xsfpInfo.setXsfpFpbh("LD");
+      xsfpInfo.setXsfpFpbz("LD");
       xsfpInfo.setXsfpYwbh("02");
       xsfpInfo.setXsfpZlbh("05");
       xsfpInfo.setXsfpWbbh("RMB");
+      xsfpInfo.setXsfpFwbz("1");
       xsfpList.add(xsfpInfo);
     }
 
@@ -264,12 +288,12 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
     //xsfpList.forEach(this::save);
 
     /*this.saveBatch(xsfpList);
-    xsfpmxService.saveBatch(erpXsfpmxList);*/
+    xsfpmxService.saveBatch(erpXsfpmxList);
 
     //String needSetLs = String.valueOf(fpLsMap.entrySet().stream().reduce((first, second) -> second).get());
 
     //最后一条发票流水
-    /*Map.Entry<String, String> needSetLsMap = fpLsMap.entrySet().stream().reduce((first, second) -> second).get();
+    Map.Entry<String, String> needSetLsMap = fpLsMap.entrySet().stream().reduce((first, second) -> second).get();
     String needSetLs = Convert.toStr(Convert.toInt(needSetLsMap.getValue()) + 1);
     lsnbbm.setLsnbbmDqnm(needSetLs);
     lsnbbmService.updateErpLsnbbm(lsnbbm);*/
@@ -297,9 +321,7 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
     Map<String, ErpZwwldw> customMap = MapUtil.newHashMap();
     List<String> customList = new ArrayList<>();
     List<String> finalCustomList = customList;
-    xsfpExcelList.forEach(fp-> {
-      finalCustomList.add(fp.getXsfpShdkh());
-    });
+    xsfpExcelList.forEach(fp-> finalCustomList.add(fp.getXsfpShdkh()));
 
     customList = CollUtil.distinct(finalCustomList);
 
@@ -307,9 +329,7 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
 
     List<ErpZwwldw> customInfoList = zwwldwService.selectErpZwwldwListByDwbh(customList);
 
-    customInfoList.forEach(custom->{
-      customMap.put(custom.getZwwldwDwbh(), custom);
-    });
+    customInfoList.forEach(custom-> customMap.put(custom.getZwwldwDwbh(), custom));
 
     return customMap;
   }
@@ -318,19 +338,50 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
     Map<String, ErpZwzgzd> salesmanMap = MapUtil.newHashMap();
     List<String> salesmanList = new ArrayList<>();
     List<String> finalSalesmanList = salesmanList;
-    xsfpExcelList.forEach(fp-> {
-      finalSalesmanList.add(fp.getXsfpRybh());
-    });
+    xsfpExcelList.forEach(fp-> finalSalesmanList.add(fp.getXsfpRybh()));
 
     salesmanList = CollUtil.distinct(finalSalesmanList);
 
     List<ErpZwzgzd> salesmanInfoList = zwzgzdService.selectErpZwzgzdListByZgbh(salesmanList);
 
-    salesmanInfoList.forEach(salesman->{
-      salesmanMap.put(salesman.getZwzgzdZgbh(), salesman);
-    });
+    salesmanInfoList.forEach(salesman-> salesmanMap.put(salesman.getZwzgzdZgbh(), salesman));
 
     return salesmanMap;
+  }
+
+  private Map<String, String> importValidate(List<ErpXsfpImport> xsfpExcelList){
+    String returnCode = "200";
+    StringBuilder returnMsg  = new StringBuilder();
+    returnMsg.append("校验结果: ");
+    Map<String, String> checkResult = MapUtil.newHashMap();
+
+    /*获取所有发票编号*/
+    List<String> importBhList = new ArrayList<>();
+    List<String> finalBhList = importBhList;
+    xsfpExcelList.forEach(fp-> finalBhList.add(fp.getXsfpFpbh()));
+
+    importBhList = CollUtil.distinct(finalBhList);
+    /*校验发票编号是否存在*/
+    for (String bh : importBhList){
+      try {
+        //是否存在该编号
+        ErpXsfp xsfp = baseMapper.getXsfpInfoByFpbh(bh);
+        if (StringUtils.isNotNull(xsfp)){
+          String msg = "<br/>" + "发票编号 " + bh + " 已经存在：";
+          returnMsg.append(msg);
+          returnCode = "500";
+        }
+      }catch (Exception e) {
+        /*String msg = "<br/>" + "、发票编号 " + bh + " 已经存在：";
+        returnMsg.append(msg);
+        log.error(msg, e);*/
+      }
+    }
+
+    checkResult.put("passed", returnCode);
+    checkResult.put("msg", returnMsg.toString());
+
+    return checkResult;
   }
 
 }
