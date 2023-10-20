@@ -47,6 +47,11 @@ public class ErpZwzgzdServiceImpl extends ServiceImpl<ErpZwzgzdMapper, ErpZwzgzd
     return erpZwzgzdMapper.selectErpZwzgzdList(erpZwzgzd);
   }
 
+  @Override
+  public List<ErpZwzgzd> selectErpZwzgzdListByZgbh(List<String> zgbhList) {
+    return erpZwzgzdMapper.selectErpZwzgzdList(zgbhList);
+  }
+
   /**
    * 新增人员
    *

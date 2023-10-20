@@ -55,6 +55,9 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
   @Autowired
   private ErpZwwldwServiceImpl zwwldwService;
 
+  @Autowired
+  private ErpZwzgzdServiceImpl zwzgzdService;
+
   /**
    * 查询销售发票
    *
@@ -205,6 +208,8 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
 
     //获取数据中所有客户
     Map<String, ErpZwwldw> customMap = getCustomMap(xsfpExcelList);
+    //获取数据中所有业务员
+    Map<String, ErpZwzgzd> salesmanMap = getSalesmanMap(xsfpExcelList);
 
 
     /*fpInfoList.forEach(xsfpExcel ->{
@@ -231,6 +236,7 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
       xsfpInfo.setXsfpSpkhmc(customMap.get(xsfpExcel.getXsfpShdkh()).getZwwldwDwmc());
       xsfpInfo.setXsfpFkkh(xsfpExcel.getXsfpShdkh());
       xsfpInfo.setXsfpFkkhmc(customMap.get(xsfpExcel.getXsfpShdkh()).getZwwldwDwmc());
+      xsfpInfo.setXsfpRyxm(salesmanMap.get(xsfpExcel.getXsfpRybh()).getZwzgzdZgxm());
       xsfpList.add(xsfpInfo);
     }
 
@@ -300,6 +306,25 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
     });
 
     return customMap;
+  }
+
+  private Map<String, ErpZwzgzd> getSalesmanMap(List<ErpXsfpImport> xsfpExcelList) {
+    Map<String, ErpZwzgzd> salesmanMap = MapUtil.newHashMap();
+    List<String> salesmanList = new ArrayList<>();
+    List<String> finalSalesmanList = salesmanList;
+    xsfpExcelList.forEach(fp-> {
+      finalSalesmanList.add(fp.getXsfpRybh());
+    });
+
+    salesmanList = CollUtil.distinct(finalSalesmanList);
+
+    List<ErpZwzgzd> salesmanInfoList = zwzgzdService.selectErpZwzgzdListByZgbh(salesmanList);
+
+    salesmanInfoList.forEach(salesman->{
+      salesmanMap.put(salesman.getZwzgzdZgbh(), salesman);
+    });
+
+    return salesmanMap;
   }
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.extend.erp.domain.ErpXsfp;
+import com.extend.erp.domain.ErpZwwldw;
 import com.extend.erp.domain.ErpZwzgzd;
 
 /**
@@ -29,6 +30,8 @@ public interface IErpZwzgzdService extends IService<ErpZwzgzd>
    * @return 人员集合
    */
   public List<ErpZwzgzd> selectErpZwzgzdList(ErpZwzgzd erpZwzgzd);
+
+  public List<ErpZwzgzd> selectErpZwzgzdListByZgbh(List<String> zgbhArr);
 
   /**
    * 新增人员
