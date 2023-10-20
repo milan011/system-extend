@@ -2,6 +2,7 @@ package com.extend.erp.service.impl;
 
 import java.util.*;
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.convert.Convert;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.map.MapUtil;
@@ -14,8 +15,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.extend.erp.convert.ErpXsfpConvert;
 import com.extend.erp.convert.ErpXsfpMxConvert;
-import com.extend.erp.domain.ErpLsnbbm;
-import com.extend.erp.domain.ErpXsfpImport;
+import com.extend.erp.domain.*;
 import com.extend.erp.mapper.ErpXsfpMxMapper;
 import com.extend.erp.service.IErpXsfpMxService;
 import com.ruoyi.common.annotation.DataSource;
@@ -30,9 +30,7 @@ import java.util.function.Predicate;
 
 import com.ruoyi.common.utils.StringUtils;
 import org.springframework.transaction.annotation.Transactional;
-import com.extend.erp.domain.ErpXsfpmx;
 import com.extend.erp.mapper.ErpXsfpMapper;
-import com.extend.erp.domain.ErpXsfp;
 import com.extend.erp.service.IErpXsfpService;
 
 /**
@@ -53,6 +51,9 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
 
   @Autowired
   private ErpLsnbbmServiceImpl lsnbbmService;
+
+  @Autowired
+  private ErpZwwldwServiceImpl zwwldwService;
 
   /**
    * 查询销售发票
@@ -203,7 +204,7 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
                  .forEach(fpInfoList::add);
 
     //获取数据中所有客户
-    Map<String, Object> customMap = getCustomMap(xsfpExcelList);
+    Map<String, ErpZwwldw> customMap = getCustomMap(xsfpExcelList);
 
 
     /*fpInfoList.forEach(xsfpExcel ->{
@@ -223,6 +224,13 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
       xsfpInfo.setXsfpShxm(" ");
       xsfpInfo.setXsfpShlc("免审");
       xsfpInfo.setXsfpShrq(currentDate);
+      xsfpInfo.setXsfpShdkhmc(customMap.get(xsfpExcel.getXsfpShdkh()).getZwwldwDwmc());
+      xsfpInfo.setXsfpSodkh(xsfpExcel.getXsfpShdkh());
+      xsfpInfo.setXsfpSodkhmc(customMap.get(xsfpExcel.getXsfpShdkh()).getZwwldwDwmc());
+      xsfpInfo.setXsfpSpkh(xsfpExcel.getXsfpShdkh());
+      xsfpInfo.setXsfpSpkhmc(customMap.get(xsfpExcel.getXsfpShdkh()).getZwwldwDwmc());
+      xsfpInfo.setXsfpFkkh(xsfpExcel.getXsfpShdkh());
+      xsfpInfo.setXsfpFkkhmc(customMap.get(xsfpExcel.getXsfpShdkh()).getZwwldwDwmc());
       xsfpList.add(xsfpInfo);
     }
 
@@ -243,16 +251,16 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
     //xsfpList.forEach(fp-> erpXsfpMapper.insert(fp));
     //xsfpList.forEach(this::save);
 
-    this.saveBatch(xsfpList);
-    xsfpmxService.saveBatch(erpXsfpmxList);
+    /*this.saveBatch(xsfpList);
+    xsfpmxService.saveBatch(erpXsfpmxList);*/
 
     //String needSetLs = String.valueOf(fpLsMap.entrySet().stream().reduce((first, second) -> second).get());
 
     //最后一条发票流水
-    Map.Entry<String, String> needSetLsMap = fpLsMap.entrySet().stream().reduce((first, second) -> second).get();
+    /*Map.Entry<String, String> needSetLsMap = fpLsMap.entrySet().stream().reduce((first, second) -> second).get();
     String needSetLs = Convert.toStr(Convert.toInt(needSetLsMap.getValue()) + 1);
     lsnbbm.setLsnbbmDqnm(needSetLs);
-    lsnbbmService.updateErpLsnbbm(lsnbbm);
+    lsnbbmService.updateErpLsnbbm(lsnbbm);*/
 
     String message = "导入发票成功了";
 
@@ -272,18 +280,23 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
 
   }
 
-  private Map<String, Object> getCustomMap(List<ErpXsfpImport> xsfpExcelList){
+  private Map<String, ErpZwwldw> getCustomMap(List<ErpXsfpImport> xsfpExcelList){
 
-    Map<String, Object> customMap = MapUtil.newHashMap();
-    HashSet<String> customSet = new HashSet<>();
+    Map<String, ErpZwwldw> customMap = MapUtil.newHashMap();
     List<String> customList = new ArrayList<>();
+    List<String> finalCustomList = customList;
     xsfpExcelList.forEach(fp-> {
-      customList.add(fp.getXsfpShdkhmc());
-      customSet.add(fp.getXsfpShdkhmc());
+      finalCustomList.add(fp.getXsfpShdkh());
     });
 
-    customSet.forEach(custom->{
-      System.out.println(custom);
+    customList = CollUtil.distinct(finalCustomList);
+
+    //String[] customArr = Convert.toStrArray(customList);
+
+    List<ErpZwwldw> customInfoList = zwwldwService.selectErpZwwldwListByDwbh(customList);
+
+    customInfoList.forEach(custom->{
+      customMap.put(custom.getZwwldwDwbh(), custom);
     });
 
     return customMap;

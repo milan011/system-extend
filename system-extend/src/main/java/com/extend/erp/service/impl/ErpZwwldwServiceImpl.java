@@ -47,6 +47,11 @@ public class ErpZwwldwServiceImpl extends ServiceImpl<ErpZwwldwMapper, ErpZwwldw
     return erpZwwldwMapper.selectErpZwwldwList(erpZwwldw);
   }
 
+  @Override
+  public List<ErpZwwldw> selectErpZwwldwListByDwbh(List<String> dwbhArr) {
+    return erpZwwldwMapper.selectErpZwwldwListByDwbh(dwbhArr);
+  }
+
   /**
    * 新增往来单位
    *

@@ -18,10 +18,25 @@ public class ErpXsfpImport {
   @Excel(name = "发票种类")
   private String xsfpZlbh;
 
+  /** 客户编号 */
+  @Excel(name = "客户编号")
+  private String xsfpShdkh;
+
+  public String getXsfpShdkh() {
+    return xsfpShdkh;
+  }
+
+  public void setXsfpShdkh(String xsfpShdkh) {
+    this.xsfpShdkh = xsfpShdkh;
+  }
 
   /** 售达客户名称 */
-  @Excel(name = "售达客户名称")
+  @Excel(name = "客户名称")
   private String xsfpShdkhmc;
+
+  /** 人员编号 */
+  @Excel(name = "人员编号")
+  private String xsfpRybh;
 
   /** 部门编号 */
   @Excel(name = "部门编号")
@@ -30,6 +45,14 @@ public class ErpXsfpImport {
   /** 人员姓名 */
   @Excel(name = "人员姓名")
   private String xsfpRyxm;
+
+  public String getXsfpRybh() {
+    return xsfpRybh;
+  }
+
+  public void setXsfpRybh(String xsfpRybh) {
+    this.xsfpRybh = xsfpRybh;
+  }
 
   /** 制单人 */
   @Excel(name = "制单人")

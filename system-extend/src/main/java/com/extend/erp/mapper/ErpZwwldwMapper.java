@@ -2,7 +2,9 @@ package com.extend.erp.mapper;
 
 import java.util.List;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.extend.erp.domain.ErpXsfp;
 import com.extend.erp.domain.ErpXsfpmx;
 import com.extend.erp.domain.ErpZwwldw;
 
@@ -61,4 +63,10 @@ public interface ErpZwwldwMapper extends BaseMapper<ErpZwwldw>
    * @return 结果
    */
   public int deleteErpZwwldwByZwwldwDwbhs(String[] zwwldwDwbhs);
+
+
+  default List<ErpZwwldw> selectErpZwwldwListByDwbh(List<String> dwbhArr){
+    return selectList(new LambdaQueryWrapper<ErpZwwldw>()
+        .in(ErpZwwldw::getZwwldwDwbh, dwbhArr));
+  }
 }

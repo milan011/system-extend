@@ -87,12 +87,12 @@ public class ErpXsfp
     @Excel(name = "")
     private String xsfpSfls;
 
-    /** 售达客户编号 */
-    @Excel(name = "售达客户编号")
+    /** 客户编号 */
+    @Excel(name = "客户编号")
     private String xsfpShdkh;
 
     /** 售达客户名称 */
-    @Excel(name = "售达客户名称")
+    @Excel(name = "客户名称")
     private String xsfpShdkhmc;
 
     /** 送达客户编号 */

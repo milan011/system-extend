@@ -31,6 +31,12 @@ public interface IErpZwwldwService extends IService<ErpZwwldw>
   public List<ErpZwwldw> selectErpZwwldwList(ErpZwwldw erpZwwldw);
 
   /**
+   * 获取往来单位列表-根据编号数组
+   */
+
+  public List<ErpZwwldw> selectErpZwwldwListByDwbh(List<String> dwbhArr);
+
+  /**
    * 新增往来单位
    *
    * @param erpZwwldw 往来单位
