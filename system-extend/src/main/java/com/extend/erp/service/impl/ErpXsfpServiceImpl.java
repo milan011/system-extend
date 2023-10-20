@@ -237,6 +237,12 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
       xsfpInfo.setXsfpFkkh(xsfpExcel.getXsfpShdkh());
       xsfpInfo.setXsfpFkkhmc(customMap.get(xsfpExcel.getXsfpShdkh()).getZwwldwDwmc());
       xsfpInfo.setXsfpRyxm(salesmanMap.get(xsfpExcel.getXsfpRybh()).getZwzgzdZgxm());
+      xsfpInfo.setXsfpPjlx("BZCPFP");
+      xsfpInfo.setXsfpZbpjlx("BZYW");
+      xsfpInfo.setXsfpFpbh("LD");
+      xsfpInfo.setXsfpYwbh("02");
+      xsfpInfo.setXsfpZlbh("05");
+      xsfpInfo.setXsfpWbbh("RMB");
       xsfpList.add(xsfpInfo);
     }
 
