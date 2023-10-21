@@ -102,18 +102,18 @@
       <el-table-column label="单据日期" align="center" prop="xsfpDjrq" />
       <el-table-column label="发票种类" align="center" prop="xsfpZlbh" />
       <el-table-column label="付款客户" align="center" prop="xsfpFkkhmc" />
-      <el-table-column label="部门编号" align="center" prop="xsfpBmbh" />
-      <el-table-column label="人员姓名" align="center" prop="xsfpRyxm" />
-      <el-table-column label="币种" align="center" prop="xsfpWbbh" />
-      <el-table-column label="汇率" align="center" prop="xsfpHl" />
-      <el-table-column label="折扣政策" align="center" prop="xsfpZkzc" />
-      <el-table-column label="单位银行" align="center" prop="xsfpYhbh" />
-      <el-table-column label="到货地点" align="center" prop="xsfpDhdd" />
+      <!--<el-table-column label="部门编号" align="center" prop="xsfpBmbh" />-->
+      <el-table-column label="业务员" align="center" prop="xsfpRyxm" />
+      <!--<el-table-column label="币种" align="center" prop="xsfpWbbh" />-->
+      <!--<el-table-column label="汇率" align="center" prop="xsfpHl" />-->
+      <!--<el-table-column label="折扣政策" align="center" prop="xsfpZkzc" />-->
+      <!--<el-table-column label="单位银行" align="center" prop="xsfpYhbh" />-->
+      <!--<el-table-column label="到货地点" align="center" prop="xsfpDhdd" />-->
       <el-table-column label="客户地址" align="center" prop="xsfpAddr" />
       <el-table-column label="客户电话" align="center" prop="xsfpTele" />
       <el-table-column label="制单人" align="center" prop="xsfpZdxm" />
-      <el-table-column label="记账时间" align="center" prop="xsfpJzsj" />
-      <el-table-column label="审核人" align="center" prop="xsfpShxm" />
+      <!--<el-table-column label="记账时间" align="center" prop="xsfpJzsj" />-->
+      <!--<el-table-column label="审核人" align="center" prop="xsfpShxm" />-->
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template v-slot="scope">
           <el-button

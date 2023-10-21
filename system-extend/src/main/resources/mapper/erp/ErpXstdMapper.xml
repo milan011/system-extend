@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.extend.erp.mapper.ErpXstdMapper">
+    
+    <resultMap type="com.extend.erp.domain.ErpXstd" id="ErpXstdResult">
+        <result property="xstdTdls"    column="XSTD_TDLS"    />
+        <result property="xstdPjlx"    column="XSTD_PJLX"    />
+        <result property="xstdYwbs"    column="XSTD_YWBS"    />
+        <result property="xstdZbpjlx"    column="XSTD_ZBPJLX"    />
+        <result property="xstdTdbh"    column="XSTD_TDBH"    />
+        <result property="xstdDjrq"    column="XSTD_DJRQ"    />
+        <result property="xstdYwrq"    column="XSTD_YWRQ"    />
+        <result property="xstdXgsj"    column="XSTD_XGSJ"    />
+        <result property="xstdQcbz"    column="XSTD_QCBZ"    />
+        <result property="xstdTdbz"    column="XSTD_TDBZ"    />
+        <result property="xstdYwbh"    column="XSTD_YWBH"    />
+        <result property="xstdZlbh"    column="XSTD_ZLBH"    />
+        <result property="xstdShdkh"    column="XSTD_SHDKH"    />
+        <result property="xstdShdkhmc"    column="XSTD_SHDKHMC"    />
+        <result property="xstdSodkh"    column="XSTD_SODKH"    />
+        <result property="xstdSodkhmc"    column="XSTD_SODKHMC"    />
+        <result property="xstdSpkh"    column="XSTD_SPKH"    />
+        <result property="xstdSpkhmc"    column="XSTD_SPKHMC"    />
+        <result property="xstdFkkh"    column="XSTD_FKKH"    />
+        <result property="xstdFkkhmc"    column="XSTD_FKKHMC"    />
+        <result property="xstdAddr"    column="XSTD_ADDR"    />
+        <result property="xstdTele"    column="XSTD_TELE"    />
+        <result property="xstdLxr"    column="XSTD_LXR"    />
+        <result property="xstdBmbh"    column="XSTD_BMBH"    />
+        <result property="xstdRybh"    column="XSTD_RYBH"    />
+        <result property="xstdWbbh"    column="XSTD_WBBH"    />
+        <result property="xstdHl"    column="XSTD_HL"    />
+        <result property="xstdHtbh"    column="XSTD_HTBH"    />
+        <result property="xstdHtls"    column="XSTD_HTLS"    />
+        <result property="xstdZkzc"    column="XSTD_ZKZC"    />
+        <result property="xstdHkrq"    column="XSTD_HKRQ"    />
+        <result property="xstdFsbh"    column="XSTD_FSBH"    />
+        <result property="xstdDhdd"    column="XSTD_DHDD"    />
+        <result property="xstdZdxm"    column="XSTD_ZDXM"    />
+        <result property="xstdJzbz"    column="XSTD_JZBZ"    />
+        <result property="xstdJzsj"    column="XSTD_JZSJ"    />
+        <result property="xstdJzxm"    column="XSTD_JZXM"    />
+        <result property="xstdPznm"    column="XSTD_PZNM"    />
+        <result property="xstdPzrq"    column="XSTD_PZRQ"    />
+        <result property="xstdPzbh"    column="XSTD_PZBH"    />
+        <result property="xstdPznd"    column="XSTD_PZND"    />
+        <result property="xstdSfqr"    column="XSTD_SFQR"    />
+        <result property="xstdSfjz"    column="XSTD_SFJZ"    />
+        <result property="xstdSfqxjz"    column="XSTD_SFQXJZ"    />
+        <result property="xstdSfxg"    column="XSTD_SFXG"    />
+        <result property="xstdSfsc"    column="XSTD_SFSC"    />
+        <result property="xstdSfls"    column="XSTD_SFLS"    />
+        <result property="xstdSfczx"    column="XSTD_SFCZX"    />
+        <result property="xstdSfcdj"    column="XSTD_SFCDJ"    />
+        <result property="xstdDydate"    column="XSTD_DYDATE"    />
+        <result property="xstdDyperson"    column="XSTD_DYPERSON"    />
+        <result property="xstdShlc"    column="XSTD_SHLC"    />
+        <result property="xstdShbz"    column="XSTD_SHBZ"    />
+        <result property="xstdShrq"    column="XSTD_SHRQ"    />
+        <result property="xstdShxm"    column="XSTD_SHXM"    />
+        <result property="xstdC1"    column="XSTD_C1"    />
+        <result property="xstdC2"    column="XSTD_C2"    />
+        <result property="xstdC3"    column="XSTD_C3"    />
+        <result property="xstdC4"    column="XSTD_C4"    />
+        <result property="xstdC5"    column="XSTD_C5"    />
+        <result property="xstdC6"    column="XSTD_C6"    />
+        <result property="xstdC7"    column="XSTD_C7"    />
+        <result property="xstdC8"    column="XSTD_C8"    />
+        <result property="xstdC9"    column="XSTD_C9"    />
+        <result property="xstdC10"    column="XSTD_C10"    />
+        <result property="xstdU1"    column="XSTD_U1"    />
+        <result property="xstdU2"    column="XSTD_U2"    />
+        <result property="xstdU3"    column="XSTD_U3"    />
+        <result property="xstdU4"    column="XSTD_U4"    />
+        <result property="xstdU5"    column="XSTD_U5"    />
+        <result property="xstdU6"    column="XSTD_U6"    />
+        <result property="xstdBz"    column="XSTD_BZ"    />
+        <result property="xstdGsbh"    column="XSTD_GSBH"    />
+        <result property="xstdSybbh"    column="XSTD_SYBBH"    />
+        <result property="xstdPqbh"    column="XSTD_PQBH"    />
+        <result property="xstdGsmc"    column="XSTD_GSMC"    />
+        <result property="xstdGsbhbak"    column="XSTD_GSBHBAK"    />
+        <result property="xstdGsmcbak"    column="XSTD_GSMCBAK"    />
+        <result property="xstdYwmc"    column="XSTD_YWMC"    />
+        <result property="xstdKhbhbak"    column="XSTD_KHBHBAK"    />
+        <result property="xstdKhmcbak"    column="XSTD_KHMCBAK"    />
+        <result property="xstdDzbh"    column="XSTD_DZBH"    />
+        <result property="xstdBmmc"    column="XSTD_BMMC"    />
+        <result property="xstdBmbhbak"    column="XSTD_BMBHBAK"    />
+        <result property="xstdBmmcbak"    column="XSTD_BMMCBAK"    />
+        <result property="xstdRyxm"    column="XSTD_RYXM"    />
+        <result property="xstdRybhbak"    column="XSTD_RYBHBAK"    />
+        <result property="xstdRyxmbak"    column="XSTD_RYXMBAK"    />
+        <result property="xstdCkbh"    column="XSTD_CKBH"    />
+        <result property="xstdCkmc"    column="XSTD_CKMC"    />
+        <result property="xstdSpdx"    column="XSTD_SPDX"    />
+        <result property="xstdDrbs"    column="XSTD_DRBS"    />
+        <result property="xstdHzr"    column="XSTD_HZR"    />
+        <result property="xstdHzrq"    column="XSTD_HZRQ"    />
+    </resultMap>
+
+    <sql id="selectErpXstdVo">
+        select XSTD_TDLS, XSTD_PJLX, XSTD_YWBS, XSTD_ZBPJLX, XSTD_TDBH, XSTD_DJRQ, XSTD_YWRQ, XSTD_XGSJ, XSTD_QCBZ, XSTD_TDBZ, XSTD_YWBH, XSTD_ZLBH, XSTD_SHDKH, XSTD_SHDKHMC, XSTD_SODKH, XSTD_SODKHMC, XSTD_SPKH, XSTD_SPKHMC, XSTD_FKKH, XSTD_FKKHMC, XSTD_ADDR, XSTD_TELE, XSTD_LXR, XSTD_BMBH, XSTD_RYBH, XSTD_WBBH, XSTD_HL, XSTD_HTBH, XSTD_HTLS, XSTD_ZKZC, XSTD_HKRQ, XSTD_FSBH, XSTD_DHDD, XSTD_ZDXM, XSTD_JZBZ, XSTD_JZSJ, XSTD_JZXM, XSTD_PZNM, XSTD_PZRQ, XSTD_PZBH, XSTD_PZND, XSTD_SFQR, XSTD_SFJZ, XSTD_SFQXJZ, XSTD_SFXG, XSTD_SFSC, XSTD_SFLS, XSTD_SFCZX, XSTD_SFCDJ, XSTD_DYDATE, XSTD_DYPERSON, XSTD_SHLC, XSTD_SHBZ, XSTD_SHRQ, XSTD_SHXM, XSTD_C1, XSTD_C2, XSTD_C3, XSTD_C4, XSTD_C5, XSTD_C6, XSTD_C7, XSTD_C8, XSTD_C9, XSTD_C10, XSTD_U1, XSTD_U2, XSTD_U3, XSTD_U4, XSTD_U5, XSTD_U6, XSTD_BZ, XSTD_GSBH, XSTD_SYBBH, XSTD_PQBH, XSTD_GSMC, XSTD_GSBHBAK, XSTD_GSMCBAK, XSTD_YWMC, XSTD_KHBHBAK, XSTD_KHMCBAK, XSTD_DZBH, XSTD_BMMC, XSTD_BMBHBAK, XSTD_BMMCBAK, XSTD_RYXM, XSTD_RYBHBAK, XSTD_RYXMBAK, XSTD_CKBH, XSTD_CKMC, XSTD_SPDX, XSTD_DRBS, XSTD_HZR, XSTD_HZRQ from erp_xstd
+    </sql>
+
+    <select id="selectErpXstdList" parameterType="com.extend.erp.domain.ErpXstd" resultMap="ErpXstdResult">
+        <include refid="selectErpXstdVo"/>
+        <where>  
+            <if test="xstdTdbh != null  and xstdTdbh != ''"> and XSTD_TDBH = #{xstdTdbh}</if>
+            <if test="xstdDjrq != null  and xstdDjrq != ''"> and XSTD_DJRQ = #{xstdDjrq}</if>
+        </where>
+    </select>
+    
+    <select id="selectErpXstdByXstdTdls" parameterType="String" resultMap="ErpXstdResult">
+        <include refid="selectErpXstdVo"/>
+        where XSTD_TDLS = #{xstdTdls}
+    </select>
+        
+    <insert id="insertErpXstd" parameterType="com.extend.erp.domain.ErpXstd">
+        insert into erp_xstd
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="xstdTdls != null">XSTD_TDLS,</if>
+            <if test="xstdPjlx != null">XSTD_PJLX,</if>
+            <if test="xstdYwbs != null">XSTD_YWBS,</if>
+            <if test="xstdZbpjlx != null">XSTD_ZBPJLX,</if>
+            <if test="xstdTdbh != null">XSTD_TDBH,</if>
+            <if test="xstdDjrq != null">XSTD_DJRQ,</if>
+            <if test="xstdYwrq != null">XSTD_YWRQ,</if>
+            <if test="xstdXgsj != null">XSTD_XGSJ,</if>
+            <if test="xstdQcbz != null">XSTD_QCBZ,</if>
+            <if test="xstdTdbz != null">XSTD_TDBZ,</if>
+            <if test="xstdYwbh != null">XSTD_YWBH,</if>
+            <if test="xstdZlbh != null">XSTD_ZLBH,</if>
+            <if test="xstdShdkh != null">XSTD_SHDKH,</if>
+            <if test="xstdShdkhmc != null">XSTD_SHDKHMC,</if>
+            <if test="xstdSodkh != null">XSTD_SODKH,</if>
+            <if test="xstdSodkhmc != null">XSTD_SODKHMC,</if>
+            <if test="xstdSpkh != null">XSTD_SPKH,</if>
+            <if test="xstdSpkhmc != null">XSTD_SPKHMC,</if>
+            <if test="xstdFkkh != null">XSTD_FKKH,</if>
+            <if test="xstdFkkhmc != null">XSTD_FKKHMC,</if>
+            <if test="xstdAddr != null">XSTD_ADDR,</if>
+            <if test="xstdTele != null">XSTD_TELE,</if>
+            <if test="xstdLxr != null">XSTD_LXR,</if>
+            <if test="xstdBmbh != null">XSTD_BMBH,</if>
+            <if test="xstdRybh != null">XSTD_RYBH,</if>
+            <if test="xstdWbbh != null">XSTD_WBBH,</if>
+            <if test="xstdHl != null">XSTD_HL,</if>
+            <if test="xstdHtbh != null">XSTD_HTBH,</if>
+            <if test="xstdHtls != null">XSTD_HTLS,</if>
+            <if test="xstdZkzc != null">XSTD_ZKZC,</if>
+            <if test="xstdHkrq != null">XSTD_HKRQ,</if>
+            <if test="xstdFsbh != null">XSTD_FSBH,</if>
+            <if test="xstdDhdd != null">XSTD_DHDD,</if>
+            <if test="xstdZdxm != null">XSTD_ZDXM,</if>
+            <if test="xstdJzbz != null">XSTD_JZBZ,</if>
+            <if test="xstdJzsj != null">XSTD_JZSJ,</if>
+            <if test="xstdJzxm != null">XSTD_JZXM,</if>
+            <if test="xstdPznm != null">XSTD_PZNM,</if>
+            <if test="xstdPzrq != null">XSTD_PZRQ,</if>
+            <if test="xstdPzbh != null">XSTD_PZBH,</if>
+            <if test="xstdPznd != null">XSTD_PZND,</if>
+            <if test="xstdSfqr != null">XSTD_SFQR,</if>
+            <if test="xstdSfjz != null">XSTD_SFJZ,</if>
+            <if test="xstdSfqxjz != null">XSTD_SFQXJZ,</if>
+            <if test="xstdSfxg != null">XSTD_SFXG,</if>
+            <if test="xstdSfsc != null">XSTD_SFSC,</if>
+            <if test="xstdSfls != null">XSTD_SFLS,</if>
+            <if test="xstdSfczx != null">XSTD_SFCZX,</if>
+            <if test="xstdSfcdj != null">XSTD_SFCDJ,</if>
+            <if test="xstdDydate != null">XSTD_DYDATE,</if>
+            <if test="xstdDyperson != null">XSTD_DYPERSON,</if>
+            <if test="xstdShlc != null">XSTD_SHLC,</if>
+            <if test="xstdShbz != null">XSTD_SHBZ,</if>
+            <if test="xstdShrq != null">XSTD_SHRQ,</if>
+            <if test="xstdShxm != null">XSTD_SHXM,</if>
+            <if test="xstdC1 != null">XSTD_C1,</if>
+            <if test="xstdC2 != null">XSTD_C2,</if>
+            <if test="xstdC3 != null">XSTD_C3,</if>
+            <if test="xstdC4 != null">XSTD_C4,</if>
+            <if test="xstdC5 != null">XSTD_C5,</if>
+            <if test="xstdC6 != null">XSTD_C6,</if>
+            <if test="xstdC7 != null">XSTD_C7,</if>
+            <if test="xstdC8 != null">XSTD_C8,</if>
+            <if test="xstdC9 != null">XSTD_C9,</if>
+            <if test="xstdC10 != null">XSTD_C10,</if>
+            <if test="xstdU1 != null">XSTD_U1,</if>
+            <if test="xstdU2 != null">XSTD_U2,</if>
+            <if test="xstdU3 != null">XSTD_U3,</if>
+            <if test="xstdU4 != null">XSTD_U4,</if>
+            <if test="xstdU5 != null">XSTD_U5,</if>
+            <if test="xstdU6 != null">XSTD_U6,</if>
+            <if test="xstdBz != null">XSTD_BZ,</if>
+            <if test="xstdGsbh != null">XSTD_GSBH,</if>
+            <if test="xstdSybbh != null">XSTD_SYBBH,</if>
+            <if test="xstdPqbh != null">XSTD_PQBH,</if>
+            <if test="xstdGsmc != null">XSTD_GSMC,</if>
+            <if test="xstdGsbhbak != null">XSTD_GSBHBAK,</if>
+            <if test="xstdGsmcbak != null">XSTD_GSMCBAK,</if>
+            <if test="xstdYwmc != null">XSTD_YWMC,</if>
+            <if test="xstdKhbhbak != null">XSTD_KHBHBAK,</if>
+            <if test="xstdKhmcbak != null">XSTD_KHMCBAK,</if>
+            <if test="xstdDzbh != null">XSTD_DZBH,</if>
+            <if test="xstdBmmc != null">XSTD_BMMC,</if>
+            <if test="xstdBmbhbak != null">XSTD_BMBHBAK,</if>
+            <if test="xstdBmmcbak != null">XSTD_BMMCBAK,</if>
+            <if test="xstdRyxm != null">XSTD_RYXM,</if>
+            <if test="xstdRybhbak != null">XSTD_RYBHBAK,</if>
+            <if test="xstdRyxmbak != null">XSTD_RYXMBAK,</if>
+            <if test="xstdCkbh != null">XSTD_CKBH,</if>
+            <if test="xstdCkmc != null">XSTD_CKMC,</if>
+            <if test="xstdSpdx != null">XSTD_SPDX,</if>
+            <if test="xstdDrbs != null">XSTD_DRBS,</if>
+            <if test="xstdHzr != null">XSTD_HZR,</if>
+            <if test="xstdHzrq != null">XSTD_HZRQ,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="xstdTdls != null">#{xstdTdls},</if>
+            <if test="xstdPjlx != null">#{xstdPjlx},</if>
+            <if test="xstdYwbs != null">#{xstdYwbs},</if>
+            <if test="xstdZbpjlx != null">#{xstdZbpjlx},</if>
+            <if test="xstdTdbh != null">#{xstdTdbh},</if>
+            <if test="xstdDjrq != null">#{xstdDjrq},</if>
+            <if test="xstdYwrq != null">#{xstdYwrq},</if>
+            <if test="xstdXgsj != null">#{xstdXgsj},</if>
+            <if test="xstdQcbz != null">#{xstdQcbz},</if>
+            <if test="xstdTdbz != null">#{xstdTdbz},</if>
+            <if test="xstdYwbh != null">#{xstdYwbh},</if>
+            <if test="xstdZlbh != null">#{xstdZlbh},</if>
+            <if test="xstdShdkh != null">#{xstdShdkh},</if>
+            <if test="xstdShdkhmc != null">#{xstdShdkhmc},</if>
+            <if test="xstdSodkh != null">#{xstdSodkh},</if>
+            <if test="xstdSodkhmc != null">#{xstdSodkhmc},</if>
+            <if test="xstdSpkh != null">#{xstdSpkh},</if>
+            <if test="xstdSpkhmc != null">#{xstdSpkhmc},</if>
+            <if test="xstdFkkh != null">#{xstdFkkh},</if>
+            <if test="xstdFkkhmc != null">#{xstdFkkhmc},</if>
+            <if test="xstdAddr != null">#{xstdAddr},</if>
+            <if test="xstdTele != null">#{xstdTele},</if>
+            <if test="xstdLxr != null">#{xstdLxr},</if>
+            <if test="xstdBmbh != null">#{xstdBmbh},</if>
+            <if test="xstdRybh != null">#{xstdRybh},</if>
+            <if test="xstdWbbh != null">#{xstdWbbh},</if>
+            <if test="xstdHl != null">#{xstdHl},</if>
+            <if test="xstdHtbh != null">#{xstdHtbh},</if>
+            <if test="xstdHtls != null">#{xstdHtls},</if>
+            <if test="xstdZkzc != null">#{xstdZkzc},</if>
+            <if test="xstdHkrq != null">#{xstdHkrq},</if>
+            <if test="xstdFsbh != null">#{xstdFsbh},</if>
+            <if test="xstdDhdd != null">#{xstdDhdd},</if>
+            <if test="xstdZdxm != null">#{xstdZdxm},</if>
+            <if test="xstdJzbz != null">#{xstdJzbz},</if>
+            <if test="xstdJzsj != null">#{xstdJzsj},</if>
+            <if test="xstdJzxm != null">#{xstdJzxm},</if>
+            <if test="xstdPznm != null">#{xstdPznm},</if>
+            <if test="xstdPzrq != null">#{xstdPzrq},</if>
+            <if test="xstdPzbh != null">#{xstdPzbh},</if>
+            <if test="xstdPznd != null">#{xstdPznd},</if>
+            <if test="xstdSfqr != null">#{xstdSfqr},</if>
+            <if test="xstdSfjz != null">#{xstdSfjz},</if>
+            <if test="xstdSfqxjz != null">#{xstdSfqxjz},</if>
+            <if test="xstdSfxg != null">#{xstdSfxg},</if>
+            <if test="xstdSfsc != null">#{xstdSfsc},</if>
+            <if test="xstdSfls != null">#{xstdSfls},</if>
+            <if test="xstdSfczx != null">#{xstdSfczx},</if>
+            <if test="xstdSfcdj != null">#{xstdSfcdj},</if>
+            <if test="xstdDydate != null">#{xstdDydate},</if>
+            <if test="xstdDyperson != null">#{xstdDyperson},</if>
+            <if test="xstdShlc != null">#{xstdShlc},</if>
+            <if test="xstdShbz != null">#{xstdShbz},</if>
+            <if test="xstdShrq != null">#{xstdShrq},</if>
+            <if test="xstdShxm != null">#{xstdShxm},</if>
+            <if test="xstdC1 != null">#{xstdC1},</if>
+            <if test="xstdC2 != null">#{xstdC2},</if>
+            <if test="xstdC3 != null">#{xstdC3},</if>
+            <if test="xstdC4 != null">#{xstdC4},</if>
+            <if test="xstdC5 != null">#{xstdC5},</if>
+            <if test="xstdC6 != null">#{xstdC6},</if>
+            <if test="xstdC7 != null">#{xstdC7},</if>
+            <if test="xstdC8 != null">#{xstdC8},</if>
+            <if test="xstdC9 != null">#{xstdC9},</if>
+            <if test="xstdC10 != null">#{xstdC10},</if>
+            <if test="xstdU1 != null">#{xstdU1},</if>
+            <if test="xstdU2 != null">#{xstdU2},</if>
+            <if test="xstdU3 != null">#{xstdU3},</if>
+            <if test="xstdU4 != null">#{xstdU4},</if>
+            <if test="xstdU5 != null">#{xstdU5},</if>
+            <if test="xstdU6 != null">#{xstdU6},</if>
+            <if test="xstdBz != null">#{xstdBz},</if>
+            <if test="xstdGsbh != null">#{xstdGsbh},</if>
+            <if test="xstdSybbh != null">#{xstdSybbh},</if>
+            <if test="xstdPqbh != null">#{xstdPqbh},</if>
+            <if test="xstdGsmc != null">#{xstdGsmc},</if>
+            <if test="xstdGsbhbak != null">#{xstdGsbhbak},</if>
+            <if test="xstdGsmcbak != null">#{xstdGsmcbak},</if>
+            <if test="xstdYwmc != null">#{xstdYwmc},</if>
+            <if test="xstdKhbhbak != null">#{xstdKhbhbak},</if>
+            <if test="xstdKhmcbak != null">#{xstdKhmcbak},</if>
+            <if test="xstdDzbh != null">#{xstdDzbh},</if>
+            <if test="xstdBmmc != null">#{xstdBmmc},</if>
+            <if test="xstdBmbhbak != null">#{xstdBmbhbak},</if>
+            <if test="xstdBmmcbak != null">#{xstdBmmcbak},</if>
+            <if test="xstdRyxm != null">#{xstdRyxm},</if>
+            <if test="xstdRybhbak != null">#{xstdRybhbak},</if>
+            <if test="xstdRyxmbak != null">#{xstdRyxmbak},</if>
+            <if test="xstdCkbh != null">#{xstdCkbh},</if>
+            <if test="xstdCkmc != null">#{xstdCkmc},</if>
+            <if test="xstdSpdx != null">#{xstdSpdx},</if>
+            <if test="xstdDrbs != null">#{xstdDrbs},</if>
+            <if test="xstdHzr != null">#{xstdHzr},</if>
+            <if test="xstdHzrq != null">#{xstdHzrq},</if>
+         </trim>
+    </insert>
+
+    <update id="updateErpXstd" parameterType="com.extend.erp.domain.ErpXstd">
+        update erp_xstd
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="xstdPjlx != null">XSTD_PJLX = #{xstdPjlx},</if>
+            <if test="xstdYwbs != null">XSTD_YWBS = #{xstdYwbs},</if>
+            <if test="xstdZbpjlx != null">XSTD_ZBPJLX = #{xstdZbpjlx},</if>
+            <if test="xstdTdbh != null">XSTD_TDBH = #{xstdTdbh},</if>
+            <if test="xstdDjrq != null">XSTD_DJRQ = #{xstdDjrq},</if>
+            <if test="xstdYwrq != null">XSTD_YWRQ = #{xstdYwrq},</if>
+            <if test="xstdXgsj != null">XSTD_XGSJ = #{xstdXgsj},</if>
+            <if test="xstdQcbz != null">XSTD_QCBZ = #{xstdQcbz},</if>
+            <if test="xstdTdbz != null">XSTD_TDBZ = #{xstdTdbz},</if>
+            <if test="xstdYwbh != null">XSTD_YWBH = #{xstdYwbh},</if>
+            <if test="xstdZlbh != null">XSTD_ZLBH = #{xstdZlbh},</if>
+            <if test="xstdShdkh != null">XSTD_SHDKH = #{xstdShdkh},</if>
+            <if test="xstdShdkhmc != null">XSTD_SHDKHMC = #{xstdShdkhmc},</if>
+            <if test="xstdSodkh != null">XSTD_SODKH = #{xstdSodkh},</if>
+            <if test="xstdSodkhmc != null">XSTD_SODKHMC = #{xstdSodkhmc},</if>
+            <if test="xstdSpkh != null">XSTD_SPKH = #{xstdSpkh},</if>
+            <if test="xstdSpkhmc != null">XSTD_SPKHMC = #{xstdSpkhmc},</if>
+            <if test="xstdFkkh != null">XSTD_FKKH = #{xstdFkkh},</if>
+            <if test="xstdFkkhmc != null">XSTD_FKKHMC = #{xstdFkkhmc},</if>
+            <if test="xstdAddr != null">XSTD_ADDR = #{xstdAddr},</if>
+            <if test="xstdTele != null">XSTD_TELE = #{xstdTele},</if>
+            <if test="xstdLxr != null">XSTD_LXR = #{xstdLxr},</if>
+            <if test="xstdBmbh != null">XSTD_BMBH = #{xstdBmbh},</if>
+            <if test="xstdRybh != null">XSTD_RYBH = #{xstdRybh},</if>
+            <if test="xstdWbbh != null">XSTD_WBBH = #{xstdWbbh},</if>
+            <if test="xstdHl != null">XSTD_HL = #{xstdHl},</if>
+            <if test="xstdHtbh != null">XSTD_HTBH = #{xstdHtbh},</if>
+            <if test="xstdHtls != null">XSTD_HTLS = #{xstdHtls},</if>
+            <if test="xstdZkzc != null">XSTD_ZKZC = #{xstdZkzc},</if>
+            <if test="xstdHkrq != null">XSTD_HKRQ = #{xstdHkrq},</if>
+            <if test="xstdFsbh != null">XSTD_FSBH = #{xstdFsbh},</if>
+            <if test="xstdDhdd != null">XSTD_DHDD = #{xstdDhdd},</if>
+            <if test="xstdZdxm != null">XSTD_ZDXM = #{xstdZdxm},</if>
+            <if test="xstdJzbz != null">XSTD_JZBZ = #{xstdJzbz},</if>
+            <if test="xstdJzsj != null">XSTD_JZSJ = #{xstdJzsj},</if>
+            <if test="xstdJzxm != null">XSTD_JZXM = #{xstdJzxm},</if>
+            <if test="xstdPznm != null">XSTD_PZNM = #{xstdPznm},</if>
+            <if test="xstdPzrq != null">XSTD_PZRQ = #{xstdPzrq},</if>
+            <if test="xstdPzbh != null">XSTD_PZBH = #{xstdPzbh},</if>
+            <if test="xstdPznd != null">XSTD_PZND = #{xstdPznd},</if>
+            <if test="xstdSfqr != null">XSTD_SFQR = #{xstdSfqr},</if>
+            <if test="xstdSfjz != null">XSTD_SFJZ = #{xstdSfjz},</if>
+            <if test="xstdSfqxjz != null">XSTD_SFQXJZ = #{xstdSfqxjz},</if>
+            <if test="xstdSfxg != null">XSTD_SFXG = #{xstdSfxg},</if>
+            <if test="xstdSfsc != null">XSTD_SFSC = #{xstdSfsc},</if>
+            <if test="xstdSfls != null">XSTD_SFLS = #{xstdSfls},</if>
+            <if test="xstdSfczx != null">XSTD_SFCZX = #{xstdSfczx},</if>
+            <if test="xstdSfcdj != null">XSTD_SFCDJ = #{xstdSfcdj},</if>
+            <if test="xstdDydate != null">XSTD_DYDATE = #{xstdDydate},</if>
+            <if test="xstdDyperson != null">XSTD_DYPERSON = #{xstdDyperson},</if>
+            <if test="xstdShlc != null">XSTD_SHLC = #{xstdShlc},</if>
+            <if test="xstdShbz != null">XSTD_SHBZ = #{xstdShbz},</if>
+            <if test="xstdShrq != null">XSTD_SHRQ = #{xstdShrq},</if>
+            <if test="xstdShxm != null">XSTD_SHXM = #{xstdShxm},</if>
+            <if test="xstdC1 != null">XSTD_C1 = #{xstdC1},</if>
+            <if test="xstdC2 != null">XSTD_C2 = #{xstdC2},</if>
+            <if test="xstdC3 != null">XSTD_C3 = #{xstdC3},</if>
+            <if test="xstdC4 != null">XSTD_C4 = #{xstdC4},</if>
+            <if test="xstdC5 != null">XSTD_C5 = #{xstdC5},</if>
+            <if test="xstdC6 != null">XSTD_C6 = #{xstdC6},</if>
+            <if test="xstdC7 != null">XSTD_C7 = #{xstdC7},</if>
+            <if test="xstdC8 != null">XSTD_C8 = #{xstdC8},</if>
+            <if test="xstdC9 != null">XSTD_C9 = #{xstdC9},</if>
+            <if test="xstdC10 != null">XSTD_C10 = #{xstdC10},</if>
+            <if test="xstdU1 != null">XSTD_U1 = #{xstdU1},</if>
+            <if test="xstdU2 != null">XSTD_U2 = #{xstdU2},</if>
+            <if test="xstdU3 != null">XSTD_U3 = #{xstdU3},</if>
+            <if test="xstdU4 != null">XSTD_U4 = #{xstdU4},</if>
+            <if test="xstdU5 != null">XSTD_U5 = #{xstdU5},</if>
+            <if test="xstdU6 != null">XSTD_U6 = #{xstdU6},</if>
+            <if test="xstdBz != null">XSTD_BZ = #{xstdBz},</if>
+            <if test="xstdGsbh != null">XSTD_GSBH = #{xstdGsbh},</if>
+            <if test="xstdSybbh != null">XSTD_SYBBH = #{xstdSybbh},</if>
+            <if test="xstdPqbh != null">XSTD_PQBH = #{xstdPqbh},</if>
+            <if test="xstdGsmc != null">XSTD_GSMC = #{xstdGsmc},</if>
+            <if test="xstdGsbhbak != null">XSTD_GSBHBAK = #{xstdGsbhbak},</if>
+            <if test="xstdGsmcbak != null">XSTD_GSMCBAK = #{xstdGsmcbak},</if>
+            <if test="xstdYwmc != null">XSTD_YWMC = #{xstdYwmc},</if>
+            <if test="xstdKhbhbak != null">XSTD_KHBHBAK = #{xstdKhbhbak},</if>
+            <if test="xstdKhmcbak != null">XSTD_KHMCBAK = #{xstdKhmcbak},</if>
+            <if test="xstdDzbh != null">XSTD_DZBH = #{xstdDzbh},</if>
+            <if test="xstdBmmc != null">XSTD_BMMC = #{xstdBmmc},</if>
+            <if test="xstdBmbhbak != null">XSTD_BMBHBAK = #{xstdBmbhbak},</if>
+            <if test="xstdBmmcbak != null">XSTD_BMMCBAK = #{xstdBmmcbak},</if>
+            <if test="xstdRyxm != null">XSTD_RYXM = #{xstdRyxm},</if>
+            <if test="xstdRybhbak != null">XSTD_RYBHBAK = #{xstdRybhbak},</if>
+            <if test="xstdRyxmbak != null">XSTD_RYXMBAK = #{xstdRyxmbak},</if>
+            <if test="xstdCkbh != null">XSTD_CKBH = #{xstdCkbh},</if>
+            <if test="xstdCkmc != null">XSTD_CKMC = #{xstdCkmc},</if>
+            <if test="xstdSpdx != null">XSTD_SPDX = #{xstdSpdx},</if>
+            <if test="xstdDrbs != null">XSTD_DRBS = #{xstdDrbs},</if>
+            <if test="xstdHzr != null">XSTD_HZR = #{xstdHzr},</if>
+            <if test="xstdHzrq != null">XSTD_HZRQ = #{xstdHzrq},</if>
+        </trim>
+        where XSTD_TDLS = #{xstdTdls}
+    </update>
+
+    <delete id="deleteErpXstdByXstdTdls" parameterType="String">
+        delete from erp_xstd where XSTD_TDLS = #{xstdTdls}
+    </delete>
+
+    <delete id="deleteErpXstdByXstdTdlss" parameterType="String">
+        delete from erp_xstd where XSTD_TDLS in 
+        <foreach item="xstdTdls" collection="array" open="(" separator="," close=")">
+            #{xstdTdls}
+        </foreach>
+    </delete>
+</mapper>

@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.extend.erp.mapper.ErpXstdmxMapper">
+    
+    <resultMap type="com.extend.erp.domain.ErpXstdmx" id="ErpXstdmxResult">
+        <result property="xstdmxTdls"    column="XSTDMX_TDLS"    />
+        <result property="xstdmxTdfl"    column="XSTDMX_TDFL"    />
+        <result property="xstdmxXsxh"    column="XSTDMX_XSXH"    />
+        <result property="xstdmxFllx"    column="XSTDMX_FLLX"    />
+        <result property="xstdmxFlly"    column="XSTDMX_FLLY"    />
+        <result property="xstdmxKcfs"    column="XSTDMX_KCFS"    />
+        <result property="xstdmxDdls"    column="XSTDMX_DDLS"    />
+        <result property="xstdmxDdfl"    column="XSTDMX_DDFL"    />
+        <result property="xstdmxDdbh"    column="XSTDMX_DDBH"    />
+        <result property="xstdmxYtdls"    column="XSTDMX_YTDLS"    />
+        <result property="xstdmxYtdfl"    column="XSTDMX_YTDFL"    />
+        <result property="xstdmxYtdbh"    column="XSTDMX_YTDBH"    />
+        <result property="xstdmxHtls"    column="XSTDMX_HTLS"    />
+        <result property="xstdmxHtfl"    column="XSTDMX_HTFL"    />
+        <result property="xstdmxJhrq"    column="XSTDMX_JHRQ"    />
+        <result property="xstdmxCkbh"    column="XSTDMX_CKBH"    />
+        <result property="xstdmxWlbh"    column="XSTDMX_WLBH"    />
+        <result property="xstdmxPch"    column="XSTDMX_PCH"    />
+        <result property="xstdmxHwbh"    column="XSTDMX_HWBH"    />
+        <result property="xstdmxZyx1"    column="XSTDMX_ZYX1"    />
+        <result property="xstdmxZyx2"    column="XSTDMX_ZYX2"    />
+        <result property="xstdmxZyx3"    column="XSTDMX_ZYX3"    />
+        <result property="xstdmxZyx4"    column="XSTDMX_ZYX4"    />
+        <result property="xstdmxZyx5"    column="XSTDMX_ZYX5"    />
+        <result property="xstdmxWlzt"    column="XSTDMX_WLZT"    />
+        <result property="xstdmxWlbz"    column="XSTDMX_WLBZ"    />
+        <result property="xstdmxZsl"    column="XSTDMX_ZSL"    />
+        <result property="xstdmxFsl1"    column="XSTDMX_FSL1"    />
+        <result property="xstdmxFsl2"    column="XSTDMX_FSL2"    />
+        <result property="xstdmxYzhsj"    column="XSTDMX_YZHSJ"    />
+        <result property="xstdmxBzhsj"    column="XSTDMX_BZHSJ"    />
+        <result property="xstdmxYzxsj"    column="XSTDMX_YZXSJ"    />
+        <result property="xstdmxBzxsj"    column="XSTDMX_BZXSJ"    />
+        <result property="xstdmxSl"    column="XSTDMX_SL"    />
+        <result property="xstdmxYxse"    column="XSTDMX_YXSE"    />
+        <result property="xstdmxBxse"    column="XSTDMX_BXSE"    />
+        <result property="xstdmxYse"    column="XSTDMX_YSE"    />
+        <result property="xstdmxBse"    column="XSTDMX_BSE"    />
+        <result property="xstdmxYhse"    column="XSTDMX_YHSE"    />
+        <result property="xstdmxBhse"    column="XSTDMX_BHSE"    />
+        <result property="xstdmxDbzkbl"    column="XSTDMX_DBZKBL"    />
+        <result property="xstdmxZezkbl"    column="XSTDMX_ZEZKBL"    />
+        <result property="xstdmxYzkje"    column="XSTDMX_YZKJE"    />
+        <result property="xstdmxBzkje"    column="XSTDMX_BZKJE"    />
+        <result property="xstdmxYzsl"    column="XSTDMX_YZSL"    />
+        <result property="xstdmxYfsl"    column="XSTDMX_YFSL"    />
+        <result property="xstdmxYfsl1"    column="XSTDMX_YFSL1"    />
+        <result property="xstdmxYfsl2"    column="XSTDMX_YFSL2"    />
+        <result property="xstdmxSffy"    column="XSTDMX_SFFY"    />
+        <result property="xstdmxSfkp"    column="XSTDMX_SFKP"    />
+        <result property="xstdmxKpbz"    column="XSTDMX_KPBZ"    />
+        <result property="xstdmxKpsl"    column="XSTDMX_KPSL"    />
+        <result property="xstdmxKpfsl1"    column="XSTDMX_KPFSL1"    />
+        <result property="xstdmxKpfsl2"    column="XSTDMX_KPFSL2"    />
+        <result property="xstdmxYkpe"    column="XSTDMX_YKPE"    />
+        <result property="xstdmxBkpe"    column="XSTDMX_BKPE"    />
+        <result property="xstdmxSfck"    column="XSTDMX_SFCK"    />
+        <result property="xstdmxCkbz"    column="XSTDMX_CKBZ"    />
+        <result property="xstdmxCksl"    column="XSTDMX_CKSL"    />
+        <result property="xstdmxCkfsl1"    column="XSTDMX_CKFSL1"    />
+        <result property="xstdmxCkfsl2"    column="XSTDMX_CKFSL2"    />
+        <result property="xstdmxThsl"    column="XSTDMX_THSL"    />
+        <result property="xstdmxThfsl1"    column="XSTDMX_THFSL1"    />
+        <result property="xstdmxThfsl2"    column="XSTDMX_THFSL2"    />
+        <result property="xstdmxBhsl"    column="XSTDMX_BHSL"    />
+        <result property="xstdmxBhfsl1"    column="XSTDMX_BHFSL1"    />
+        <result property="xstdmxBhfsl2"    column="XSTDMX_BHFSL2"    />
+        <result property="xstdmxSfth"    column="XSTDMX_SFTH"    />
+        <result property="xstdmxThbz"    column="XSTDMX_THBZ"    />
+        <result property="xstdmxKcyl"    column="XSTDMX_KCYL"    />
+        <result property="xstdmxDdkcyl"    column="XSTDMX_DDKCYL"    />
+        <result property="xstdmxC1"    column="XSTDMX_C1"    />
+        <result property="xstdmxC2"    column="XSTDMX_C2"    />
+        <result property="xstdmxC3"    column="XSTDMX_C3"    />
+        <result property="xstdmxC4"    column="XSTDMX_C4"    />
+        <result property="xstdmxC5"    column="XSTDMX_C5"    />
+        <result property="xstdmxC6"    column="XSTDMX_C6"    />
+        <result property="xstdmxC7"    column="XSTDMX_C7"    />
+        <result property="xstdmxC8"    column="XSTDMX_C8"    />
+        <result property="xstdmxC9"    column="XSTDMX_C9"    />
+        <result property="xstdmxC10"    column="XSTDMX_C10"    />
+        <result property="xstdmxU1"    column="XSTDMX_U1"    />
+        <result property="xstdmxU2"    column="XSTDMX_U2"    />
+        <result property="xstdmxU3"    column="XSTDMX_U3"    />
+        <result property="xstdmxU4"    column="XSTDMX_U4"    />
+        <result property="xstdmxU5"    column="XSTDMX_U5"    />
+        <result property="xstdmxU6"    column="XSTDMX_U6"    />
+        <result property="xstdmxDqzk"    column="XSTDMX_DQZK"    />
+        <result property="xstdmxYjbz"    column="XSTDMX_YJBZ"    />
+        <result property="xstdmxYlzsl"    column="XSTDMX_YLZSL"    />
+        <result property="xstdmxYlfsl1"    column="XSTDMX_YLFSL1"    />
+        <result property="xstdmxYlfsl2"    column="XSTDMX_YLFSL2"    />
+        <result property="xstdmxYhzsl"    column="XSTDMX_YHZSL"    />
+        <result property="xstdmxYhfsl1"    column="XSTDMX_YHFSL1"    />
+        <result property="xstdmxYhfsl2"    column="XSTDMX_YHFSL2"    />
+        <result property="xstdmxYstdls"    column="XSTDMX_YSTDLS"    />
+        <result property="xstdmxYstdfl"    column="XSTDMX_YSTDFL"    />
+        <result property="xstdmxLzrq"    column="XSTDMX_LZRQ"    />
+        <result property="xstdmxYhkrq"    column="XSTDMX_YHKRQ"    />
+        <result property="xstdmxZxpdyj"    column="XSTDMX_ZXPDYJ"    />
+        <result property="xstdmxZxtszc"    column="XSTDMX_ZXTSZC"    />
+        <result property="xstdmxYywrq"    column="XSTDMX_YYWRQ"    />
+        <result property="xstdmxDczsl"    column="XSTDMX_DCZSL"    />
+        <result property="xstdmxDcfsl1"    column="XSTDMX_DCFSL1"    />
+        <result property="xstdmxDcfsl2"    column="XSTDMX_DCFSL2"    />
+        <result property="xstdmxYdce"    column="XSTDMX_YDCE"    />
+        <result property="xstdmxBdce"    column="XSTDMX_BDCE"    />
+        <result property="xstdmxSfhk"    column="XSTDMX_SFHK"    />
+        <result property="xstdmxHkbz"    column="XSTDMX_HKBZ"    />
+        <result property="xstdmxHksl"    column="XSTDMX_HKSL"    />
+        <result property="xstdmxYhke"    column="XSTDMX_YHKE"    />
+        <result property="xstdmxBhke"    column="XSTDMX_BHKE"    />
+        <result property="xstdmxHkfsl1"    column="XSTDMX_HKFSL1"    />
+        <result property="xstdmxHkfsl2"    column="XSTDMX_HKFSL2"    />
+        <result property="xstdmxYkpce"    column="XSTDMX_YKPCE"    />
+        <result property="xstdmxBkpce"    column="XSTDMX_BKPCE"    />
+        <result property="xstdmxYcehxe"    column="XSTDMX_YCEHXE"    />
+        <result property="xstdmxBcehxe"    column="XSTDMX_BCEHXE"    />
+        <result property="xstdmxBcyhsl"    column="XSTDMX_BCYHSL"    />
+        <result property="xstdmxPhhz"    column="XSTDMX_PHHZ"    />
+        <result property="xstdmxJgys"    column="XSTDMX_JGYS"    />
+        <result property="xstdmxJgzc"    column="XSTDMX_JGZC"    />
+        <result property="xstdmxGbsl"    column="XSTDMX_GBSL"    />
+        <result property="xstdmxCzyc"    column="XSTDMX_CZYC"    />
+        <result property="xstdmxSfzj"    column="XSTDMX_SFZJ"    />
+        <result property="xstdmxJssl"    column="XSTDMX_JSSL"    />
+        <result property="xstdmxFjssl1"    column="XSTDMX_FJSSL1"    />
+        <result property="xstdmxFjssl2"    column="XSTDMX_FJSSL2"    />
+        <result property="xstdmxZjzt"    column="XSTDMX_ZJZT"    />
+        <result property="xstdmxBgdh"    column="XSTDMX_BGDH"    />
+        <result property="xstdmxFpsl"    column="XSTDMX_FPSL"    />
+        <result property="xstdmxBgsl"    column="XSTDMX_BGSL"    />
+        <result property="xstdmxWlbhbak"    column="XSTDMX_WLBHBAK"    />
+        <result property="xstdmxHzt"    column="XSTDMX_HZT"    />
+        <result property="xstdmxHzbz"    column="XSTDMX_HZBZ"    />
+        <result property="xstdmxHzr"    column="XSTDMX_HZR"    />
+        <result property="xstdmxHzrq"    column="XSTDMX_HZRQ"    />
+        <result property="xstdmxShhhz"    column="XSTDMX_SHHHZ"    />
+        <result property="xstdmxShhrq"    column="XSTDMX_SHHRQ"    />
+        <result property="xstdmxShhbh"    column="XSTDMX_SHHBH"    />
+        <result property="xstdmxMode"    column="XSTDMX_MODE"    />
+        <result property="xstdmxTcksl"    column="XSTDMX_TCKSL"    />
+        <result property="xstdmxTckfsl1"    column="XSTDMX_TCKFSL1"    />
+        <result property="xstdmxTckfsl2"    column="XSTDMX_TCKFSL2"    />
+    </resultMap>
+
+    <sql id="selectErpXstdmxVo">
+        select XSTDMX_TDLS, XSTDMX_TDFL, XSTDMX_XSXH, XSTDMX_FLLX, XSTDMX_FLLY, XSTDMX_KCFS, XSTDMX_DDLS, XSTDMX_DDFL, XSTDMX_DDBH, XSTDMX_YTDLS, XSTDMX_YTDFL, XSTDMX_YTDBH, XSTDMX_HTLS, XSTDMX_HTFL, XSTDMX_JHRQ, XSTDMX_CKBH, XSTDMX_WLBH, XSTDMX_PCH, XSTDMX_HWBH, XSTDMX_ZYX1, XSTDMX_ZYX2, XSTDMX_ZYX3, XSTDMX_ZYX4, XSTDMX_ZYX5, XSTDMX_WLZT, XSTDMX_WLBZ, XSTDMX_ZSL, XSTDMX_FSL1, XSTDMX_FSL2, XSTDMX_YZHSJ, XSTDMX_BZHSJ, XSTDMX_YZXSJ, XSTDMX_BZXSJ, XSTDMX_SL, XSTDMX_YXSE, XSTDMX_BXSE, XSTDMX_YSE, XSTDMX_BSE, XSTDMX_YHSE, XSTDMX_BHSE, XSTDMX_DBZKBL, XSTDMX_ZEZKBL, XSTDMX_YZKJE, XSTDMX_BZKJE, XSTDMX_YZSL, XSTDMX_YFSL, XSTDMX_YFSL1, XSTDMX_YFSL2, XSTDMX_SFFY, XSTDMX_SFKP, XSTDMX_KPBZ, XSTDMX_KPSL, XSTDMX_KPFSL1, XSTDMX_KPFSL2, XSTDMX_YKPE, XSTDMX_BKPE, XSTDMX_SFCK, XSTDMX_CKBZ, XSTDMX_CKSL, XSTDMX_CKFSL1, XSTDMX_CKFSL2, XSTDMX_THSL, XSTDMX_THFSL1, XSTDMX_THFSL2, XSTDMX_BHSL, XSTDMX_BHFSL1, XSTDMX_BHFSL2, XSTDMX_SFTH, XSTDMX_THBZ, XSTDMX_KCYL, XSTDMX_DDKCYL, XSTDMX_C1, XSTDMX_C2, XSTDMX_C3, XSTDMX_C4, XSTDMX_C5, XSTDMX_C6, XSTDMX_C7, XSTDMX_C8, XSTDMX_C9, XSTDMX_C10, XSTDMX_U1, XSTDMX_U2, XSTDMX_U3, XSTDMX_U4, XSTDMX_U5, XSTDMX_U6, XSTDMX_DQZK, XSTDMX_YJBZ, XSTDMX_YLZSL, XSTDMX_YLFSL1, XSTDMX_YLFSL2, XSTDMX_YHZSL, XSTDMX_YHFSL1, XSTDMX_YHFSL2, XSTDMX_YSTDLS, XSTDMX_YSTDFL, XSTDMX_LZRQ, XSTDMX_YHKRQ, XSTDMX_ZXPDYJ, XSTDMX_ZXTSZC, XSTDMX_YYWRQ, XSTDMX_DCZSL, XSTDMX_DCFSL1, XSTDMX_DCFSL2, XSTDMX_YDCE, XSTDMX_BDCE, XSTDMX_SFHK, XSTDMX_HKBZ, XSTDMX_HKSL, XSTDMX_YHKE, XSTDMX_BHKE, XSTDMX_HKFSL1, XSTDMX_HKFSL2, XSTDMX_YKPCE, XSTDMX_BKPCE, XSTDMX_YCEHXE, XSTDMX_BCEHXE, XSTDMX_BCYHSL, XSTDMX_PHHZ, XSTDMX_JGYS, XSTDMX_JGZC, XSTDMX_GBSL, XSTDMX_CZYC, XSTDMX_SFZJ, XSTDMX_JSSL, XSTDMX_FJSSL1, XSTDMX_FJSSL2, XSTDMX_ZJZT, XSTDMX_BGDH, XSTDMX_FPSL, XSTDMX_BGSL, XSTDMX_WLBHBAK, XSTDMX_HZT, XSTDMX_HZBZ, XSTDMX_HZR, XSTDMX_HZRQ, XSTDMX_SHHHZ, XSTDMX_SHHRQ, XSTDMX_SHHBH, XSTDMX_MODE, XSTDMX_TCKSL, XSTDMX_TCKFSL1, XSTDMX_TCKFSL2 from erp_xstdmx
+    </sql>
+
+    <select id="selectErpXstdmxList" parameterType="com.extend.erp.domain.ErpXstdmx" resultMap="ErpXstdmxResult">
+        <include refid="selectErpXstdmxVo"/>
+        <where>  
+            <if test="xstdmxDdls != null  and xstdmxDdls != ''"> and XSTDMX_DDLS = #{xstdmxDdls}</if>
+        </where>
+    </select>
+    
+    <select id="selectErpXstdmxByXstdmxTdls" parameterType="String" resultMap="ErpXstdmxResult">
+        <include refid="selectErpXstdmxVo"/>
+        where XSTDMX_TDLS = #{xstdmxTdls}
+    </select>
+        
+    <insert id="insertErpXstdmx" parameterType="com.extend.erp.domain.ErpXstdmx">
+        insert into erp_xstdmx
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="xstdmxTdls != null">XSTDMX_TDLS,</if>
+            <if test="xstdmxTdfl != null and xstdmxTdfl != ''">XSTDMX_TDFL,</if>
+            <if test="xstdmxXsxh != null">XSTDMX_XSXH,</if>
+            <if test="xstdmxFllx != null">XSTDMX_FLLX,</if>
+            <if test="xstdmxFlly != null">XSTDMX_FLLY,</if>
+            <if test="xstdmxKcfs != null">XSTDMX_KCFS,</if>
+            <if test="xstdmxDdls != null">XSTDMX_DDLS,</if>
+            <if test="xstdmxDdfl != null">XSTDMX_DDFL,</if>
+            <if test="xstdmxDdbh != null">XSTDMX_DDBH,</if>
+            <if test="xstdmxYtdls != null">XSTDMX_YTDLS,</if>
+            <if test="xstdmxYtdfl != null">XSTDMX_YTDFL,</if>
+            <if test="xstdmxYtdbh != null">XSTDMX_YTDBH,</if>
+            <if test="xstdmxHtls != null">XSTDMX_HTLS,</if>
+            <if test="xstdmxHtfl != null">XSTDMX_HTFL,</if>
+            <if test="xstdmxJhrq != null">XSTDMX_JHRQ,</if>
+            <if test="xstdmxCkbh != null">XSTDMX_CKBH,</if>
+            <if test="xstdmxWlbh != null">XSTDMX_WLBH,</if>
+            <if test="xstdmxPch != null">XSTDMX_PCH,</if>
+            <if test="xstdmxHwbh != null">XSTDMX_HWBH,</if>
+            <if test="xstdmxZyx1 != null">XSTDMX_ZYX1,</if>
+            <if test="xstdmxZyx2 != null">XSTDMX_ZYX2,</if>
+            <if test="xstdmxZyx3 != null">XSTDMX_ZYX3,</if>
+            <if test="xstdmxZyx4 != null">XSTDMX_ZYX4,</if>
+            <if test="xstdmxZyx5 != null">XSTDMX_ZYX5,</if>
+            <if test="xstdmxWlzt != null">XSTDMX_WLZT,</if>
+            <if test="xstdmxWlbz != null">XSTDMX_WLBZ,</if>
+            <if test="xstdmxZsl != null">XSTDMX_ZSL,</if>
+            <if test="xstdmxFsl1 != null">XSTDMX_FSL1,</if>
+            <if test="xstdmxFsl2 != null">XSTDMX_FSL2,</if>
+            <if test="xstdmxYzhsj != null">XSTDMX_YZHSJ,</if>
+            <if test="xstdmxBzhsj != null">XSTDMX_BZHSJ,</if>
+            <if test="xstdmxYzxsj != null">XSTDMX_YZXSJ,</if>
+            <if test="xstdmxBzxsj != null">XSTDMX_BZXSJ,</if>
+            <if test="xstdmxSl != null">XSTDMX_SL,</if>
+            <if test="xstdmxYxse != null">XSTDMX_YXSE,</if>
+            <if test="xstdmxBxse != null">XSTDMX_BXSE,</if>
+            <if test="xstdmxYse != null">XSTDMX_YSE,</if>
+            <if test="xstdmxBse != null">XSTDMX_BSE,</if>
+            <if test="xstdmxYhse != null">XSTDMX_YHSE,</if>
+            <if test="xstdmxBhse != null">XSTDMX_BHSE,</if>
+            <if test="xstdmxDbzkbl != null">XSTDMX_DBZKBL,</if>
+            <if test="xstdmxZezkbl != null">XSTDMX_ZEZKBL,</if>
+            <if test="xstdmxYzkje != null">XSTDMX_YZKJE,</if>
+            <if test="xstdmxBzkje != null">XSTDMX_BZKJE,</if>
+            <if test="xstdmxYzsl != null">XSTDMX_YZSL,</if>
+            <if test="xstdmxYfsl != null">XSTDMX_YFSL,</if>
+            <if test="xstdmxYfsl1 != null">XSTDMX_YFSL1,</if>
+            <if test="xstdmxYfsl2 != null">XSTDMX_YFSL2,</if>
+            <if test="xstdmxSffy != null">XSTDMX_SFFY,</if>
+            <if test="xstdmxSfkp != null">XSTDMX_SFKP,</if>
+            <if test="xstdmxKpbz != null">XSTDMX_KPBZ,</if>
+            <if test="xstdmxKpsl != null">XSTDMX_KPSL,</if>
+            <if test="xstdmxKpfsl1 != null">XSTDMX_KPFSL1,</if>
+            <if test="xstdmxKpfsl2 != null">XSTDMX_KPFSL2,</if>
+            <if test="xstdmxYkpe != null">XSTDMX_YKPE,</if>
+            <if test="xstdmxBkpe != null">XSTDMX_BKPE,</if>
+            <if test="xstdmxSfck != null">XSTDMX_SFCK,</if>
+            <if test="xstdmxCkbz != null">XSTDMX_CKBZ,</if>
+            <if test="xstdmxCksl != null">XSTDMX_CKSL,</if>
+            <if test="xstdmxCkfsl1 != null">XSTDMX_CKFSL1,</if>
+            <if test="xstdmxCkfsl2 != null">XSTDMX_CKFSL2,</if>
+            <if test="xstdmxThsl != null">XSTDMX_THSL,</if>
+            <if test="xstdmxThfsl1 != null">XSTDMX_THFSL1,</if>
+            <if test="xstdmxThfsl2 != null">XSTDMX_THFSL2,</if>
+            <if test="xstdmxBhsl != null">XSTDMX_BHSL,</if>
+            <if test="xstdmxBhfsl1 != null">XSTDMX_BHFSL1,</if>
+            <if test="xstdmxBhfsl2 != null">XSTDMX_BHFSL2,</if>
+            <if test="xstdmxSfth != null">XSTDMX_SFTH,</if>
+            <if test="xstdmxThbz != null">XSTDMX_THBZ,</if>
+            <if test="xstdmxKcyl != null">XSTDMX_KCYL,</if>
+            <if test="xstdmxDdkcyl != null">XSTDMX_DDKCYL,</if>
+            <if test="xstdmxC1 != null">XSTDMX_C1,</if>
+            <if test="xstdmxC2 != null">XSTDMX_C2,</if>
+            <if test="xstdmxC3 != null">XSTDMX_C3,</if>
+            <if test="xstdmxC4 != null">XSTDMX_C4,</if>
+            <if test="xstdmxC5 != null">XSTDMX_C5,</if>
+            <if test="xstdmxC6 != null">XSTDMX_C6,</if>
+            <if test="xstdmxC7 != null">XSTDMX_C7,</if>
+            <if test="xstdmxC8 != null">XSTDMX_C8,</if>
+            <if test="xstdmxC9 != null">XSTDMX_C9,</if>
+            <if test="xstdmxC10 != null">XSTDMX_C10,</if>
+            <if test="xstdmxU1 != null">XSTDMX_U1,</if>
+            <if test="xstdmxU2 != null">XSTDMX_U2,</if>
+            <if test="xstdmxU3 != null">XSTDMX_U3,</if>
+            <if test="xstdmxU4 != null">XSTDMX_U4,</if>
+            <if test="xstdmxU5 != null">XSTDMX_U5,</if>
+            <if test="xstdmxU6 != null">XSTDMX_U6,</if>
+            <if test="xstdmxDqzk != null">XSTDMX_DQZK,</if>
+            <if test="xstdmxYjbz != null">XSTDMX_YJBZ,</if>
+            <if test="xstdmxYlzsl != null">XSTDMX_YLZSL,</if>
+            <if test="xstdmxYlfsl1 != null">XSTDMX_YLFSL1,</if>
+            <if test="xstdmxYlfsl2 != null">XSTDMX_YLFSL2,</if>
+            <if test="xstdmxYhzsl != null">XSTDMX_YHZSL,</if>
+            <if test="xstdmxYhfsl1 != null">XSTDMX_YHFSL1,</if>
+            <if test="xstdmxYhfsl2 != null">XSTDMX_YHFSL2,</if>
+            <if test="xstdmxYstdls != null">XSTDMX_YSTDLS,</if>
+            <if test="xstdmxYstdfl != null">XSTDMX_YSTDFL,</if>
+            <if test="xstdmxLzrq != null">XSTDMX_LZRQ,</if>
+            <if test="xstdmxYhkrq != null">XSTDMX_YHKRQ,</if>
+            <if test="xstdmxZxpdyj != null">XSTDMX_ZXPDYJ,</if>
+            <if test="xstdmxZxtszc != null">XSTDMX_ZXTSZC,</if>
+            <if test="xstdmxYywrq != null">XSTDMX_YYWRQ,</if>
+            <if test="xstdmxDczsl != null">XSTDMX_DCZSL,</if>
+            <if test="xstdmxDcfsl1 != null">XSTDMX_DCFSL1,</if>
+            <if test="xstdmxDcfsl2 != null">XSTDMX_DCFSL2,</if>
+            <if test="xstdmxYdce != null">XSTDMX_YDCE,</if>
+            <if test="xstdmxBdce != null">XSTDMX_BDCE,</if>
+            <if test="xstdmxSfhk != null">XSTDMX_SFHK,</if>
+            <if test="xstdmxHkbz != null">XSTDMX_HKBZ,</if>
+            <if test="xstdmxHksl != null">XSTDMX_HKSL,</if>
+            <if test="xstdmxYhke != null">XSTDMX_YHKE,</if>
+            <if test="xstdmxBhke != null">XSTDMX_BHKE,</if>
+            <if test="xstdmxHkfsl1 != null">XSTDMX_HKFSL1,</if>
+            <if test="xstdmxHkfsl2 != null">XSTDMX_HKFSL2,</if>
+            <if test="xstdmxYkpce != null">XSTDMX_YKPCE,</if>
+            <if test="xstdmxBkpce != null">XSTDMX_BKPCE,</if>
+            <if test="xstdmxYcehxe != null">XSTDMX_YCEHXE,</if>
+            <if test="xstdmxBcehxe != null">XSTDMX_BCEHXE,</if>
+            <if test="xstdmxBcyhsl != null">XSTDMX_BCYHSL,</if>
+            <if test="xstdmxPhhz != null">XSTDMX_PHHZ,</if>
+            <if test="xstdmxJgys != null">XSTDMX_JGYS,</if>
+            <if test="xstdmxJgzc != null">XSTDMX_JGZC,</if>
+            <if test="xstdmxGbsl != null">XSTDMX_GBSL,</if>
+            <if test="xstdmxCzyc != null">XSTDMX_CZYC,</if>
+            <if test="xstdmxSfzj != null">XSTDMX_SFZJ,</if>
+            <if test="xstdmxJssl != null">XSTDMX_JSSL,</if>
+            <if test="xstdmxFjssl1 != null">XSTDMX_FJSSL1,</if>
+            <if test="xstdmxFjssl2 != null">XSTDMX_FJSSL2,</if>
+            <if test="xstdmxZjzt != null">XSTDMX_ZJZT,</if>
+            <if test="xstdmxBgdh != null">XSTDMX_BGDH,</if>
+            <if test="xstdmxFpsl != null">XSTDMX_FPSL,</if>
+            <if test="xstdmxBgsl != null">XSTDMX_BGSL,</if>
+            <if test="xstdmxWlbhbak != null">XSTDMX_WLBHBAK,</if>
+            <if test="xstdmxHzt != null">XSTDMX_HZT,</if>
+            <if test="xstdmxHzbz != null and xstdmxHzbz != ''">XSTDMX_HZBZ,</if>
+            <if test="xstdmxHzr != null">XSTDMX_HZR,</if>
+            <if test="xstdmxHzrq != null">XSTDMX_HZRQ,</if>
+            <if test="xstdmxShhhz != null">XSTDMX_SHHHZ,</if>
+            <if test="xstdmxShhrq != null">XSTDMX_SHHRQ,</if>
+            <if test="xstdmxShhbh != null">XSTDMX_SHHBH,</if>
+            <if test="xstdmxMode != null">XSTDMX_MODE,</if>
+            <if test="xstdmxTcksl != null">XSTDMX_TCKSL,</if>
+            <if test="xstdmxTckfsl1 != null">XSTDMX_TCKFSL1,</if>
+            <if test="xstdmxTckfsl2 != null">XSTDMX_TCKFSL2,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="xstdmxTdls != null">#{xstdmxTdls},</if>
+            <if test="xstdmxTdfl != null and xstdmxTdfl != ''">#{xstdmxTdfl},</if>
+            <if test="xstdmxXsxh != null">#{xstdmxXsxh},</if>
+            <if test="xstdmxFllx != null">#{xstdmxFllx},</if>
+            <if test="xstdmxFlly != null">#{xstdmxFlly},</if>
+            <if test="xstdmxKcfs != null">#{xstdmxKcfs},</if>
+            <if test="xstdmxDdls != null">#{xstdmxDdls},</if>
+            <if test="xstdmxDdfl != null">#{xstdmxDdfl},</if>
+            <if test="xstdmxDdbh != null">#{xstdmxDdbh},</if>
+            <if test="xstdmxYtdls != null">#{xstdmxYtdls},</if>
+            <if test="xstdmxYtdfl != null">#{xstdmxYtdfl},</if>
+            <if test="xstdmxYtdbh != null">#{xstdmxYtdbh},</if>
+            <if test="xstdmxHtls != null">#{xstdmxHtls},</if>
+            <if test="xstdmxHtfl != null">#{xstdmxHtfl},</if>
+            <if test="xstdmxJhrq != null">#{xstdmxJhrq},</if>
+            <if test="xstdmxCkbh != null">#{xstdmxCkbh},</if>
+            <if test="xstdmxWlbh != null">#{xstdmxWlbh},</if>
+            <if test="xstdmxPch != null">#{xstdmxPch},</if>
+            <if test="xstdmxHwbh != null">#{xstdmxHwbh},</if>
+            <if test="xstdmxZyx1 != null">#{xstdmxZyx1},</if>
+            <if test="xstdmxZyx2 != null">#{xstdmxZyx2},</if>
+            <if test="xstdmxZyx3 != null">#{xstdmxZyx3},</if>
+            <if test="xstdmxZyx4 != null">#{xstdmxZyx4},</if>
+            <if test="xstdmxZyx5 != null">#{xstdmxZyx5},</if>
+            <if test="xstdmxWlzt != null">#{xstdmxWlzt},</if>
+            <if test="xstdmxWlbz != null">#{xstdmxWlbz},</if>
+            <if test="xstdmxZsl != null">#{xstdmxZsl},</if>
+            <if test="xstdmxFsl1 != null">#{xstdmxFsl1},</if>
+            <if test="xstdmxFsl2 != null">#{xstdmxFsl2},</if>
+            <if test="xstdmxYzhsj != null">#{xstdmxYzhsj},</if>
+            <if test="xstdmxBzhsj != null">#{xstdmxBzhsj},</if>
+            <if test="xstdmxYzxsj != null">#{xstdmxYzxsj},</if>
+            <if test="xstdmxBzxsj != null">#{xstdmxBzxsj},</if>
+            <if test="xstdmxSl != null">#{xstdmxSl},</if>
+            <if test="xstdmxYxse != null">#{xstdmxYxse},</if>
+            <if test="xstdmxBxse != null">#{xstdmxBxse},</if>
+            <if test="xstdmxYse != null">#{xstdmxYse},</if>
+            <if test="xstdmxBse != null">#{xstdmxBse},</if>
+            <if test="xstdmxYhse != null">#{xstdmxYhse},</if>
+            <if test="xstdmxBhse != null">#{xstdmxBhse},</if>
+            <if test="xstdmxDbzkbl != null">#{xstdmxDbzkbl},</if>
+            <if test="xstdmxZezkbl != null">#{xstdmxZezkbl},</if>
+            <if test="xstdmxYzkje != null">#{xstdmxYzkje},</if>
+            <if test="xstdmxBzkje != null">#{xstdmxBzkje},</if>
+            <if test="xstdmxYzsl != null">#{xstdmxYzsl},</if>
+            <if test="xstdmxYfsl != null">#{xstdmxYfsl},</if>
+            <if test="xstdmxYfsl1 != null">#{xstdmxYfsl1},</if>
+            <if test="xstdmxYfsl2 != null">#{xstdmxYfsl2},</if>
+            <if test="xstdmxSffy != null">#{xstdmxSffy},</if>
+            <if test="xstdmxSfkp != null">#{xstdmxSfkp},</if>
+            <if test="xstdmxKpbz != null">#{xstdmxKpbz},</if>
+            <if test="xstdmxKpsl != null">#{xstdmxKpsl},</if>
+            <if test="xstdmxKpfsl1 != null">#{xstdmxKpfsl1},</if>
+            <if test="xstdmxKpfsl2 != null">#{xstdmxKpfsl2},</if>
+            <if test="xstdmxYkpe != null">#{xstdmxYkpe},</if>
+            <if test="xstdmxBkpe != null">#{xstdmxBkpe},</if>
+            <if test="xstdmxSfck != null">#{xstdmxSfck},</if>
+            <if test="xstdmxCkbz != null">#{xstdmxCkbz},</if>
+            <if test="xstdmxCksl != null">#{xstdmxCksl},</if>
+            <if test="xstdmxCkfsl1 != null">#{xstdmxCkfsl1},</if>
+            <if test="xstdmxCkfsl2 != null">#{xstdmxCkfsl2},</if>
+            <if test="xstdmxThsl != null">#{xstdmxThsl},</if>
+            <if test="xstdmxThfsl1 != null">#{xstdmxThfsl1},</if>
+            <if test="xstdmxThfsl2 != null">#{xstdmxThfsl2},</if>
+            <if test="xstdmxBhsl != null">#{xstdmxBhsl},</if>
+            <if test="xstdmxBhfsl1 != null">#{xstdmxBhfsl1},</if>
+            <if test="xstdmxBhfsl2 != null">#{xstdmxBhfsl2},</if>
+            <if test="xstdmxSfth != null">#{xstdmxSfth},</if>
+            <if test="xstdmxThbz != null">#{xstdmxThbz},</if>
+            <if test="xstdmxKcyl != null">#{xstdmxKcyl},</if>
+            <if test="xstdmxDdkcyl != null">#{xstdmxDdkcyl},</if>
+            <if test="xstdmxC1 != null">#{xstdmxC1},</if>
+            <if test="xstdmxC2 != null">#{xstdmxC2},</if>
+            <if test="xstdmxC3 != null">#{xstdmxC3},</if>
+            <if test="xstdmxC4 != null">#{xstdmxC4},</if>
+            <if test="xstdmxC5 != null">#{xstdmxC5},</if>
+            <if test="xstdmxC6 != null">#{xstdmxC6},</if>
+            <if test="xstdmxC7 != null">#{xstdmxC7},</if>
+            <if test="xstdmxC8 != null">#{xstdmxC8},</if>
+            <if test="xstdmxC9 != null">#{xstdmxC9},</if>
+            <if test="xstdmxC10 != null">#{xstdmxC10},</if>
+            <if test="xstdmxU1 != null">#{xstdmxU1},</if>
+            <if test="xstdmxU2 != null">#{xstdmxU2},</if>
+            <if test="xstdmxU3 != null">#{xstdmxU3},</if>
+            <if test="xstdmxU4 != null">#{xstdmxU4},</if>
+            <if test="xstdmxU5 != null">#{xstdmxU5},</if>
+            <if test="xstdmxU6 != null">#{xstdmxU6},</if>
+            <if test="xstdmxDqzk != null">#{xstdmxDqzk},</if>
+            <if test="xstdmxYjbz != null">#{xstdmxYjbz},</if>
+            <if test="xstdmxYlzsl != null">#{xstdmxYlzsl},</if>
+            <if test="xstdmxYlfsl1 != null">#{xstdmxYlfsl1},</if>
+            <if test="xstdmxYlfsl2 != null">#{xstdmxYlfsl2},</if>
+            <if test="xstdmxYhzsl != null">#{xstdmxYhzsl},</if>
+            <if test="xstdmxYhfsl1 != null">#{xstdmxYhfsl1},</if>
+            <if test="xstdmxYhfsl2 != null">#{xstdmxYhfsl2},</if>
+            <if test="xstdmxYstdls != null">#{xstdmxYstdls},</if>
+            <if test="xstdmxYstdfl != null">#{xstdmxYstdfl},</if>
+            <if test="xstdmxLzrq != null">#{xstdmxLzrq},</if>
+            <if test="xstdmxYhkrq != null">#{xstdmxYhkrq},</if>
+            <if test="xstdmxZxpdyj != null">#{xstdmxZxpdyj},</if>
+            <if test="xstdmxZxtszc != null">#{xstdmxZxtszc},</if>
+            <if test="xstdmxYywrq != null">#{xstdmxYywrq},</if>
+            <if test="xstdmxDczsl != null">#{xstdmxDczsl},</if>
+            <if test="xstdmxDcfsl1 != null">#{xstdmxDcfsl1},</if>
+            <if test="xstdmxDcfsl2 != null">#{xstdmxDcfsl2},</if>
+            <if test="xstdmxYdce != null">#{xstdmxYdce},</if>
+            <if test="xstdmxBdce != null">#{xstdmxBdce},</if>
+            <if test="xstdmxSfhk != null">#{xstdmxSfhk},</if>
+            <if test="xstdmxHkbz != null">#{xstdmxHkbz},</if>
+            <if test="xstdmxHksl != null">#{xstdmxHksl},</if>
+            <if test="xstdmxYhke != null">#{xstdmxYhke},</if>
+            <if test="xstdmxBhke != null">#{xstdmxBhke},</if>
+            <if test="xstdmxHkfsl1 != null">#{xstdmxHkfsl1},</if>
+            <if test="xstdmxHkfsl2 != null">#{xstdmxHkfsl2},</if>
+            <if test="xstdmxYkpce != null">#{xstdmxYkpce},</if>
+            <if test="xstdmxBkpce != null">#{xstdmxBkpce},</if>
+            <if test="xstdmxYcehxe != null">#{xstdmxYcehxe},</if>
+            <if test="xstdmxBcehxe != null">#{xstdmxBcehxe},</if>
+            <if test="xstdmxBcyhsl != null">#{xstdmxBcyhsl},</if>
+            <if test="xstdmxPhhz != null">#{xstdmxPhhz},</if>
+            <if test="xstdmxJgys != null">#{xstdmxJgys},</if>
+            <if test="xstdmxJgzc != null">#{xstdmxJgzc},</if>
+            <if test="xstdmxGbsl != null">#{xstdmxGbsl},</if>
+            <if test="xstdmxCzyc != null">#{xstdmxCzyc},</if>
+            <if test="xstdmxSfzj != null">#{xstdmxSfzj},</if>
+            <if test="xstdmxJssl != null">#{xstdmxJssl},</if>
+            <if test="xstdmxFjssl1 != null">#{xstdmxFjssl1},</if>
+            <if test="xstdmxFjssl2 != null">#{xstdmxFjssl2},</if>
+            <if test="xstdmxZjzt != null">#{xstdmxZjzt},</if>
+            <if test="xstdmxBgdh != null">#{xstdmxBgdh},</if>
+            <if test="xstdmxFpsl != null">#{xstdmxFpsl},</if>
+            <if test="xstdmxBgsl != null">#{xstdmxBgsl},</if>
+            <if test="xstdmxWlbhbak != null">#{xstdmxWlbhbak},</if>
+            <if test="xstdmxHzt != null">#{xstdmxHzt},</if>
+            <if test="xstdmxHzbz != null and xstdmxHzbz != ''">#{xstdmxHzbz},</if>
+            <if test="xstdmxHzr != null">#{xstdmxHzr},</if>
+            <if test="xstdmxHzrq != null">#{xstdmxHzrq},</if>
+            <if test="xstdmxShhhz != null">#{xstdmxShhhz},</if>
+            <if test="xstdmxShhrq != null">#{xstdmxShhrq},</if>
+            <if test="xstdmxShhbh != null">#{xstdmxShhbh},</if>
+            <if test="xstdmxMode != null">#{xstdmxMode},</if>
+            <if test="xstdmxTcksl != null">#{xstdmxTcksl},</if>
+            <if test="xstdmxTckfsl1 != null">#{xstdmxTckfsl1},</if>
+            <if test="xstdmxTckfsl2 != null">#{xstdmxTckfsl2},</if>
+         </trim>
+    </insert>
+
+    <update id="updateErpXstdmx" parameterType="com.extend.erp.domain.ErpXstdmx">
+        update erp_xstdmx
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="xstdmxTdfl != null and xstdmxTdfl != ''">XSTDMX_TDFL = #{xstdmxTdfl},</if>
+            <if test="xstdmxXsxh != null">XSTDMX_XSXH = #{xstdmxXsxh},</if>
+            <if test="xstdmxFllx != null">XSTDMX_FLLX = #{xstdmxFllx},</if>
+            <if test="xstdmxFlly != null">XSTDMX_FLLY = #{xstdmxFlly},</if>
+            <if test="xstdmxKcfs != null">XSTDMX_KCFS = #{xstdmxKcfs},</if>
+            <if test="xstdmxDdls != null">XSTDMX_DDLS = #{xstdmxDdls},</if>
+            <if test="xstdmxDdfl != null">XSTDMX_DDFL = #{xstdmxDdfl},</if>
+            <if test="xstdmxDdbh != null">XSTDMX_DDBH = #{xstdmxDdbh},</if>
+            <if test="xstdmxYtdls != null">XSTDMX_YTDLS = #{xstdmxYtdls},</if>
+            <if test="xstdmxYtdfl != null">XSTDMX_YTDFL = #{xstdmxYtdfl},</if>
+            <if test="xstdmxYtdbh != null">XSTDMX_YTDBH = #{xstdmxYtdbh},</if>
+            <if test="xstdmxHtls != null">XSTDMX_HTLS = #{xstdmxHtls},</if>
+            <if test="xstdmxHtfl != null">XSTDMX_HTFL = #{xstdmxHtfl},</if>
+            <if test="xstdmxJhrq != null">XSTDMX_JHRQ = #{xstdmxJhrq},</if>
+            <if test="xstdmxCkbh != null">XSTDMX_CKBH = #{xstdmxCkbh},</if>
+            <if test="xstdmxWlbh != null">XSTDMX_WLBH = #{xstdmxWlbh},</if>
+            <if test="xstdmxPch != null">XSTDMX_PCH = #{xstdmxPch},</if>
+            <if test="xstdmxHwbh != null">XSTDMX_HWBH = #{xstdmxHwbh},</if>
+            <if test="xstdmxZyx1 != null">XSTDMX_ZYX1 = #{xstdmxZyx1},</if>
+            <if test="xstdmxZyx2 != null">XSTDMX_ZYX2 = #{xstdmxZyx2},</if>
+            <if test="xstdmxZyx3 != null">XSTDMX_ZYX3 = #{xstdmxZyx3},</if>
+            <if test="xstdmxZyx4 != null">XSTDMX_ZYX4 = #{xstdmxZyx4},</if>
+            <if test="xstdmxZyx5 != null">XSTDMX_ZYX5 = #{xstdmxZyx5},</if>
+            <if test="xstdmxWlzt != null">XSTDMX_WLZT = #{xstdmxWlzt},</if>
+            <if test="xstdmxWlbz != null">XSTDMX_WLBZ = #{xstdmxWlbz},</if>
+            <if test="xstdmxZsl != null">XSTDMX_ZSL = #{xstdmxZsl},</if>
+            <if test="xstdmxFsl1 != null">XSTDMX_FSL1 = #{xstdmxFsl1},</if>
+            <if test="xstdmxFsl2 != null">XSTDMX_FSL2 = #{xstdmxFsl2},</if>
+            <if test="xstdmxYzhsj != null">XSTDMX_YZHSJ = #{xstdmxYzhsj},</if>
+            <if test="xstdmxBzhsj != null">XSTDMX_BZHSJ = #{xstdmxBzhsj},</if>
+            <if test="xstdmxYzxsj != null">XSTDMX_YZXSJ = #{xstdmxYzxsj},</if>
+            <if test="xstdmxBzxsj != null">XSTDMX_BZXSJ = #{xstdmxBzxsj},</if>
+            <if test="xstdmxSl != null">XSTDMX_SL = #{xstdmxSl},</if>
+            <if test="xstdmxYxse != null">XSTDMX_YXSE = #{xstdmxYxse},</if>
+            <if test="xstdmxBxse != null">XSTDMX_BXSE = #{xstdmxBxse},</if>
+            <if test="xstdmxYse != null">XSTDMX_YSE = #{xstdmxYse},</if>
+            <if test="xstdmxBse != null">XSTDMX_BSE = #{xstdmxBse},</if>
+            <if test="xstdmxYhse != null">XSTDMX_YHSE = #{xstdmxYhse},</if>
+            <if test="xstdmxBhse != null">XSTDMX_BHSE = #{xstdmxBhse},</if>
+            <if test="xstdmxDbzkbl != null">XSTDMX_DBZKBL = #{xstdmxDbzkbl},</if>
+            <if test="xstdmxZezkbl != null">XSTDMX_ZEZKBL = #{xstdmxZezkbl},</if>
+            <if test="xstdmxYzkje != null">XSTDMX_YZKJE = #{xstdmxYzkje},</if>
+            <if test="xstdmxBzkje != null">XSTDMX_BZKJE = #{xstdmxBzkje},</if>
+            <if test="xstdmxYzsl != null">XSTDMX_YZSL = #{xstdmxYzsl},</if>
+            <if test="xstdmxYfsl != null">XSTDMX_YFSL = #{xstdmxYfsl},</if>
+            <if test="xstdmxYfsl1 != null">XSTDMX_YFSL1 = #{xstdmxYfsl1},</if>
+            <if test="xstdmxYfsl2 != null">XSTDMX_YFSL2 = #{xstdmxYfsl2},</if>
+            <if test="xstdmxSffy != null">XSTDMX_SFFY = #{xstdmxSffy},</if>
+            <if test="xstdmxSfkp != null">XSTDMX_SFKP = #{xstdmxSfkp},</if>
+            <if test="xstdmxKpbz != null">XSTDMX_KPBZ = #{xstdmxKpbz},</if>
+            <if test="xstdmxKpsl != null">XSTDMX_KPSL = #{xstdmxKpsl},</if>
+            <if test="xstdmxKpfsl1 != null">XSTDMX_KPFSL1 = #{xstdmxKpfsl1},</if>
+            <if test="xstdmxKpfsl2 != null">XSTDMX_KPFSL2 = #{xstdmxKpfsl2},</if>
+            <if test="xstdmxYkpe != null">XSTDMX_YKPE = #{xstdmxYkpe},</if>
+            <if test="xstdmxBkpe != null">XSTDMX_BKPE = #{xstdmxBkpe},</if>
+            <if test="xstdmxSfck != null">XSTDMX_SFCK = #{xstdmxSfck},</if>
+            <if test="xstdmxCkbz != null">XSTDMX_CKBZ = #{xstdmxCkbz},</if>
+            <if test="xstdmxCksl != null">XSTDMX_CKSL = #{xstdmxCksl},</if>
+            <if test="xstdmxCkfsl1 != null">XSTDMX_CKFSL1 = #{xstdmxCkfsl1},</if>
+            <if test="xstdmxCkfsl2 != null">XSTDMX_CKFSL2 = #{xstdmxCkfsl2},</if>
+            <if test="xstdmxThsl != null">XSTDMX_THSL = #{xstdmxThsl},</if>
+            <if test="xstdmxThfsl1 != null">XSTDMX_THFSL1 = #{xstdmxThfsl1},</if>
+            <if test="xstdmxThfsl2 != null">XSTDMX_THFSL2 = #{xstdmxThfsl2},</if>
+            <if test="xstdmxBhsl != null">XSTDMX_BHSL = #{xstdmxBhsl},</if>
+            <if test="xstdmxBhfsl1 != null">XSTDMX_BHFSL1 = #{xstdmxBhfsl1},</if>
+            <if test="xstdmxBhfsl2 != null">XSTDMX_BHFSL2 = #{xstdmxBhfsl2},</if>
+            <if test="xstdmxSfth != null">XSTDMX_SFTH = #{xstdmxSfth},</if>
+            <if test="xstdmxThbz != null">XSTDMX_THBZ = #{xstdmxThbz},</if>
+            <if test="xstdmxKcyl != null">XSTDMX_KCYL = #{xstdmxKcyl},</if>
+            <if test="xstdmxDdkcyl != null">XSTDMX_DDKCYL = #{xstdmxDdkcyl},</if>
+            <if test="xstdmxC1 != null">XSTDMX_C1 = #{xstdmxC1},</if>
+            <if test="xstdmxC2 != null">XSTDMX_C2 = #{xstdmxC2},</if>
+            <if test="xstdmxC3 != null">XSTDMX_C3 = #{xstdmxC3},</if>
+            <if test="xstdmxC4 != null">XSTDMX_C4 = #{xstdmxC4},</if>
+            <if test="xstdmxC5 != null">XSTDMX_C5 = #{xstdmxC5},</if>
+            <if test="xstdmxC6 != null">XSTDMX_C6 = #{xstdmxC6},</if>
+            <if test="xstdmxC7 != null">XSTDMX_C7 = #{xstdmxC7},</if>
+            <if test="xstdmxC8 != null">XSTDMX_C8 = #{xstdmxC8},</if>
+            <if test="xstdmxC9 != null">XSTDMX_C9 = #{xstdmxC9},</if>
+            <if test="xstdmxC10 != null">XSTDMX_C10 = #{xstdmxC10},</if>
+            <if test="xstdmxU1 != null">XSTDMX_U1 = #{xstdmxU1},</if>
+            <if test="xstdmxU2 != null">XSTDMX_U2 = #{xstdmxU2},</if>
+            <if test="xstdmxU3 != null">XSTDMX_U3 = #{xstdmxU3},</if>
+            <if test="xstdmxU4 != null">XSTDMX_U4 = #{xstdmxU4},</if>
+            <if test="xstdmxU5 != null">XSTDMX_U5 = #{xstdmxU5},</if>
+            <if test="xstdmxU6 != null">XSTDMX_U6 = #{xstdmxU6},</if>
+            <if test="xstdmxDqzk != null">XSTDMX_DQZK = #{xstdmxDqzk},</if>
+            <if test="xstdmxYjbz != null">XSTDMX_YJBZ = #{xstdmxYjbz},</if>
+            <if test="xstdmxYlzsl != null">XSTDMX_YLZSL = #{xstdmxYlzsl},</if>
+            <if test="xstdmxYlfsl1 != null">XSTDMX_YLFSL1 = #{xstdmxYlfsl1},</if>
+            <if test="xstdmxYlfsl2 != null">XSTDMX_YLFSL2 = #{xstdmxYlfsl2},</if>
+            <if test="xstdmxYhzsl != null">XSTDMX_YHZSL = #{xstdmxYhzsl},</if>
+            <if test="xstdmxYhfsl1 != null">XSTDMX_YHFSL1 = #{xstdmxYhfsl1},</if>
+            <if test="xstdmxYhfsl2 != null">XSTDMX_YHFSL2 = #{xstdmxYhfsl2},</if>
+            <if test="xstdmxYstdls != null">XSTDMX_YSTDLS = #{xstdmxYstdls},</if>
+            <if test="xstdmxYstdfl != null">XSTDMX_YSTDFL = #{xstdmxYstdfl},</if>
+            <if test="xstdmxLzrq != null">XSTDMX_LZRQ = #{xstdmxLzrq},</if>
+            <if test="xstdmxYhkrq != null">XSTDMX_YHKRQ = #{xstdmxYhkrq},</if>
+            <if test="xstdmxZxpdyj != null">XSTDMX_ZXPDYJ = #{xstdmxZxpdyj},</if>
+            <if test="xstdmxZxtszc != null">XSTDMX_ZXTSZC = #{xstdmxZxtszc},</if>
+            <if test="xstdmxYywrq != null">XSTDMX_YYWRQ = #{xstdmxYywrq},</if>
+            <if test="xstdmxDczsl != null">XSTDMX_DCZSL = #{xstdmxDczsl},</if>
+            <if test="xstdmxDcfsl1 != null">XSTDMX_DCFSL1 = #{xstdmxDcfsl1},</if>
+            <if test="xstdmxDcfsl2 != null">XSTDMX_DCFSL2 = #{xstdmxDcfsl2},</if>
+            <if test="xstdmxYdce != null">XSTDMX_YDCE = #{xstdmxYdce},</if>
+            <if test="xstdmxBdce != null">XSTDMX_BDCE = #{xstdmxBdce},</if>
+            <if test="xstdmxSfhk != null">XSTDMX_SFHK = #{xstdmxSfhk},</if>
+            <if test="xstdmxHkbz != null">XSTDMX_HKBZ = #{xstdmxHkbz},</if>
+            <if test="xstdmxHksl != null">XSTDMX_HKSL = #{xstdmxHksl},</if>
+            <if test="xstdmxYhke != null">XSTDMX_YHKE = #{xstdmxYhke},</if>
+            <if test="xstdmxBhke != null">XSTDMX_BHKE = #{xstdmxBhke},</if>
+            <if test="xstdmxHkfsl1 != null">XSTDMX_HKFSL1 = #{xstdmxHkfsl1},</if>
+            <if test="xstdmxHkfsl2 != null">XSTDMX_HKFSL2 = #{xstdmxHkfsl2},</if>
+            <if test="xstdmxYkpce != null">XSTDMX_YKPCE = #{xstdmxYkpce},</if>
+            <if test="xstdmxBkpce != null">XSTDMX_BKPCE = #{xstdmxBkpce},</if>
+            <if test="xstdmxYcehxe != null">XSTDMX_YCEHXE = #{xstdmxYcehxe},</if>
+            <if test="xstdmxBcehxe != null">XSTDMX_BCEHXE = #{xstdmxBcehxe},</if>
+            <if test="xstdmxBcyhsl != null">XSTDMX_BCYHSL = #{xstdmxBcyhsl},</if>
+            <if test="xstdmxPhhz != null">XSTDMX_PHHZ = #{xstdmxPhhz},</if>
+            <if test="xstdmxJgys != null">XSTDMX_JGYS = #{xstdmxJgys},</if>
+            <if test="xstdmxJgzc != null">XSTDMX_JGZC = #{xstdmxJgzc},</if>
+            <if test="xstdmxGbsl != null">XSTDMX_GBSL = #{xstdmxGbsl},</if>
+            <if test="xstdmxCzyc != null">XSTDMX_CZYC = #{xstdmxCzyc},</if>
+            <if test="xstdmxSfzj != null">XSTDMX_SFZJ = #{xstdmxSfzj},</if>
+            <if test="xstdmxJssl != null">XSTDMX_JSSL = #{xstdmxJssl},</if>
+            <if test="xstdmxFjssl1 != null">XSTDMX_FJSSL1 = #{xstdmxFjssl1},</if>
+            <if test="xstdmxFjssl2 != null">XSTDMX_FJSSL2 = #{xstdmxFjssl2},</if>
+            <if test="xstdmxZjzt != null">XSTDMX_ZJZT = #{xstdmxZjzt},</if>
+            <if test="xstdmxBgdh != null">XSTDMX_BGDH = #{xstdmxBgdh},</if>
+            <if test="xstdmxFpsl != null">XSTDMX_FPSL = #{xstdmxFpsl},</if>
+            <if test="xstdmxBgsl != null">XSTDMX_BGSL = #{xstdmxBgsl},</if>
+            <if test="xstdmxWlbhbak != null">XSTDMX_WLBHBAK = #{xstdmxWlbhbak},</if>
+            <if test="xstdmxHzt != null">XSTDMX_HZT = #{xstdmxHzt},</if>
+            <if test="xstdmxHzbz != null and xstdmxHzbz != ''">XSTDMX_HZBZ = #{xstdmxHzbz},</if>
+            <if test="xstdmxHzr != null">XSTDMX_HZR = #{xstdmxHzr},</if>
+            <if test="xstdmxHzrq != null">XSTDMX_HZRQ = #{xstdmxHzrq},</if>
+            <if test="xstdmxShhhz != null">XSTDMX_SHHHZ = #{xstdmxShhhz},</if>
+            <if test="xstdmxShhrq != null">XSTDMX_SHHRQ = #{xstdmxShhrq},</if>
+            <if test="xstdmxShhbh != null">XSTDMX_SHHBH = #{xstdmxShhbh},</if>
+            <if test="xstdmxMode != null">XSTDMX_MODE = #{xstdmxMode},</if>
+            <if test="xstdmxTcksl != null">XSTDMX_TCKSL = #{xstdmxTcksl},</if>
+            <if test="xstdmxTckfsl1 != null">XSTDMX_TCKFSL1 = #{xstdmxTckfsl1},</if>
+            <if test="xstdmxTckfsl2 != null">XSTDMX_TCKFSL2 = #{xstdmxTckfsl2},</if>
+        </trim>
+        where XSTDMX_TDLS = #{xstdmxTdls}
+    </update>
+
+    <delete id="deleteErpXstdmxByXstdmxTdls" parameterType="String">
+        delete from erp_xstdmx where XSTDMX_TDLS = #{xstdmxTdls}
+    </delete>
+
+    <delete id="deleteErpXstdmxByXstdmxTdlss" parameterType="String">
+        delete from erp_xstdmx where XSTDMX_TDLS in 
+        <foreach item="xstdmxTdls" collection="array" open="(" separator="," close=")">
+            #{xstdmxTdls}
+        </foreach>
+    </delete>
+</mapper>
