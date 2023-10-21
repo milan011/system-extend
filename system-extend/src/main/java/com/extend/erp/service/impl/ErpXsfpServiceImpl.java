@@ -352,29 +352,35 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
   private Map<String, String> importValidate(List<ErpXsfpImport> xsfpExcelList){
     String returnCode = "200";
     StringBuilder returnMsg  = new StringBuilder();
-    returnMsg.append("校验结果: ");
+    returnMsg.append("校验失败: ");
     Map<String, String> checkResult = MapUtil.newHashMap();
 
     /*获取所有发票编号*/
     List<String> importBhList = new ArrayList<>();
     List<String> finalBhList = importBhList;
     xsfpExcelList.forEach(fp-> finalBhList.add(fp.getXsfpFpbh()));
-
     importBhList = CollUtil.distinct(finalBhList);
+
+    /*非空校验:发票编号,客户编号,人员编号,数量,开票价,制单人*/
+    Map<String, String> checkEmpty =  colEmptyValidate(xsfpExcelList);
+    if(!checkEmpty.get("passed").equals("200")){
+      throw new ServiceException(checkEmpty.get("msg"));
+    }
 
     /*校验发票编号-客户编号,人员编号对应,同一编号不能对应不同客户及业务人员*/
     Set<String> fpbhConstraint = new HashSet<>();
     xsfpExcelList.forEach(colInfo->{
-      fpbhConstraint.add(Convert.toStr(colInfo.getXsfpFpbh()) + Convert.toStr(colInfo.getXsfpShdkh()) + Convert.toStr(colInfo.getXsfpRybh()));
+      String constraintStr = Convert.toStr(colInfo.getXsfpFpbh())
+                             + Convert.toStr(colInfo.getXsfpShdkh())
+                             + Convert.toStr(colInfo.getXsfpRybh());
+      fpbhConstraint.add(constraintStr);
     });
-
     if(fpbhConstraint.size() != importBhList.size()){
       checkResult.put("passed", "500");
       checkResult.put("msg", "请注意:数据中存在同一发票编号对应不同客户或业务员");
 
       return checkResult;
     }
-
 
     /*校验发票编号是否存在*/
     for (String bh : importBhList){
@@ -397,6 +403,69 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
     checkResult.put("msg", returnMsg.toString());
 
     return checkResult;
+  }
+
+  private Map<String, String> colEmptyValidate(List<ErpXsfpImport> xsfpExcelList){
+    String code = "200";
+    StringBuilder msg  = new StringBuilder();
+    msg.append("校验失败: ");
+    Map<String, String> emptyValidataRsult = MapUtil.newHashMap();
+    List<Object> fpbhList = new ArrayList<>();
+    List<Object> khbhList = new ArrayList<>();
+    List<Object> rybhList = new ArrayList<>();
+    List<Object> zslList = new ArrayList<>();
+    List<Object> yzhsjList = new ArrayList<>();
+    List<Object> zdxmList = new ArrayList<>();
+    xsfpExcelList.forEach(fp->{
+      if(!StrUtil.isEmpty(fp.getXsfpFpbh())){
+        fpbhList.add(fp.getXsfpFpbh());
+      }
+      if(!StrUtil.isEmpty(fp.getXsfpShdkh())){
+        khbhList.add(fp.getXsfpShdkh());
+      }
+      if(!StrUtil.isEmpty(fp.getXsfpRybh())){
+        rybhList.add(fp.getXsfpRybh());
+      }
+      if(!StrUtil.isEmpty(Convert.toStr(fp.getXsfpmxZsl()))){
+        zslList.add(fp.getXsfpmxZsl());
+      }
+      if(!StrUtil.isEmpty(Convert.toStr(fp.getXsfpmxYzhsj()))){
+        yzhsjList.add(fp.getXsfpmxYzhsj());
+      }
+      if(!StrUtil.isEmpty(fp.getXsfpZdxm())){
+        zdxmList.add(fp.getXsfpZdxm());
+      }
+    });
+
+    if(fpbhList.size() != xsfpExcelList.size()){
+      code = "500";
+      msg.append("<br/>" + "发票编号列存在空数据");
+    }
+    if(khbhList.size() != xsfpExcelList.size()){
+      code = "500";
+      msg.append("<br/>" + "客户编号列存在空数据");
+    }
+    if(rybhList.size() != xsfpExcelList.size()){
+      code = "500";
+      msg.append("<br/>" + "业务员编号列存在空数据");
+    }
+    if(zslList.size() != xsfpExcelList.size()){
+      code = "500";
+      msg.append("<br/>" + "发主数据列存在空数据");
+    }
+    if(yzhsjList.size() != xsfpExcelList.size()){
+      code = "500";
+      msg.append("<br/>" + "开票价列存在空数据");
+    }
+    if(zdxmList.size() != xsfpExcelList.size()){
+      code = "500";
+      msg.append("<br/>" + "制单人列存在空数据");
+    }
+
+    emptyValidataRsult.put("passed", code);
+    emptyValidataRsult.put("msg", msg.toString());
+
+    return emptyValidataRsult;
   }
 
 }
