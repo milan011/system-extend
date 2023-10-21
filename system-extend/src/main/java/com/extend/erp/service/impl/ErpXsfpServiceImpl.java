@@ -361,13 +361,28 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
     xsfpExcelList.forEach(fp-> finalBhList.add(fp.getXsfpFpbh()));
 
     importBhList = CollUtil.distinct(finalBhList);
+
+    /*校验发票编号-客户编号,人员编号对应,同一编号不能对应不同客户及业务人员*/
+    Set<String> fpbhConstraint = new HashSet<>();
+    xsfpExcelList.forEach(colInfo->{
+      fpbhConstraint.add(Convert.toStr(colInfo.getXsfpFpbh()) + Convert.toStr(colInfo.getXsfpShdkh()) + Convert.toStr(colInfo.getXsfpRybh()));
+    });
+
+    if(fpbhConstraint.size() != importBhList.size()){
+      checkResult.put("passed", "500");
+      checkResult.put("msg", "请注意:数据中存在同一发票编号对应不同客户或业务员");
+
+      return checkResult;
+    }
+
+
     /*校验发票编号是否存在*/
     for (String bh : importBhList){
       try {
         //是否存在该编号
         ErpXsfp xsfp = baseMapper.getXsfpInfoByFpbh(bh);
         if (StringUtils.isNotNull(xsfp)){
-          String msg = "<br/>" + "发票编号 " + bh + " 已经存在：";
+          String msg = "<br/>" + "发票编号 " + bh + " 已经存在";
           returnMsg.append(msg);
           returnCode = "500";
         }
