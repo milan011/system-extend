@@ -376,10 +376,11 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
       fpbhConstraint.add(constraintStr);
     });
     if(fpbhConstraint.size() != importBhList.size()){
-      checkResult.put("passed", "500");
+      /*checkResult.put("passed", "500");
       checkResult.put("msg", "请注意:数据中存在同一发票编号对应不同客户或业务员");
 
-      return checkResult;
+      return checkResult;*/
+      throw new ServiceException("请注意:数据中存在同一发票编号对应不同客户或业务员");
     }
 
     /*校验发票编号是否存在*/
