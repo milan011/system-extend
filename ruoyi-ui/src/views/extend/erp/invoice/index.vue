@@ -149,7 +149,7 @@
       @pagination="getList"
     />
     <!-- 查看发票明细对话框 -->
-    <el-dialog title="发票明细" :visible.sync="detailOpen" width="80%" append-to-body>
+    <el-dialog :close-on-click-modal="false"  title="发票明细" :visible.sync="detailOpen" width="80%" append-to-body>
       <Detail ref="fpmxList"></Detail>
     </el-dialog>
     <!-- 添加或修改销售发票对话框 -->
