@@ -5,6 +5,8 @@ import java.util.List;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.extend.erp.domain.ErpXstd;
 import com.extend.erp.mapper.ErpXstdMapper;
+import com.ruoyi.common.annotation.DataSource;
+import com.ruoyi.common.enums.DataSourceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.extend.erp.mapper.ErpXstdmxMapper;
@@ -18,6 +20,7 @@ import com.extend.erp.service.IErpXstdmxService;
  * @date 2023-10-21
  */
 @Service
+@DataSource(value = DataSourceType.SLAVE)
 public class ErpXstdmxServiceImpl extends ServiceImpl<ErpXstdmxMapper, ErpXstdmx> implements IErpXstdmxService
 {
     @Autowired

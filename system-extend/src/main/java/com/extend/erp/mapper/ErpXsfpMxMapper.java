@@ -16,4 +16,8 @@ import java.util.List;
 public interface ErpXsfpMxMapper extends BaseMapper<ErpXsfpmx>
 {
 
+  default List<ErpXsfpmx> selectListByXsfpLs(String xsfpLs) {
+    return selectList(new LambdaQueryWrapper<ErpXsfpmx>()
+        .eq(xsfpLs != null, ErpXsfpmx::getXsfpmxFpls, xsfpLs));
+  }
 }

@@ -116,7 +116,7 @@
       <!--<el-table-column label="审核人" align="center" prop="xsfpShxm" />-->
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template v-slot="scope">
-          <el-button
+          <!--<el-button
             size="mini"
             type="text"
             icon="el-icon-edit"
@@ -129,7 +129,14 @@
             icon="el-icon-delete"
             @click="handleDelete(scope.row)"
             v-hasPermi="['system:xsfp:remove']"
-          >删除</el-button>
+          >删除</el-button>-->
+          <el-button
+            size="mini"
+            type="text"
+            icon="el-icon-info"
+            @click="handleShowDetail(scope.row)"
+            v-hasPermi="['erp:xsfp:query']"
+          >查看明细</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -141,7 +148,10 @@
       :limit.sync="queryParams.pageSize"
       @pagination="getList"
     />
-
+    <!-- 查看发票明细对话框 -->
+    <el-dialog title="发票明细" :visible.sync="detailOpen" width="80%" append-to-body>
+      <Detail ref="fpmxList"></Detail>
+    </el-dialog>
     <!-- 添加或修改销售发票对话框 -->
     <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
@@ -850,9 +860,13 @@
 <script>
 import { listXsfp, getXsfp, delXsfp, addXsfp, updateXsfp } from "@/api/erp/xsfp";
 import { getToken } from '@/utils/auth'
+import Detail from './components/Detail'
 
 export default {
   name: "Xsfp",
+  components: {
+    'Detail': Detail
+  },
   data() {
     return {
       // 遮罩层
@@ -877,6 +891,8 @@ export default {
       title: "",
       // 是否显示弹出层
       open: false,
+      //发票明细弹出层
+      detailOpen: false,
       // 用户导入参数
       upload: {
         // 是否显示弹出层（用户导入）
@@ -1105,6 +1121,15 @@ export default {
         this.$modal.msgSuccess("删除成功");
       }).catch(() => {});
     },
+    /*发票明细列表*/
+    handleShowDetail(row){
+      console.log('查看明细', row)
+      this.detailOpen = true
+      this.$nextTick(() => {
+        this.$refs.fpmxList.fpmxListFetch(row)
+      })
+    },
+
 	/** 销售发票明细序号 */
     rowErpXsfpmxIndex({ row, rowIndex }) {
       row.index = rowIndex + 1;

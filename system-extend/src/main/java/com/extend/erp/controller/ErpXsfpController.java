@@ -6,6 +6,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.extend.erp.convert.ErpXsfpConvert;
 import com.extend.erp.domain.ErpXsfpImport;
+import com.extend.erp.domain.ErpXsfpmx;
+import com.extend.erp.service.IErpXsfpMxService;
+import com.extend.erp.service.impl.EprXsfpMxServiceImpl;
 import com.ruoyi.common.core.domain.entity.SysUser;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +42,9 @@ public class ErpXsfpController extends BaseController
 {
   @Autowired
   private IErpXsfpService erpXsfpService;
+
+  @Autowired
+  private EprXsfpMxServiceImpl xsfpMxService;
 
   /**
    * 查询销售发票列表
@@ -93,6 +99,18 @@ public class ErpXsfpController extends BaseController
     //return success(erpXsfpService.selectErpXsfpByXsfpFpls(xsfpFpls));
     return success(erpXsfpService.getXsfpInfo());
 
+  }
+
+  /**
+   * 获取销售发票明细
+   */
+  @PreAuthorize("@ss.hasPermi('erp:xsfp:query')")
+  @GetMapping(value = "/mxlist/{xsfpFpls}")
+  public TableDataInfo getXsfpMx(@PathVariable("xsfpFpls") String xsfpFpls)
+  {
+    startPage();
+    List<ErpXsfpmx> list = xsfpMxService.selectErpXsfpList(xsfpFpls);
+    return getDataTable(list);
   }
 
   /**

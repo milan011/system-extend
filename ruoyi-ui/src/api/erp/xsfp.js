@@ -17,6 +17,14 @@ export function getXsfp(xsfpFpls) {
   })
 }
 
+// 查询销售发票明细
+export function getXsfpmx(xsfpFpls) {
+  return request({
+    url: '/erp/xsfp/mxlist/' + xsfpFpls,
+    method: 'get'
+  })
+}
+
 // 新增销售发票
 export function addXsfp(data) {
   return request({
