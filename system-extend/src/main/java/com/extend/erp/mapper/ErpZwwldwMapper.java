@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.extend.erp.domain.ErpXsfp;
 import com.extend.erp.domain.ErpXsfpmx;
 import com.extend.erp.domain.ErpZwwldw;
+import com.extend.erp.domain.ErpZwzgzd;
 
 /**
  * 往来单位Mapper接口
@@ -68,5 +69,11 @@ public interface ErpZwwldwMapper extends BaseMapper<ErpZwwldw>
   default List<ErpZwwldw> selectErpZwwldwListByDwbh(List<String> dwbhArr){
     return selectList(new LambdaQueryWrapper<ErpZwwldw>()
         .in(ErpZwwldw::getZwwldwDwbh, dwbhArr));
+  }
+
+  default ErpZwwldw getKhInfoByKhbh(String kh) {
+
+    return selectOne(new LambdaQueryWrapper<ErpZwwldw>()
+        .eq(ErpZwwldw::getZwwldwDwbh, kh));
   }
 }

@@ -64,4 +64,6 @@ public interface IErpZwzgzdService extends IService<ErpZwzgzd>
    * @return 结果
    */
   public int deleteErpZwzgzdByZwzgzdZgbh(String zwzgzdZgbh);
+
+  public ErpZwzgzd getKhInfoByRybh(String ry);
 }

@@ -1,5 +1,6 @@
 package com.extend.erp.service.impl;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 import cn.hutool.core.collection.CollUtil;
@@ -63,6 +64,11 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
 
   @Autowired
   private ErpZwzgzdServiceImpl zwzgzdService;
+
+  @Autowired
+  private ErpXstdServiceImpl xstdService;
+  @Autowired
+  private ErpXstdmxServiceImpl xstdmxService;
 
   /**
    * 查询销售发票
@@ -206,9 +212,17 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
     List<ErpXsfp> xsfpList = new ArrayList<>(xsfpExcelList.size());
     //发票明细list
     List<ErpXsfpmx> erpXsfpmxList = new ArrayList<ErpXsfpmx>();
+    //销售提单List
+    List<ErpXstd> xstdList = new ArrayList<ErpXstd>();
+    //销售提单明细List
+    List<ErpXstdmx> xstdmxList = new ArrayList<ErpXstdmx>();
     //当前销售发票流水号
     ErpLsnbbm lsnbbm = lsnbbmService.selectErpLsnbbmByLsnbbmNmbh("XSFPLS");
     Integer lastFpls = Convert.toInt(lsnbbm.getLsnbbmDqnm());
+
+    //当前销售提单流水号
+    ErpLsnbbm tidanInfo = lsnbbmService.selectErpLsnbbmByLsnbbmNmbh("XSTDLS");
+    Integer lastTdls = Convert.toInt(tidanInfo.getLsnbbmDqnm());
 
     //日期设置
     String currentDate = DateUtil.format(DateUtil.date(), "yyyyMMdd");
@@ -272,8 +286,14 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
 
     //发票明细-流水号对应
     Map<String, String> fpLsMap = MapUtil.newHashMap();
+    Map<String, String> fpLsToBhMap = MapUtil.newHashMap();
+    xsfpList.forEach(fpItem->{
+      fpLsMap.put(fpItem.getXsfpFpbh(), fpItem.getXsfpFpls());
+      fpLsToBhMap.put(fpItem.getXsfpFpls(), fpItem.getXsfpFpbh());
+    });
+   /* xsfpList.forEach(fpItem-> fpLsMap.put(fpItem.getXsfpFpbh(), fpItem.getXsfpFpls()));
+    xsfpList.forEach(fpItem-> fpLsToBhMap.put(fpItem.getXsfpFpls(), fpItem.getXsfpFpbh()));*/
 
-    xsfpList.forEach(fpItem-> fpLsMap.put(fpItem.getXsfpFpbh(), fpItem.getXsfpFpls()));
     xsfpExcelList.forEach(fp->{
       ErpXsfpmx xsfpmxInfo = ErpXsfpMxConvert.INSTANCE.convert(fp);
       xsfpmxInfo.setXsfpmxFpls(fpLsMap.get(fp.getXsfpFpbh()));
@@ -282,6 +302,195 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
       erpXsfpmxList.add(xsfpmxInfo);
     });
 
+    //销售发票-提单映射
+
+    /*xsfpList.forEach(fp->{
+      ErpXstd xstd = new ErpXstd();
+    });*/
+    for (ErpXsfp fpInfo : xsfpList) {
+      Integer currentLs = lastTdls + xsfpList.indexOf(fpInfo);
+      ErpXstd xstd = new ErpXstd();
+      xstd.setXstdTdls(Convert.toStr(currentLs));
+      xstd.setXstdPjlx("BZCPTD");
+      xstd.setXstdYwbs("A");
+      xstd.setXstdZbpjlx(fpInfo.getXsfpZbpjlx());
+      xstd.setXstdTdbh("@" + fpInfo.getXsfpFpbh());
+      xstd.setXstdDjrq(fpInfo.getXsfpDjrq());
+      xstd.setXstdYwrq(fpInfo.getXsfpYwrq());
+      xstd.setXstdXgsj(fpInfo.getXsfpXgsj());
+      xstd.setXstdQcbz(fpInfo.getXsfpQcbz());
+      xstd.setXstdTdbz(fpInfo.getXsfpFpbz());
+      xstd.setXstdYwbh(fpInfo.getXsfpYwbh());
+      xstd.setXstdZlbh(fpInfo.getXsfpZlbh());
+      xstd.setXstdShdkh(fpInfo.getXsfpShdkh());
+      xstd.setXstdShdkhmc(fpInfo.getXsfpShdkhmc());
+      xstd.setXstdSpkh(fpInfo.getXsfpSpkh());
+      xstd.setXstdSpkhmc(fpInfo.getXsfpSpkhmc());
+      xstd.setXstdFkkh(fpInfo.getXsfpFkkh());
+      xstd.setXstdFkkhmc(fpInfo.getXsfpFkkhmc());
+      xstd.setXstdAddr(fpInfo.getXsfpAddr());
+      xstd.setXstdTele(fpInfo.getXsfpTele());
+      xstd.setXstdBmbh(fpInfo.getXsfpBmbh());
+      xstd.setXstdRybh(fpInfo.getXsfpRybh());
+      xstd.setXstdWbbh(fpInfo.getXsfpWbbh());
+      xstd.setXstdHl(fpInfo.getXsfpHl());
+      xstd.setXstdHtbh("");
+      xstd.setXstdHtls("");
+      xstd.setXstdZkzc(fpInfo.getXsfpZkzc());
+      xstd.setXstdHkrq(fpInfo.getXsfpHkrq());
+      xstd.setXstdFsbh(fpInfo.getXsfpFsbh());
+      xstd.setXstdDhdd(fpInfo.getXsfpDhdd());
+      xstd.setXstdZdxm(fpInfo.getXsfpZdxm());
+      xstd.setXstdJzbz(fpInfo.getXsfpJzbz());
+      xstd.setXstdJzsj(fpInfo.getXsfpJzsj());
+      xstd.setXstdJzxm(fpInfo.getXsfpJzxm());
+      xstd.setXstdPznm(fpInfo.getXsfpPznm());
+      xstd.setXstdPzrq(fpInfo.getXsfpPzrq());
+      xstd.setXstdPzbh(fpInfo.getXsfpPzbh());
+      xstd.setXstdPznd(fpInfo.getXsfpPznd());
+      xstd.setXstdSfqr(fpInfo.getXsfpSfqr());
+      xstd.setXstdSfjz(fpInfo.getXsfpSfjz());
+      xstd.setXstdSfqxjz(fpInfo.getXsfpSfqxjz());
+      xstd.setXstdSfxg("0");
+      xstd.setXstdSfsc("0");
+      xstd.setXstdSfjz(fpInfo.getXsfpSfjz());
+      xstd.setXstdSfls(fpInfo.getXsfpSfls());
+      xstd.setXstdSfczx(fpInfo.getXsfpSfczx());
+      xstd.setXstdSfcdj(fpInfo.getXsfpSfcdj());
+      xstd.setXstdDydate(fpInfo.getXsfpDydate());
+      xstd.setXstdDyperson(fpInfo.getXsfpDyperson());
+      xstd.setXstdShlc(fpInfo.getXsfpShlc());
+      xstd.setXstdShbz(fpInfo.getXsfpShbz());
+      xstd.setXstdShrq(fpInfo.getXsfpShrq());
+      xstd.setXstdShxm(fpInfo.getXsfpShxm());
+      xstd.setXstdC1(fpInfo.getXsfpC1());
+      xstd.setXstdC2(fpInfo.getXsfpC2());
+      xstd.setXstdC3(fpInfo.getXsfpC3());
+      xstd.setXstdC4(fpInfo.getXsfpC4());
+      xstd.setXstdC5(fpInfo.getXsfpC5());
+      xstd.setXstdC6(fpInfo.getXsfpC6());
+      xstd.setXstdC7(fpInfo.getXsfpC7());
+      xstd.setXstdC8(fpInfo.getXsfpC8());
+      xstd.setXstdC9(fpInfo.getXsfpC9());
+      xstd.setXstdC10(fpInfo.getXsfpC10());
+      xstd.setXstdU1(fpInfo.getXsfpU1());
+      xstd.setXstdU2(fpInfo.getXsfpU2());
+      xstd.setXstdU3(fpInfo.getXsfpU3());
+      xstd.setXstdU4(fpInfo.getXsfpU4());
+      xstd.setXstdU5(fpInfo.getXsfpU5());
+      xstd.setXstdU6(fpInfo.getXsfpU6());
+      xstd.setXstdBz(fpInfo.getXsfpBz());
+      xstdList.add(xstd);
+    }
+
+
+    /*销售提单-提单明细映射*/
+    //销售提单明细-流水号对应
+    Map<String, String> tdLsMap = MapUtil.newHashMap();
+    xstdList.forEach(tdItem-> {
+      System.out.println(tdItem);
+      tdLsMap.put(tdItem.getXstdTdbh(), tdItem.getXstdTdls());
+    });
+    erpXsfpmxList.forEach(mx->{
+      ErpXstdmx tdmx = new ErpXstdmx();
+      /*String tdbh = tdLsMap.get(mx.getXsfpmxFpls());
+      String tdls = fpLsToBhMap.get(StrUtil.sub(tdbh, 1, (tdbh.length()-1)));*/
+      String fpbh = "@" + fpLsToBhMap.get(mx.getXsfpmxFpls());
+      String tdls = tdLsMap.get(fpbh);
+      tdmx.setXstdmxTdls(tdls);
+      tdmx.setXstdmxTdfl(mx.getXsfpmxFpfl());
+      tdmx.setXstdmxXsxh(mx.getXsfpmxXsxh());
+      tdmx.setXstdmxFllx(mx.getXsfpmxFllx());
+      tdmx.setXstdmxFlly(mx.getXsfpmxFlly());
+      tdmx.setXstdmxKcfs("T");
+      tdmx.setXstdmxDdls(mx.getXsfpmxDdls());
+      tdmx.setXstdmxDdfl(mx.getXsfpmxDdfl());
+      tdmx.setXstdmxDdbh(mx.getXsfpmxDdbh());
+      tdmx.setXstdmxYtdls("@");
+      tdmx.setXstdmxYtdfl("@");
+      tdmx.setXstdmxYtdbh("@");
+      tdmx.setXstdmxHtls("");
+      tdmx.setXstdmxHtfl("");
+      tdmx.setXstdmxJhrq("");
+      tdmx.setXstdmxCkbh(mx.getXsfpmxCkbh());
+      tdmx.setXstdmxWlbh(mx.getXsfpmxWlbh());
+      tdmx.setXstdmxPch(mx.getXsfpmxPch());
+      tdmx.setXstdmxHwbh("");
+      tdmx.setXstdmxZyx1(mx.getXsfpmxZyx1());
+      tdmx.setXstdmxZyx2(mx.getXsfpmxZyx2());
+      tdmx.setXstdmxZyx3(mx.getXsfpmxZyx3());
+      tdmx.setXstdmxZyx4(mx.getXsfpmxZyx4());
+      tdmx.setXstdmxZyx5(mx.getXsfpmxZyx5());
+      tdmx.setXstdmxWlzt(mx.getXsfpmxWlzt());
+      tdmx.setXstdmxWlbz(mx.getXsfpmxWlbz());
+      tdmx.setXstdmxZsl(mx.getXsfpmxZsl());
+      tdmx.setXstdmxFsl1(mx.getXsfpmxFsl1());
+      tdmx.setXstdmxFsl2(mx.getXsfpmxFsl2());
+      tdmx.setXstdmxYzhsj(mx.getXsfpmxYzhsj());
+      tdmx.setXstdmxBzhsj(mx.getXsfpmxBzhsj());
+      tdmx.setXstdmxSl(mx.getXsfpmxSl());
+      tdmx.setXstdmxYxse(mx.getXsfpmxYxse());
+      tdmx.setXstdmxBxse(mx.getXsfpmxBxse());
+      tdmx.setXstdmxYse(mx.getXsfpmxYse());
+      tdmx.setXstdmxBse(mx.getXsfpmxBse());
+      tdmx.setXstdmxYhse(mx.getXsfpmxYhse());
+      tdmx.setXstdmxBhse(mx.getXsfpmxBhse());
+      tdmx.setXstdmxDbzkbl(mx.getXsfpmxDbzkbl());
+      tdmx.setXstdmxZezkbl(mx.getXsfpmxZezkbl());
+      tdmx.setXstdmxYzkje(mx.getXsfpmxYzkje());
+      tdmx.setXstdmxBzkje(mx.getXsfpmxBzkje());
+      tdmx.setXstdmxYzsl(0);
+      tdmx.setXstdmxYfsl1(0);
+      tdmx.setXstdmxYfsl2(0);
+      tdmx.setXstdmxSfkp("1");
+      tdmx.setXstdmxKpbz("1");
+      tdmx.setXstdmxKpsl(mx.getXsfpmxZsl());
+      tdmx.setXstdmxKpfsl1(mx.getXsfpmxFsl1());
+      tdmx.setXstdmxKpfsl2(mx.getXsfpmxFsl2());
+      tdmx.setXstdmxYkpe(mx.getXsfpmxYhse());
+      tdmx.setXstdmxBkpe(mx.getXsfpmxBhse());
+      tdmx.setXstdmxSfck(mx.getXsfpmxSfck());
+      tdmx.setXstdmxCkbz("0");
+      tdmx.setXstdmxCksl(0);
+      tdmx.setXstdmxCkfsl1(0);
+      tdmx.setXstdmxCkfsl2(0);
+      tdmx.setXstdmxThsl(0);
+      tdmx.setXstdmxThfsl1(0);
+      tdmx.setXstdmxThfsl2(0);
+      tdmx.setXstdmxBhsl(0);
+      tdmx.setXstdmxBhfsl1(0);
+      tdmx.setXstdmxBhfsl2(0);
+      tdmx.setXstdmxSfth("1");
+      tdmx.setXstdmxThbz("0");
+      tdmx.setXstdmxKcyl("0");
+      tdmx.setXstdmxDdkcyl("0");
+      tdmx.setXstdmxYhkrq("");
+      tdmx.setXstdmxC1(mx.getXsfpmxC1());
+      tdmx.setXstdmxC2(mx.getXsfpmxC2());
+      tdmx.setXstdmxC3(mx.getXsfpmxC3());
+      tdmx.setXstdmxC4(mx.getXsfpmxC4());
+      tdmx.setXstdmxC5(mx.getXsfpmxC5());
+      tdmx.setXstdmxC6(mx.getXsfpmxC6());
+      tdmx.setXstdmxC7(mx.getXsfpmxC7());
+      tdmx.setXstdmxC8(mx.getXsfpmxC8());
+      tdmx.setXstdmxC9(mx.getXsfpmxC9());
+      tdmx.setXstdmxC10(mx.getXsfpmxC10());
+      tdmx.setXstdmxU1(mx.getXsfpmxU1());
+      tdmx.setXstdmxU2(mx.getXsfpmxU2());
+      tdmx.setXstdmxU3(mx.getXsfpmxU3());
+      tdmx.setXstdmxU4(mx.getXsfpmxU4());
+      tdmx.setXstdmxU5(mx.getXsfpmxU5());
+      tdmx.setXstdmxU6(mx.getXsfpmxU6());
+      tdmx.setXstdmxDqzk("0");
+      tdmx.setXstdmxYjbz("0");
+      tdmx.setXstdmxYlzsl(0);
+      tdmx.setXstdmxYlfsl1(0);
+      tdmx.setXstdmxYlfsl2(0);
+      tdmx.setXstdmxYhzsl(0);
+      tdmx.setXstdmxYhfsl1(0);
+      tdmx.setXstdmxYhfsl2(0);
+      xstdmxList.add(tdmx);
+    });
     //erpXsfpMapper.batchErpXsfpmx(erpXsfpmxList);
 
     //xsfpList.forEach(fp-> erpXsfpMapper.insert(fp));
@@ -289,14 +498,22 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
 
     /*this.saveBatch(xsfpList);
     xsfpmxService.saveBatch(erpXsfpmxList);
+    xstdService.saveBatch(xstdList);*/
 
     //String needSetLs = String.valueOf(fpLsMap.entrySet().stream().reduce((first, second) -> second).get());
 
     //最后一条发票流水
     Map.Entry<String, String> needSetLsMap = fpLsMap.entrySet().stream().reduce((first, second) -> second).get();
     String needSetLs = Convert.toStr(Convert.toInt(needSetLsMap.getValue()) + 1);
-    lsnbbm.setLsnbbmDqnm(needSetLs);
+    /*lsnbbm.setLsnbbmDqnm(needSetLs);
     lsnbbmService.updateErpLsnbbm(lsnbbm);*/
+
+    //最后一条提单流水,因"@",实际取map第一条
+    Map.Entry<String, String> needSetTdLsMap = tdLsMap.entrySet().stream().reduce((first, second) -> first).get();
+    String needSetTdLs = Convert.toStr(Convert.toInt(needSetTdLsMap.getValue()) + 1);
+    //tidanInfo.setLsnbbmDqnm(needSetTdLs);
+    //lsnbbmService.updateErpLsnbbm(tidanInfo);
+
 
     String message = "导入发票成功了";
 
@@ -397,6 +614,46 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
         /*String msg = "<br/>" + "、发票编号 " + bh + " 已经存在：";
         returnMsg.append(msg);
         log.error(msg, e);*/
+      }
+    }
+
+    /*校验客户是否存在*/
+    //获取所有客户编号
+    List<String> importKhList = new ArrayList<>();
+    List<String> finalKhList = importKhList;
+    xsfpExcelList.forEach(fp-> finalKhList.add(fp.getXsfpShdkh()));
+    importKhList = CollUtil.distinct(finalKhList);
+
+    importKhList = CollUtil.distinct(finalKhList);
+    for (String kh : importKhList){
+      try {
+        //是否存在该客户
+        ErpZwwldw xskh = zwwldwService.getKhInfoByKhbh(kh);
+        if (StringUtils.isNull(xskh)){
+          String msg = "<br/>" + "客户 " + kh + "不存在";
+          returnMsg.append(msg);
+          returnCode = "500";
+        }
+      }catch (Exception e) {
+      }
+    }
+
+    /*校验人员是否存在*/
+    //所有业务员
+    List<String> importRyList = new ArrayList<>();
+    List<String> finalRyList = importRyList;
+    xsfpExcelList.forEach(fp-> finalRyList.add(fp.getXsfpRybh()));
+    importRyList = CollUtil.distinct(finalRyList);
+    for (String ry : importRyList){
+      try {
+        //是否存在该业务员
+        ErpZwzgzd xsry = zwzgzdService.getKhInfoByRybh(ry);
+        if (StringUtils.isNull(xsry)){
+          String msg = "<br/>" + "人员 " + ry + "不存在";
+          returnMsg.append(msg);
+          returnCode = "500";
+        }
+      }catch (Exception e) {
       }
     }
 

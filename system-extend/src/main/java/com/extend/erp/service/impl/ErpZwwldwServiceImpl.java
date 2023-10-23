@@ -102,4 +102,9 @@ public class ErpZwwldwServiceImpl extends ServiceImpl<ErpZwwldwMapper, ErpZwwldw
   {
     return erpZwwldwMapper.deleteErpZwwldwByZwwldwDwbh(zwwldwDwbh);
   }
+
+  @Override
+  public ErpZwwldw getKhInfoByKhbh(String kh) {
+    return erpZwwldwMapper.getKhInfoByKhbh(kh);
+  }
 }

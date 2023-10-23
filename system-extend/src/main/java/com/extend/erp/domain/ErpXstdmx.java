@@ -9,6 +9,8 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
 import com.ruoyi.common.core.domain.BaseEntity;
 
+import java.math.BigDecimal;
+
 /**
  * 销售提单明细对象 erp_xstdmx
  * 
@@ -106,19 +108,19 @@ public class ErpXstdmx
     private String xstdmxWlbz;
 
     /** ZSL */
-    private Integer xstdmxZsl;
+    private BigDecimal xstdmxZsl;
 
     /** FSL1 */
-    private Integer xstdmxFsl1;
+    private BigDecimal xstdmxFsl1;
 
     /** FSL2 */
-    private Integer xstdmxFsl2;
+    private BigDecimal xstdmxFsl2;
 
     /** 验收时间 */
-    private Integer xstdmxYzhsj;
+    private BigDecimal xstdmxYzhsj;
 
     /** BZHSJ */
-    private Integer xstdmxBzhsj;
+    private BigDecimal xstdmxBzhsj;
 
     /** YZXSJ */
     private Integer xstdmxYzxsj;
@@ -127,25 +129,25 @@ public class ErpXstdmx
     private Integer xstdmxBzxsj;
 
     /** SL */
-    private Integer xstdmxSl;
+    private BigDecimal xstdmxSl;
 
     /** YXSE */
-    private Integer xstdmxYxse;
+    private BigDecimal xstdmxYxse;
 
     /** BXSE */
-    private Integer xstdmxBxse;
+    private BigDecimal xstdmxBxse;
 
     /** YSE */
-    private Integer xstdmxYse;
+    private BigDecimal xstdmxYse;
 
     /** BSE */
-    private Integer xstdmxBse;
+    private BigDecimal xstdmxBse;
 
     /** YHSE */
-    private Integer xstdmxYhse;
+    private BigDecimal xstdmxYhse;
 
     /** BHSE */
-    private Integer xstdmxBhse;
+    private BigDecimal xstdmxBhse;
 
     /** DBZKBL */
     private Integer xstdmxDbzkbl;
@@ -181,19 +183,19 @@ public class ErpXstdmx
     private String xstdmxKpbz;
 
     /** KPSL */
-    private Integer xstdmxKpsl;
+    private BigDecimal xstdmxKpsl;
 
     /** KPSL1 */
-    private Integer xstdmxKpfsl1;
+    private BigDecimal xstdmxKpfsl1;
 
     /** KPSL2 */
-    private Integer xstdmxKpfsl2;
+    private BigDecimal xstdmxKpfsl2;
 
     /** YKPE */
-    private Integer xstdmxYkpe;
+    private BigDecimal xstdmxYkpe;
 
     /** BKPE */
-    private Integer xstdmxBkpe;
+    private BigDecimal xstdmxBkpe;
 
     /** SFCK */
     private String xstdmxSfck;
@@ -694,48 +696,48 @@ public class ErpXstdmx
     {
         return xstdmxWlbz;
     }
-    public void setXstdmxZsl(Integer xstdmxZsl) 
+    public void setXstdmxZsl(BigDecimal xstdmxZsl)
     {
         this.xstdmxZsl = xstdmxZsl;
     }
 
-    public Integer getXstdmxZsl() 
+    public BigDecimal getXstdmxZsl()
     {
         return xstdmxZsl;
     }
-    public void setXstdmxFsl1(Integer xstdmxFsl1) 
+    public void setXstdmxFsl1(BigDecimal xstdmxFsl1)
     {
         this.xstdmxFsl1 = xstdmxFsl1;
     }
 
-    public Integer getXstdmxFsl1() 
+    public BigDecimal getXstdmxFsl1()
     {
         return xstdmxFsl1;
     }
-    public void setXstdmxFsl2(Integer xstdmxFsl2) 
+    public void setXstdmxFsl2(BigDecimal xstdmxFsl2)
     {
         this.xstdmxFsl2 = xstdmxFsl2;
     }
 
-    public Integer getXstdmxFsl2() 
+    public BigDecimal getXstdmxFsl2()
     {
         return xstdmxFsl2;
     }
-    public void setXstdmxYzhsj(Integer xstdmxYzhsj) 
+    public void setXstdmxYzhsj(BigDecimal xstdmxYzhsj)
     {
         this.xstdmxYzhsj = xstdmxYzhsj;
     }
 
-    public Integer getXstdmxYzhsj() 
+    public BigDecimal getXstdmxYzhsj()
     {
         return xstdmxYzhsj;
     }
-    public void setXstdmxBzhsj(Integer xstdmxBzhsj) 
+    public void setXstdmxBzhsj(BigDecimal xstdmxBzhsj)
     {
         this.xstdmxBzhsj = xstdmxBzhsj;
     }
 
-    public Integer getXstdmxBzhsj() 
+    public BigDecimal getXstdmxBzhsj()
     {
         return xstdmxBzhsj;
     }
@@ -757,66 +759,66 @@ public class ErpXstdmx
     {
         return xstdmxBzxsj;
     }
-    public void setXstdmxSl(Integer xstdmxSl) 
+    public void setXstdmxSl(BigDecimal xstdmxSl)
     {
         this.xstdmxSl = xstdmxSl;
     }
 
-    public Integer getXstdmxSl() 
+    public BigDecimal getXstdmxSl()
     {
         return xstdmxSl;
     }
-    public void setXstdmxYxse(Integer xstdmxYxse) 
+    public void setXstdmxYxse(BigDecimal xstdmxYxse)
     {
         this.xstdmxYxse = xstdmxYxse;
     }
 
-    public Integer getXstdmxYxse() 
+    public BigDecimal getXstdmxYxse()
     {
         return xstdmxYxse;
     }
-    public void setXstdmxBxse(Integer xstdmxBxse) 
+    public void setXstdmxBxse(BigDecimal xstdmxBxse)
     {
         this.xstdmxBxse = xstdmxBxse;
     }
 
-    public Integer getXstdmxBxse() 
+    public BigDecimal getXstdmxBxse()
     {
         return xstdmxBxse;
     }
-    public void setXstdmxYse(Integer xstdmxYse) 
+    public void setXstdmxYse(BigDecimal xstdmxYse)
     {
         this.xstdmxYse = xstdmxYse;
     }
 
-    public Integer getXstdmxYse() 
+    public BigDecimal getXstdmxYse()
     {
         return xstdmxYse;
     }
-    public void setXstdmxBse(Integer xstdmxBse) 
+    public void setXstdmxBse(BigDecimal xstdmxBse)
     {
         this.xstdmxBse = xstdmxBse;
     }
 
-    public Integer getXstdmxBse() 
+    public BigDecimal getXstdmxBse()
     {
         return xstdmxBse;
     }
-    public void setXstdmxYhse(Integer xstdmxYhse) 
+    public void setXstdmxYhse(BigDecimal xstdmxYhse)
     {
         this.xstdmxYhse = xstdmxYhse;
     }
 
-    public Integer getXstdmxYhse() 
+    public BigDecimal getXstdmxYhse()
     {
         return xstdmxYhse;
     }
-    public void setXstdmxBhse(Integer xstdmxBhse) 
+    public void setXstdmxBhse(BigDecimal xstdmxBhse)
     {
         this.xstdmxBhse = xstdmxBhse;
     }
 
-    public Integer getXstdmxBhse() 
+    public BigDecimal getXstdmxBhse()
     {
         return xstdmxBhse;
     }
@@ -919,48 +921,48 @@ public class ErpXstdmx
     {
         return xstdmxKpbz;
     }
-    public void setXstdmxKpsl(Integer xstdmxKpsl) 
+    public void setXstdmxKpsl(BigDecimal xstdmxKpsl)
     {
         this.xstdmxKpsl = xstdmxKpsl;
     }
 
-    public Integer getXstdmxKpsl() 
+    public BigDecimal getXstdmxKpsl()
     {
         return xstdmxKpsl;
     }
-    public void setXstdmxKpfsl1(Integer xstdmxKpfsl1) 
+    public void setXstdmxKpfsl1(BigDecimal xstdmxKpfsl1)
     {
         this.xstdmxKpfsl1 = xstdmxKpfsl1;
     }
 
-    public Integer getXstdmxKpfsl1() 
+    public BigDecimal getXstdmxKpfsl1()
     {
         return xstdmxKpfsl1;
     }
-    public void setXstdmxKpfsl2(Integer xstdmxKpfsl2) 
+    public void setXstdmxKpfsl2(BigDecimal xstdmxKpfsl2)
     {
         this.xstdmxKpfsl2 = xstdmxKpfsl2;
     }
 
-    public Integer getXstdmxKpfsl2() 
+    public BigDecimal getXstdmxKpfsl2()
     {
         return xstdmxKpfsl2;
     }
-    public void setXstdmxYkpe(Integer xstdmxYkpe) 
+    public void setXstdmxYkpe(BigDecimal xstdmxYkpe)
     {
         this.xstdmxYkpe = xstdmxYkpe;
     }
 
-    public Integer getXstdmxYkpe() 
+    public BigDecimal getXstdmxYkpe()
     {
         return xstdmxYkpe;
     }
-    public void setXstdmxBkpe(Integer xstdmxBkpe) 
+    public void setXstdmxBkpe(BigDecimal xstdmxBkpe)
     {
         this.xstdmxBkpe = xstdmxBkpe;
     }
 
-    public Integer getXstdmxBkpe() 
+    public BigDecimal getXstdmxBkpe()
     {
         return xstdmxBkpe;
     }

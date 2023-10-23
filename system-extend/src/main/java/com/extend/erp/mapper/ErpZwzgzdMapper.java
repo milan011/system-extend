@@ -69,4 +69,10 @@ public interface ErpZwzgzdMapper extends BaseMapper<ErpZwzgzd>
     return selectList(new LambdaQueryWrapper<ErpZwzgzd>()
         .in(ErpZwzgzd::getZwzgzdZgbh, zgbhList));
   }
+
+  default ErpZwzgzd getKhInfoByRybh(String ry) {
+
+    return selectOne(new LambdaQueryWrapper<ErpZwzgzd>()
+        .eq(ErpZwzgzd::getZwzgzdZgbh, ry));
+  }
 }

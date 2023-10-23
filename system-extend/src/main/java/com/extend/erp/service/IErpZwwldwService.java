@@ -5,6 +5,7 @@ import java.util.List;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.extend.erp.domain.ErpXsfp;
 import com.extend.erp.domain.ErpZwwldw;
+import com.extend.erp.domain.ErpZwzgzd;
 
 /**
  * 往来单位Service接口
@@ -67,4 +68,6 @@ public interface IErpZwwldwService extends IService<ErpZwwldw>
    * @return 结果
    */
   public int deleteErpZwwldwByZwwldwDwbh(String zwwldwDwbh);
+
+  public ErpZwwldw getKhInfoByKhbh(String kh);
 }
