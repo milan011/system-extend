@@ -89,7 +89,7 @@
           icon="el-icon-upload2"
           size="mini"
           @click="handleImport"
-          v-hasPermi="['erp:invoice:import']"
+          v-hasPermi="['erp:xsfp:list']"
         >导入</el-button>
       </el-col>
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
@@ -135,7 +135,7 @@
             type="text"
             icon="el-icon-info"
             @click="handleShowDetail(scope.row)"
-            v-hasPermi="['erp:xsfp:query']"
+            v-hasPermi="['erp:xsfp:list']"
           >查看明细</el-button>
         </template>
       </el-table-column>
@@ -846,7 +846,7 @@
             <el-checkbox v-model="upload.updateSupport" /> 是否更新已经存在的用户数据
           </div>-->
           <span>仅允许导入xls、xlsx格式文件。</span>
-          <el-link type="primary" :underline="false" style="font-size:12px;vertical-align: baseline;" @click="importTemplate">下载模板</el-link>
+          <!--<el-link type="primary" :underline="false" style="font-size:12px;vertical-align: baseline;" @click="importTemplate">下载模板</el-link>-->
         </div>
       </el-upload>
       <div slot="footer" class="dialog-footer">
@@ -1234,8 +1234,8 @@ export default {
     },
     /** 下载模板操作 */
     importTemplate() {
-      this.download('system/user/importTemplate', {
-      }, `user_template_${new Date().getTime()}.xlsx`)
+      this.download('erp/xsfp/importTemplate', {
+      }, `销售发票模板${new Date().getTime()}.xlsx`)
     },
     // 文件上传中处理
     handleFileUploadProgress(event, file, fileList) {

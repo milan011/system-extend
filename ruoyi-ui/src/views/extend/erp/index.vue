@@ -1,12 +1,12 @@
 <template>
   <div class="app-container home">
     <el-row :gutter="20">
-      <el-col align="center" :span="4">
+      <el-col v-hasPermi="['erp:wlbh:list']" align="center" :span="4">
         <el-card class="operate-card" @click.native="toMaterialHandle" shadow="always">
           物料编号
         </el-card>
       </el-col>
-      <el-col align="center" :span="4">
+      <el-col v-hasPermi="['erp:xsfp:list']" align="center" :span="4">
         <el-card class="operate-card" @click.native="toInvoiceHandle" shadow="always">
           销售发票
         </el-card>

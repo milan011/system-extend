@@ -4,6 +4,8 @@ import com.ruoyi.common.annotation.Excel;
 import lombok.Data;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.ImportResource;
 
 import java.math.BigDecimal;
 
@@ -69,6 +71,19 @@ public class ErpXsfpImport {
   /** 开票价 */
   @Excel(name = "开票价")
   private BigDecimal xsfpmxYzhsj;
+
+  public String getXsfpmxFpfl() {
+    return xsfpmxFpfl;
+  }
+
+  public void setXsfpmxFpfl(String xsfpmxFpfl) {
+    this.xsfpmxFpfl = xsfpmxFpfl;
+  }
+
+  /** 明细分流 */
+  @Excel(name = "明细分流")
+  private String xsfpmxFpfl;
+
 
   public String getXsfpmxWlbh() {
     return xsfpmxWlbh;

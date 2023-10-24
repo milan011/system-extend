@@ -61,7 +61,7 @@ public class ErpXsfpController extends BaseController
   /**
    * 导出销售发票列表
    */
-  @PreAuthorize("@ss.hasPermi('erp:xsfp:export')")
+  @PreAuthorize("@ss.hasPermi('erp:xsfp:list')")
   @Log(title = "销售发票", businessType = BusinessType.EXPORT)
   @PostMapping("/export")
   public void export(HttpServletResponse response, ErpXsfp erpXsfp)
@@ -72,7 +72,7 @@ public class ErpXsfpController extends BaseController
   }
 
   @Log(title = "销售发票导入", businessType = BusinessType.IMPORT)
-  @PreAuthorize("@ss.hasPermi('erp:xsfp:import')")
+  @PreAuthorize("@ss.hasPermi('erp:xsfp:list')")
   @PostMapping("/importData")
   public AjaxResult importData(MultipartFile file, boolean updateSupport) throws Exception
   {
@@ -89,10 +89,17 @@ public class ErpXsfpController extends BaseController
     return success(message);
   }
 
+  @PostMapping("/importTemplate")
+  public void importTemplate(HttpServletResponse response)
+  {
+    ExcelUtil<ErpXsfpImport> util = new ExcelUtil<ErpXsfpImport>(ErpXsfpImport.class);
+    util.importTemplateExcel(response, "销售发票");
+  }
+
   /**
    * 获取销售发票详细信息
    */
-  @PreAuthorize("@ss.hasPermi('erp:xsfp:query')")
+  @PreAuthorize("@ss.hasPermi('erp:xsfp:list')")
   @GetMapping(value = "/{xsfpFpls}")
   public AjaxResult getInfo(@PathVariable("xsfpFpls") String xsfpFpls)
   {
@@ -104,7 +111,7 @@ public class ErpXsfpController extends BaseController
   /**
    * 获取销售发票明细
    */
-  @PreAuthorize("@ss.hasPermi('erp:xsfp:query')")
+  @PreAuthorize("@ss.hasPermi('erp:xsfp:list')")
   @GetMapping(value = "/mxlist/{xsfpFpls}")
   public TableDataInfo getXsfpMx(@PathVariable("xsfpFpls") String xsfpFpls)
   {
@@ -116,7 +123,7 @@ public class ErpXsfpController extends BaseController
   /**
    * 新增销售发票
    */
-  @PreAuthorize("@ss.hasPermi('erp:xsfp:add')")
+  @PreAuthorize("@ss.hasPermi('erp:xsfp:list')")
   @Log(title = "销售发票", businessType = BusinessType.INSERT)
   @PostMapping
   public AjaxResult add(@RequestBody ErpXsfp erpXsfp)
@@ -127,7 +134,7 @@ public class ErpXsfpController extends BaseController
   /**
    * 修改销售发票
    */
-  @PreAuthorize("@ss.hasPermi('erp:xsfp:edit')")
+  @PreAuthorize("@ss.hasPermi('erp:xsfp:list')")
   @Log(title = "销售发票", businessType = BusinessType.UPDATE)
   @PutMapping
   public AjaxResult edit(@RequestBody ErpXsfp erpXsfp)
@@ -138,7 +145,7 @@ public class ErpXsfpController extends BaseController
   /**
    * 删除销售发票
    */
-  @PreAuthorize("@ss.hasPermi('erp:xsfp:remove')")
+  @PreAuthorize("@ss.hasPermi('erp:xsfp:list')")
   @Log(title = "销售发票", businessType = BusinessType.DELETE)
   @DeleteMapping("/{xsfpFplss}")
   public AjaxResult remove(@PathVariable String[] xsfpFplss)

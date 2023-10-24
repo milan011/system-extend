@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.*;
 
 import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.convert.Convert;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.map.MapUtil;
@@ -294,11 +295,26 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
    /* xsfpList.forEach(fpItem-> fpLsMap.put(fpItem.getXsfpFpbh(), fpItem.getXsfpFpls()));
     xsfpList.forEach(fpItem-> fpLsToBhMap.put(fpItem.getXsfpFpls(), fpItem.getXsfpFpbh()));*/
 
+    //发票明细分流号生生成
+    fpInfoList.forEach(fpInfo->{
+      List<ErpXsfpImport> repeatListByFpbh = new ArrayList<>();
+      for (ErpXsfpImport fpmxInfo : xsfpExcelList) {
+        if(fpmxInfo.getXsfpFpbh().equals(fpInfo.getXsfpFpbh())){
+          repeatListByFpbh.add(fpmxInfo);
+        }
+      }
+      for (ErpXsfpImport fpmxRepeatInfo : repeatListByFpbh) {
+        Integer currentFlInt = repeatListByFpbh.indexOf(fpmxRepeatInfo) + 1;
+        String currentFl = String.format("%010d", currentFlInt);	// 00000123
+        fpmxRepeatInfo.setXsfpmxFpfl(currentFl);
+      }
+    });
+
     xsfpExcelList.forEach(fp->{
       ErpXsfpmx xsfpmxInfo = ErpXsfpMxConvert.INSTANCE.convert(fp);
       xsfpmxInfo.setXsfpmxFpls(fpLsMap.get(fp.getXsfpFpbh()));
       xsfpmxInfo.setXsfpmxLzrq(currentDate);
-      xsfpmxInfo.setXsfpmxFpfl(RandomUtil.randomNumbers(10)); //发票分类?  与流水均为主键
+      //xsfpmxInfo.setXsfpmxFpfl(RandomUtil.randomNumbers(10)); //发票分类?  与流水均为主键
       erpXsfpmxList.add(xsfpmxInfo);
     });
 
@@ -324,6 +340,8 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
       xstd.setXstdZlbh(fpInfo.getXsfpZlbh());
       xstd.setXstdShdkh(fpInfo.getXsfpShdkh());
       xstd.setXstdShdkhmc(fpInfo.getXsfpShdkhmc());
+      xstd.setXstdSodkh(fpInfo.getXsfpSodkh());
+      xstd.setXstdSodkhmc(fpInfo.getXsfpSodkhmc());
       xstd.setXstdSpkh(fpInfo.getXsfpSpkh());
       xstd.setXstdSpkhmc(fpInfo.getXsfpSpkhmc());
       xstd.setXstdFkkh(fpInfo.getXsfpFkkh());
@@ -388,7 +406,7 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
     //销售提单明细-流水号对应
     Map<String, String> tdLsMap = MapUtil.newHashMap();
     xstdList.forEach(tdItem-> {
-      System.out.println(tdItem);
+      //System.out.println(tdItem);
       tdLsMap.put(tdItem.getXstdTdbh(), tdItem.getXstdTdls());
     });
     erpXsfpmxList.forEach(mx->{
@@ -411,7 +429,7 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
       tdmx.setXstdmxYtdbh("@");
       tdmx.setXstdmxHtls("");
       tdmx.setXstdmxHtfl("");
-      tdmx.setXstdmxJhrq("");
+      tdmx.setXstdmxJhrq(mx.getXsfpmxLzrq());
       tdmx.setXstdmxCkbh(mx.getXsfpmxCkbh());
       tdmx.setXstdmxWlbh(mx.getXsfpmxWlbh());
       tdmx.setXstdmxPch(mx.getXsfpmxPch());
@@ -496,23 +514,34 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
     //xsfpList.forEach(fp-> erpXsfpMapper.insert(fp));
     //xsfpList.forEach(this::save);
 
-    /*this.saveBatch(xsfpList);
+    this.saveBatch(xsfpList);
     xsfpmxService.saveBatch(erpXsfpmxList);
-    xstdService.saveBatch(xstdList);*/
-
-    //String needSetLs = String.valueOf(fpLsMap.entrySet().stream().reduce((first, second) -> second).get());
+    xstdService.saveBatch(xstdList);
+    xstdmxService.saveBatch(xstdmxList);
 
     //最后一条发票流水
-    Map.Entry<String, String> needSetLsMap = fpLsMap.entrySet().stream().reduce((first, second) -> second).get();
-    String needSetLs = Convert.toStr(Convert.toInt(needSetLsMap.getValue()) + 1);
-    /*lsnbbm.setLsnbbmDqnm(needSetLs);
-    lsnbbmService.updateErpLsnbbm(lsnbbm);*/
+    /*Map.Entry<String, String> needSetLsMap = fpLsMap.entrySet().stream().reduce((first, second) -> second).get();
+    String needSetLs = Convert.toStr(Convert.toInt(needSetLsMap.getValue()) + 1);*/
 
-    //最后一条提单流水,因"@",实际取map第一条
-    Map.Entry<String, String> needSetTdLsMap = tdLsMap.entrySet().stream().reduce((first, second) -> first).get();
-    String needSetTdLs = Convert.toStr(Convert.toInt(needSetTdLsMap.getValue()) + 1);
-    //tidanInfo.setLsnbbmDqnm(needSetTdLs);
-    //lsnbbmService.updateErpLsnbbm(tidanInfo);
+    List<Integer> lsList = new ArrayList<>();
+    fpLsMap.forEach((key, value)-> lsList.add(Convert.toInt(value)));
+    Integer[] lsInt = Convert.toIntArray(lsList);
+    Arrays.sort(lsInt);
+    String needSetLs = Convert.toStr(lsInt[lsInt.length -1] + 1);
+
+    lsnbbm.setLsnbbmDqnm(needSetLs);
+    lsnbbmService.updateErpLsnbbm(lsnbbm);
+
+    //最后一条提单流水
+    /*Map.Entry<String, String> needSetTdLsMap = tdLsMap.entrySet().stream().reduce((first, second) -> first).get();
+    String needSetTdLs = Convert.toStr(Convert.toInt(needSetTdLsMap.getValue()) + 1);*/
+    List<Integer> tdList = new ArrayList<>();
+    tdLsMap.forEach((key, value)-> tdList.add(Convert.toInt(value)));
+    Integer[] tdInt = Convert.toIntArray(tdList);
+    Arrays.sort(tdInt);
+    String needSetTdLs = Convert.toStr(tdInt[tdInt.length -1] + 1);
+    tidanInfo.setLsnbbmDqnm(needSetTdLs);
+    lsnbbmService.updateErpLsnbbm(tidanInfo);
 
 
     String message = "导入发票成功了";
