@@ -197,11 +197,6 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
   @Transactional
   public String importXsfp(List<ErpXsfpImport> xsfpExcelList, Boolean isUpdateSupport, String operName){
 
-    if (StringUtils.isNull(xsfpExcelList) || xsfpExcelList.size() == 0)
-    {
-      throw new ServiceException("导入发票数据不能为空！");
-    }
-
     //校验导入数据是否合规
     Map<String, String> importDataCheck = importValidate(xsfpExcelList);
 
@@ -596,6 +591,18 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
   }
 
   private Map<String, String> importValidate(List<ErpXsfpImport> xsfpExcelList){
+    /*校验空白Excel表*/
+    if (StringUtils.isNull(xsfpExcelList) || xsfpExcelList.size() == 0)
+    {
+      throw new ServiceException("导入发票数据不能为空！");
+    }
+    /*校验表头*/
+    try {
+      ErpXsfpImport findOneData = xsfpExcelList.stream().findFirst().get();
+    }catch (Exception e) {
+      throw new ServiceException("请检查导入的Excel文件是否与导入模板匹配！");
+    }
+
     String returnCode = "200";
     StringBuilder returnMsg  = new StringBuilder();
     returnMsg.append("校验失败: ");
