@@ -9,7 +9,7 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="发票种类" prop="xsfpZlbh">
+      <!--<el-form-item label="发票种类" prop="xsfpZlbh">
         <el-input
           v-model="queryParams.xsfpZlbh"
           placeholder="请输入发票种类"
@@ -32,7 +32,7 @@
           clearable
           @keyup.enter.native="handleQuery"
         />
-      </el-form-item>
+      </el-form-item>-->
       <el-form-item>
         <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
         <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
