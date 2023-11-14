@@ -11,6 +11,11 @@
           销售发票
         </el-card>
       </el-col>
+      <el-col v-hasPermi="['erp:xsdd:list']" align="center" :span="4">
+        <el-card class="operate-card" @click.native="toOrderHandle" shadow="always">
+          销售订单
+        </el-card>
+      </el-col>
     </el-row>
   </div>
 </template>
@@ -30,6 +35,9 @@ export default {
     toInvoiceHandle(){
       console.log('销售发票')
       this.$router.push('erp/invoice')
+    },
+    toOrderHandle(){
+      this.$router.push('erp/order')
     }
 
   }

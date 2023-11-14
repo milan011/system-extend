@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.extend.erp.mapper.ErpXsddMapper">
+
+  <resultMap type="com.extend.erp.domain.ErpXsdd" id="ErpXsddResult">
+    <result property="xsddDdls"    column="XSDD_DDLS"    />
+    <result property="xsddDjrq"    column="XSDD_DJRQ"    />
+    <result property="xsddDdbh"    column="XSDD_DDBH"    />
+    <result property="xsddQcbz"    column="XSDD_QCBZ"    />
+    <result property="xsddPjlx"    column="XSDD_PJLX"    />
+    <result property="xsddYwbs"    column="XSDD_YWBS"    />
+    <result property="xsddDdbz"    column="XSDD_DDBZ"    />
+    <result property="xsddDdzt"    column="XSDD_DDZT"    />
+    <result property="xsddLxbh"    column="XSDD_LXBH"    />
+    <result property="xsddShdkh"    column="XSDD_SHDKH"    />
+    <result property="xsddShdkhmc"    column="XSDD_SHDKHMC"    />
+    <result property="xsddSodkh"    column="XSDD_SODKH"    />
+    <result property="xsddSodkhmc"    column="XSDD_SODKHMC"    />
+    <result property="xsddSpkh"    column="XSDD_SPKH"    />
+    <result property="xsddSpkhmc"    column="XSDD_SPKHMC"    />
+    <result property="xsddFkkh"    column="XSDD_FKKH"    />
+    <result property="xsddFkkhmc"    column="XSDD_FKKHMC"    />
+    <result property="xsddSfls"    column="XSDD_SFLS"    />
+    <result property="xsddBmbh"    column="XSDD_BMBH"    />
+    <result property="xsddRybh"    column="XSDD_RYBH"    />
+    <result property="xsddWbbh"    column="XSDD_WBBH"    />
+    <result property="xsddHl"    column="XSDD_HL"    />
+    <result property="xsddXsdj"    column="XSDD_XSDJ"    />
+    <result property="xsddZkzc"    column="XSDD_ZKZC"    />
+    <result property="xsddFsbh"    column="XSDD_FSBH"    />
+    <result property="xsddYwrq"    column="XSDD_YWRQ"    />
+    <result property="xsddSprq"    column="XSDD_SPRQ"    />
+    <result property="xsddXgsj"    column="XSDD_XGSJ"    />
+    <result property="xsddWfdb"    column="XSDD_WFDB"    />
+    <result property="xsddDfdb"    column="XSDD_DFDB"    />
+    <result property="xsddLxr"    column="XSDD_LXR"    />
+    <result property="xsddDhdd"    column="XSDD_DHDD"    />
+    <result property="xsddTzrq"    column="XSDD_TZRQ"    />
+    <result property="xsddPzr"    column="XSDD_PZR"    />
+    <result property="xsddZdxm"    column="XSDD_ZDXM"    />
+    <result property="xsddShlc"    column="XSDD_SHLC"    />
+    <result property="xsddShbz"    column="XSDD_SHBZ"    />
+    <result property="xsddShrq"    column="XSDD_SHRQ"    />
+    <result property="xsddShxm"    column="XSDD_SHXM"    />
+    <result property="xsddC1"    column="XSDD_C1"    />
+    <result property="xsddC2"    column="XSDD_C2"    />
+    <result property="xsddC3"    column="XSDD_C3"    />
+    <result property="xsddC4"    column="XSDD_C4"    />
+    <result property="xsddC5"    column="XSDD_C5"    />
+    <result property="xsddC6"    column="XSDD_C6"    />
+    <result property="xsddC7"    column="XSDD_C7"    />
+    <result property="xsddC8"    column="XSDD_C8"    />
+    <result property="xsddC9"    column="XSDD_C9"    />
+    <result property="xsddC10"    column="XSDD_C10"    />
+    <result property="xsddU1"    column="XSDD_U1"    />
+    <result property="xsddU2"    column="XSDD_U2"    />
+    <result property="xsddU3"    column="XSDD_U3"    />
+    <result property="xsddU4"    column="XSDD_U4"    />
+    <result property="xsddU5"    column="XSDD_U5"    />
+    <result property="xsddU6"    column="XSDD_U6"    />
+    <result property="xsddYwbh"    column="XSDD_YWBH"    />
+    <result property="xsddDyperson"    column="XSDD_DYPERSON"    />
+    <result property="xsddDydate"    column="XSDD_DYDATE"    />
+    <result property="xsddHtbh"    column="XSDD_HTBH"    />
+    <result property="xsddHtls"    column="XSDD_HTLS"    />
+    <result property="xsddSfczx"    column="XSDD_SFCZX"    />
+    <result property="xsddSfcdj"    column="XSDD_SFCDJ"    />
+    <result property="xsddSfqr"    column="XSDD_SFQR"    />
+    <result property="xsddSfxg"    column="XSDD_SFXG"    />
+    <result property="xsddSfsc"    column="XSDD_SFSC"    />
+    <result property="xsddSfjz"    column="XSDD_SFJZ"    />
+    <result property="xsddYhke"    column="XSDD_YHKE"    />
+    <result property="xsddBz"    column="XSDD_BZ"    />
+    <result property="xsddSffp"    column="XSDD_SFFP"    />
+    <result property="xsddGsbh"    column="XSDD_GSBH"    />
+    <result property="xsddXyls"    column="XSDD_XYLS"    />
+  </resultMap>
+
+  <sql id="selectErpXsddVo">
+    select XSDD_DDLS, XSDD_DJRQ, XSDD_DDBH, XSDD_QCBZ, XSDD_PJLX, XSDD_YWBS, XSDD_DDBZ, XSDD_DDZT, XSDD_LXBH, XSDD_SHDKH, XSDD_SHDKHMC, XSDD_SODKH, XSDD_SODKHMC, XSDD_SPKH, XSDD_SPKHMC, XSDD_FKKH, XSDD_FKKHMC, XSDD_SFLS, XSDD_BMBH, XSDD_RYBH, XSDD_WBBH, XSDD_HL, XSDD_XSDJ, XSDD_ZKZC, XSDD_FSBH, XSDD_YWRQ, XSDD_SPRQ, XSDD_XGSJ, XSDD_WFDB, XSDD_DFDB, XSDD_LXR, XSDD_DHDD, XSDD_TZRQ, XSDD_PZR, XSDD_ZDXM, XSDD_SHLC, XSDD_SHBZ, XSDD_SHRQ, XSDD_SHXM, XSDD_C1, XSDD_C2, XSDD_C3, XSDD_C4, XSDD_C5, XSDD_C6, XSDD_C7, XSDD_C8, XSDD_C9, XSDD_C10, XSDD_U1, XSDD_U2, XSDD_U3, XSDD_U4, XSDD_U5, XSDD_U6, XSDD_YWBH, XSDD_DYPERSON, XSDD_DYDATE, XSDD_HTBH, XSDD_HTLS, XSDD_SFCZX, XSDD_SFCDJ, XSDD_SFQR, XSDD_SFXG, XSDD_SFSC, XSDD_SFJZ, XSDD_YHKE, XSDD_BZ, XSDD_SFFP, XSDD_GSBH, XSDD_XYLS from erp_xsdd
+  </sql>
+
+  <select id="selectErpXsddList" parameterType="com.extend.erp.domain.ErpXsdd" resultMap="ErpXsddResult">
+    <include refid="selectErpXsddVo"/>
+    <where>
+      <if test="xsddDjrq != null  and xsddDjrq != ''"> and XSDD_DJRQ = #{xsddDjrq}</if>
+      <if test="xsddDdbh != null  and xsddDdbh != ''"> and XSDD_DDBH = #{xsddDdbh}</if>
+      <if test="xsddPjlx != null  and xsddPjlx != ''"> and XSDD_PJLX = #{xsddPjlx}</if>
+    </where>
+  </select>
+
+  <select id="selectErpXsddByXsddDdls" parameterType="String" resultMap="ErpXsddResult">
+    <include refid="selectErpXsddVo"/>
+    where XSDD_DDLS = #{xsddDdls}
+  </select>
+
+  <insert id="insertErpXsdd" parameterType="com.extend.erp.domain.ErpXsdd">
+    insert into erp_xsdd
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="xsddDdls != null">XSDD_DDLS,</if>
+      <if test="xsddDjrq != null">XSDD_DJRQ,</if>
+      <if test="xsddDdbh != null">XSDD_DDBH,</if>
+      <if test="xsddQcbz != null">XSDD_QCBZ,</if>
+      <if test="xsddPjlx != null">XSDD_PJLX,</if>
+      <if test="xsddYwbs != null">XSDD_YWBS,</if>
+      <if test="xsddDdbz != null">XSDD_DDBZ,</if>
+      <if test="xsddDdzt != null">XSDD_DDZT,</if>
+      <if test="xsddLxbh != null">XSDD_LXBH,</if>
+      <if test="xsddShdkh != null">XSDD_SHDKH,</if>
+      <if test="xsddShdkhmc != null">XSDD_SHDKHMC,</if>
+      <if test="xsddSodkh != null">XSDD_SODKH,</if>
+      <if test="xsddSodkhmc != null">XSDD_SODKHMC,</if>
+      <if test="xsddSpkh != null">XSDD_SPKH,</if>
+      <if test="xsddSpkhmc != null">XSDD_SPKHMC,</if>
+      <if test="xsddFkkh != null">XSDD_FKKH,</if>
+      <if test="xsddFkkhmc != null">XSDD_FKKHMC,</if>
+      <if test="xsddSfls != null">XSDD_SFLS,</if>
+      <if test="xsddBmbh != null">XSDD_BMBH,</if>
+      <if test="xsddRybh != null">XSDD_RYBH,</if>
+      <if test="xsddWbbh != null">XSDD_WBBH,</if>
+      <if test="xsddHl != null">XSDD_HL,</if>
+      <if test="xsddXsdj != null">XSDD_XSDJ,</if>
+      <if test="xsddZkzc != null">XSDD_ZKZC,</if>
+      <if test="xsddFsbh != null">XSDD_FSBH,</if>
+      <if test="xsddYwrq != null">XSDD_YWRQ,</if>
+      <if test="xsddSprq != null">XSDD_SPRQ,</if>
+      <if test="xsddXgsj != null">XSDD_XGSJ,</if>
+      <if test="xsddWfdb != null">XSDD_WFDB,</if>
+      <if test="xsddDfdb != null">XSDD_DFDB,</if>
+      <if test="xsddLxr != null">XSDD_LXR,</if>
+      <if test="xsddDhdd != null">XSDD_DHDD,</if>
+      <if test="xsddTzrq != null">XSDD_TZRQ,</if>
+      <if test="xsddPzr != null">XSDD_PZR,</if>
+      <if test="xsddZdxm != null">XSDD_ZDXM,</if>
+      <if test="xsddShlc != null">XSDD_SHLC,</if>
+      <if test="xsddShbz != null">XSDD_SHBZ,</if>
+      <if test="xsddShrq != null">XSDD_SHRQ,</if>
+      <if test="xsddShxm != null">XSDD_SHXM,</if>
+      <if test="xsddC1 != null">XSDD_C1,</if>
+      <if test="xsddC2 != null">XSDD_C2,</if>
+      <if test="xsddC3 != null">XSDD_C3,</if>
+      <if test="xsddC4 != null">XSDD_C4,</if>
+      <if test="xsddC5 != null">XSDD_C5,</if>
+      <if test="xsddC6 != null">XSDD_C6,</if>
+      <if test="xsddC7 != null">XSDD_C7,</if>
+      <if test="xsddC8 != null">XSDD_C8,</if>
+      <if test="xsddC9 != null">XSDD_C9,</if>
+      <if test="xsddC10 != null">XSDD_C10,</if>
+      <if test="xsddU1 != null">XSDD_U1,</if>
+      <if test="xsddU2 != null">XSDD_U2,</if>
+      <if test="xsddU3 != null">XSDD_U3,</if>
+      <if test="xsddU4 != null">XSDD_U4,</if>
+      <if test="xsddU5 != null">XSDD_U5,</if>
+      <if test="xsddU6 != null">XSDD_U6,</if>
+      <if test="xsddYwbh != null">XSDD_YWBH,</if>
+      <if test="xsddDyperson != null">XSDD_DYPERSON,</if>
+      <if test="xsddDydate != null">XSDD_DYDATE,</if>
+      <if test="xsddHtbh != null">XSDD_HTBH,</if>
+      <if test="xsddHtls != null">XSDD_HTLS,</if>
+      <if test="xsddSfczx != null">XSDD_SFCZX,</if>
+      <if test="xsddSfcdj != null">XSDD_SFCDJ,</if>
+      <if test="xsddSfqr != null">XSDD_SFQR,</if>
+      <if test="xsddSfxg != null">XSDD_SFXG,</if>
+      <if test="xsddSfsc != null">XSDD_SFSC,</if>
+      <if test="xsddSfjz != null">XSDD_SFJZ,</if>
+      <if test="xsddYhke != null">XSDD_YHKE,</if>
+      <if test="xsddBz != null">XSDD_BZ,</if>
+      <if test="xsddSffp != null and xsddSffp != ''">XSDD_SFFP,</if>
+      <if test="xsddGsbh != null and xsddGsbh != ''">XSDD_GSBH,</if>
+      <if test="xsddXyls != null">XSDD_XYLS,</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="xsddDdls != null">#{xsddDdls},</if>
+      <if test="xsddDjrq != null">#{xsddDjrq},</if>
+      <if test="xsddDdbh != null">#{xsddDdbh},</if>
+      <if test="xsddQcbz != null">#{xsddQcbz},</if>
+      <if test="xsddPjlx != null">#{xsddPjlx},</if>
+      <if test="xsddYwbs != null">#{xsddYwbs},</if>
+      <if test="xsddDdbz != null">#{xsddDdbz},</if>
+      <if test="xsddDdzt != null">#{xsddDdzt},</if>
+      <if test="xsddLxbh != null">#{xsddLxbh},</if>
+      <if test="xsddShdkh != null">#{xsddShdkh},</if>
+      <if test="xsddShdkhmc != null">#{xsddShdkhmc},</if>
+      <if test="xsddSodkh != null">#{xsddSodkh},</if>
+      <if test="xsddSodkhmc != null">#{xsddSodkhmc},</if>
+      <if test="xsddSpkh != null">#{xsddSpkh},</if>
+      <if test="xsddSpkhmc != null">#{xsddSpkhmc},</if>
+      <if test="xsddFkkh != null">#{xsddFkkh},</if>
+      <if test="xsddFkkhmc != null">#{xsddFkkhmc},</if>
+      <if test="xsddSfls != null">#{xsddSfls},</if>
+      <if test="xsddBmbh != null">#{xsddBmbh},</if>
+      <if test="xsddRybh != null">#{xsddRybh},</if>
+      <if test="xsddWbbh != null">#{xsddWbbh},</if>
+      <if test="xsddHl != null">#{xsddHl},</if>
+      <if test="xsddXsdj != null">#{xsddXsdj},</if>
+      <if test="xsddZkzc != null">#{xsddZkzc},</if>
+      <if test="xsddFsbh != null">#{xsddFsbh},</if>
+      <if test="xsddYwrq != null">#{xsddYwrq},</if>
+      <if test="xsddSprq != null">#{xsddSprq},</if>
+      <if test="xsddXgsj != null">#{xsddXgsj},</if>
+      <if test="xsddWfdb != null">#{xsddWfdb},</if>
+      <if test="xsddDfdb != null">#{xsddDfdb},</if>
+      <if test="xsddLxr != null">#{xsddLxr},</if>
+      <if test="xsddDhdd != null">#{xsddDhdd},</if>
+      <if test="xsddTzrq != null">#{xsddTzrq},</if>
+      <if test="xsddPzr != null">#{xsddPzr},</if>
+      <if test="xsddZdxm != null">#{xsddZdxm},</if>
+      <if test="xsddShlc != null">#{xsddShlc},</if>
+      <if test="xsddShbz != null">#{xsddShbz},</if>
+      <if test="xsddShrq != null">#{xsddShrq},</if>
+      <if test="xsddShxm != null">#{xsddShxm},</if>
+      <if test="xsddC1 != null">#{xsddC1},</if>
+      <if test="xsddC2 != null">#{xsddC2},</if>
+      <if test="xsddC3 != null">#{xsddC3},</if>
+      <if test="xsddC4 != null">#{xsddC4},</if>
+      <if test="xsddC5 != null">#{xsddC5},</if>
+      <if test="xsddC6 != null">#{xsddC6},</if>
+      <if test="xsddC7 != null">#{xsddC7},</if>
+      <if test="xsddC8 != null">#{xsddC8},</if>
+      <if test="xsddC9 != null">#{xsddC9},</if>
+      <if test="xsddC10 != null">#{xsddC10},</if>
+      <if test="xsddU1 != null">#{xsddU1},</if>
+      <if test="xsddU2 != null">#{xsddU2},</if>
+      <if test="xsddU3 != null">#{xsddU3},</if>
+      <if test="xsddU4 != null">#{xsddU4},</if>
+      <if test="xsddU5 != null">#{xsddU5},</if>
+      <if test="xsddU6 != null">#{xsddU6},</if>
+      <if test="xsddYwbh != null">#{xsddYwbh},</if>
+      <if test="xsddDyperson != null">#{xsddDyperson},</if>
+      <if test="xsddDydate != null">#{xsddDydate},</if>
+      <if test="xsddHtbh != null">#{xsddHtbh},</if>
+      <if test="xsddHtls != null">#{xsddHtls},</if>
+      <if test="xsddSfczx != null">#{xsddSfczx},</if>
+      <if test="xsddSfcdj != null">#{xsddSfcdj},</if>
+      <if test="xsddSfqr != null">#{xsddSfqr},</if>
+      <if test="xsddSfxg != null">#{xsddSfxg},</if>
+      <if test="xsddSfsc != null">#{xsddSfsc},</if>
+      <if test="xsddSfjz != null">#{xsddSfjz},</if>
+      <if test="xsddYhke != null">#{xsddYhke},</if>
+      <if test="xsddBz != null">#{xsddBz},</if>
+      <if test="xsddSffp != null and xsddSffp != ''">#{xsddSffp},</if>
+      <if test="xsddGsbh != null and xsddGsbh != ''">#{xsddGsbh},</if>
+      <if test="xsddXyls != null">#{xsddXyls},</if>
+    </trim>
+  </insert>
+
+  <update id="updateErpXsdd" parameterType="com.extend.erp.domain.ErpXsdd">
+    update erp_xsdd
+    <trim prefix="SET" suffixOverrides=",">
+      <if test="xsddDjrq != null">XSDD_DJRQ = #{xsddDjrq},</if>
+      <if test="xsddDdbh != null">XSDD_DDBH = #{xsddDdbh},</if>
+      <if test="xsddQcbz != null">XSDD_QCBZ = #{xsddQcbz},</if>
+      <if test="xsddPjlx != null">XSDD_PJLX = #{xsddPjlx},</if>
+      <if test="xsddYwbs != null">XSDD_YWBS = #{xsddYwbs},</if>
+      <if test="xsddDdbz != null">XSDD_DDBZ = #{xsddDdbz},</if>
+      <if test="xsddDdzt != null">XSDD_DDZT = #{xsddDdzt},</if>
+      <if test="xsddLxbh != null">XSDD_LXBH = #{xsddLxbh},</if>
+      <if test="xsddShdkh != null">XSDD_SHDKH = #{xsddShdkh},</if>
+      <if test="xsddShdkhmc != null">XSDD_SHDKHMC = #{xsddShdkhmc},</if>
+      <if test="xsddSodkh != null">XSDD_SODKH = #{xsddSodkh},</if>
+      <if test="xsddSodkhmc != null">XSDD_SODKHMC = #{xsddSodkhmc},</if>
+      <if test="xsddSpkh != null">XSDD_SPKH = #{xsddSpkh},</if>
+      <if test="xsddSpkhmc != null">XSDD_SPKHMC = #{xsddSpkhmc},</if>
+      <if test="xsddFkkh != null">XSDD_FKKH = #{xsddFkkh},</if>
+      <if test="xsddFkkhmc != null">XSDD_FKKHMC = #{xsddFkkhmc},</if>
+      <if test="xsddSfls != null">XSDD_SFLS = #{xsddSfls},</if>
+      <if test="xsddBmbh != null">XSDD_BMBH = #{xsddBmbh},</if>
+      <if test="xsddRybh != null">XSDD_RYBH = #{xsddRybh},</if>
+      <if test="xsddWbbh != null">XSDD_WBBH = #{xsddWbbh},</if>
+      <if test="xsddHl != null">XSDD_HL = #{xsddHl},</if>
+      <if test="xsddXsdj != null">XSDD_XSDJ = #{xsddXsdj},</if>
+      <if test="xsddZkzc != null">XSDD_ZKZC = #{xsddZkzc},</if>
+      <if test="xsddFsbh != null">XSDD_FSBH = #{xsddFsbh},</if>
+      <if test="xsddYwrq != null">XSDD_YWRQ = #{xsddYwrq},</if>
+      <if test="xsddSprq != null">XSDD_SPRQ = #{xsddSprq},</if>
+      <if test="xsddXgsj != null">XSDD_XGSJ = #{xsddXgsj},</if>
+      <if test="xsddWfdb != null">XSDD_WFDB = #{xsddWfdb},</if>
+      <if test="xsddDfdb != null">XSDD_DFDB = #{xsddDfdb},</if>
+      <if test="xsddLxr != null">XSDD_LXR = #{xsddLxr},</if>
+      <if test="xsddDhdd != null">XSDD_DHDD = #{xsddDhdd},</if>
+      <if test="xsddTzrq != null">XSDD_TZRQ = #{xsddTzrq},</if>
+      <if test="xsddPzr != null">XSDD_PZR = #{xsddPzr},</if>
+      <if test="xsddZdxm != null">XSDD_ZDXM = #{xsddZdxm},</if>
+      <if test="xsddShlc != null">XSDD_SHLC = #{xsddShlc},</if>
+      <if test="xsddShbz != null">XSDD_SHBZ = #{xsddShbz},</if>
+      <if test="xsddShrq != null">XSDD_SHRQ = #{xsddShrq},</if>
+      <if test="xsddShxm != null">XSDD_SHXM = #{xsddShxm},</if>
+      <if test="xsddC1 != null">XSDD_C1 = #{xsddC1},</if>
+      <if test="xsddC2 != null">XSDD_C2 = #{xsddC2},</if>
+      <if test="xsddC3 != null">XSDD_C3 = #{xsddC3},</if>
+      <if test="xsddC4 != null">XSDD_C4 = #{xsddC4},</if>
+      <if test="xsddC5 != null">XSDD_C5 = #{xsddC5},</if>
+      <if test="xsddC6 != null">XSDD_C6 = #{xsddC6},</if>
+      <if test="xsddC7 != null">XSDD_C7 = #{xsddC7},</if>
+      <if test="xsddC8 != null">XSDD_C8 = #{xsddC8},</if>
+      <if test="xsddC9 != null">XSDD_C9 = #{xsddC9},</if>
+      <if test="xsddC10 != null">XSDD_C10 = #{xsddC10},</if>
+      <if test="xsddU1 != null">XSDD_U1 = #{xsddU1},</if>
+      <if test="xsddU2 != null">XSDD_U2 = #{xsddU2},</if>
+      <if test="xsddU3 != null">XSDD_U3 = #{xsddU3},</if>
+      <if test="xsddU4 != null">XSDD_U4 = #{xsddU4},</if>
+      <if test="xsddU5 != null">XSDD_U5 = #{xsddU5},</if>
+      <if test="xsddU6 != null">XSDD_U6 = #{xsddU6},</if>
+      <if test="xsddYwbh != null">XSDD_YWBH = #{xsddYwbh},</if>
+      <if test="xsddDyperson != null">XSDD_DYPERSON = #{xsddDyperson},</if>
+      <if test="xsddDydate != null">XSDD_DYDATE = #{xsddDydate},</if>
+      <if test="xsddHtbh != null">XSDD_HTBH = #{xsddHtbh},</if>
+      <if test="xsddHtls != null">XSDD_HTLS = #{xsddHtls},</if>
+      <if test="xsddSfczx != null">XSDD_SFCZX = #{xsddSfczx},</if>
+      <if test="xsddSfcdj != null">XSDD_SFCDJ = #{xsddSfcdj},</if>
+      <if test="xsddSfqr != null">XSDD_SFQR = #{xsddSfqr},</if>
+      <if test="xsddSfxg != null">XSDD_SFXG = #{xsddSfxg},</if>
+      <if test="xsddSfsc != null">XSDD_SFSC = #{xsddSfsc},</if>
+      <if test="xsddSfjz != null">XSDD_SFJZ = #{xsddSfjz},</if>
+      <if test="xsddYhke != null">XSDD_YHKE = #{xsddYhke},</if>
+      <if test="xsddBz != null">XSDD_BZ = #{xsddBz},</if>
+      <if test="xsddSffp != null and xsddSffp != ''">XSDD_SFFP = #{xsddSffp},</if>
+      <if test="xsddGsbh != null and xsddGsbh != ''">XSDD_GSBH = #{xsddGsbh},</if>
+      <if test="xsddXyls != null">XSDD_XYLS = #{xsddXyls},</if>
+    </trim>
+    where XSDD_DDLS = #{xsddDdls}
+  </update>
+
+  <delete id="deleteErpXsddByXsddDdls" parameterType="String">
+    delete from erp_xsdd where XSDD_DDLS = #{xsddDdls}
+  </delete>
+
+  <delete id="deleteErpXsddByXsddDdlss" parameterType="String">
+    delete from erp_xsdd where XSDD_DDLS in
+    <foreach item="xsddDdls" collection="array" open="(" separator="," close=")">
+      #{xsddDdls}
+    </foreach>
+  </delete>
+</mapper>

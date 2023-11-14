@@ -319,7 +319,7 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
       ErpXstd xstd = new ErpXstd();
     });*/
     for (ErpXsfp fpInfo : xsfpList) {
-      Integer currentLs = lastTdls + xsfpList.indexOf(fpInfo);
+      Integer currentLs = lastTdls + xsfpList.indexOf(fpInfo) + 1;
       ErpXstd xstd = new ErpXstd();
       xstd.setXstdTdls(Convert.toStr(currentLs));
       xstd.setXstdPjlx("BZCPTD");
@@ -534,7 +534,7 @@ public class ErpXsfpServiceImpl extends ServiceImpl<ErpXsfpMapper, ErpXsfp> impl
     tdLsMap.forEach((key, value)-> tdList.add(Convert.toInt(value)));
     Integer[] tdInt = Convert.toIntArray(tdList);
     Arrays.sort(tdInt);
-    String needSetTdLs = Convert.toStr(tdInt[tdInt.length -1] + 1);
+    String needSetTdLs = Convert.toStr(tdInt[tdInt.length -1]);
     tidanInfo.setLsnbbmDqnm(needSetTdLs);
     lsnbbmService.updateErpLsnbbm(tidanInfo);
 
