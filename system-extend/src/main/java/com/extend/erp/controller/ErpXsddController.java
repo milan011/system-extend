@@ -89,9 +89,7 @@ public class ErpXsddController extends BaseController
   @PostMapping("/addByOms")
   public AjaxResult addByOms(@RequestBody Map<String, Object> map)
   {
-    System.out.println("姓名:" + map.get("name"));
-    System.out.println("年龄:" + map.get("age"));
-    return toAjax(123);
+    return toAjax(erpXsddService.createXsddByOms(map));
   }
   /**
    * 修改销售订单

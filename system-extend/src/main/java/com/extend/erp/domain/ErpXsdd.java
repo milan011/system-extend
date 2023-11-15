@@ -9,6 +9,8 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
 import com.ruoyi.common.core.domain.BaseEntity;
 
+import java.math.BigDecimal;
+
 /**
  * 销售订单对象 erp_xsdd
  * 
@@ -95,7 +97,7 @@ public class ErpXsdd
 
     /** 底价 */
     @Excel(name = "底价")
-    private Integer xsddXsdj;
+    private BigDecimal xsddXsdj;
 
     /** 在库政策 */
     private String xsddZkzc;
@@ -440,12 +442,12 @@ public class ErpXsdd
     {
         return xsddHl;
     }
-    public void setXsddXsdj(Integer xsddXsdj) 
+    public void setXsddXsdj(BigDecimal xsddXsdj)
     {
         this.xsddXsdj = xsddXsdj;
     }
 
-    public Integer getXsddXsdj() 
+    public BigDecimal getXsddXsdj()
     {
         return xsddXsdj;
     }

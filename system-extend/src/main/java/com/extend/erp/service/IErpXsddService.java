@@ -1,6 +1,7 @@
 package com.extend.erp.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.extend.erp.domain.ErpXsdd;
@@ -37,6 +38,11 @@ public interface IErpXsddService extends IService<ErpXsdd>
    * @return 结果
    */
   public int insertErpXsdd(ErpXsdd erpXsdd);
+
+  /**
+   * 销售系统新增订单接口
+   */
+  public int createXsddByOms(Map<String, Object> map);
 
   /**
    * 修改销售订单
