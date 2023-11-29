@@ -58,4 +58,9 @@ public interface ErpXsddMapper extends BaseMapper<ErpXsdd> {
         .eq(erpXsdd.getXsddDdbh() != null, ErpXsdd::getXsddDdbh, erpXsdd.getXsddDdbh())
         .orderByDesc(ErpXsdd::getXsddDjrq));
   }
+
+  default ErpXsdd getXsddInfoByDdbh(String ddbh){
+
+    return selectOne(new LambdaQueryWrapper<ErpXsdd>().eq(ErpXsdd::getXsddDdbh, ddbh));
+  }
 }

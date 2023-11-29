@@ -119,14 +119,14 @@ public class ErpXsddmx
 
   /** 主数量 */
   @Excel(name = "主数量")
-  private Integer xsddmxZsl;
+  private BigDecimal xsddmxZsl;
 
   /** 辅助数量1 */
   @Excel(name = "辅助数量1")
-  private Integer xsddmxFsl1;
+  private BigDecimal xsddmxFsl1;
 
   /** 辅助数量2 */
-  private Integer xsddmxFsl2;
+  private BigDecimal xsddmxFsl2;
 
   /** 原主含税价 */
   @Excel(name = "原主含税价")
@@ -154,7 +154,7 @@ public class ErpXsddmx
 
   /** 税率 */
   @Excel(name = "税率")
-  private Integer xsddmxSl;
+  private BigDecimal xsddmxSl;
 
   /** 原含税额 */
   private BigDecimal xsddmxYhse;
@@ -648,30 +648,30 @@ public class ErpXsddmx
   {
     return xsddmxBbj;
   }
-  public void setXsddmxZsl(Integer xsddmxZsl)
+  public void setXsddmxZsl(BigDecimal xsddmxZsl)
   {
     this.xsddmxZsl = xsddmxZsl;
   }
 
-  public Integer getXsddmxZsl()
+  public BigDecimal getXsddmxZsl()
   {
     return xsddmxZsl;
   }
-  public void setXsddmxFsl1(Integer xsddmxFsl1)
+  public void setXsddmxFsl1(BigDecimal xsddmxFsl1)
   {
     this.xsddmxFsl1 = xsddmxFsl1;
   }
 
-  public Integer getXsddmxFsl1()
+  public BigDecimal getXsddmxFsl1()
   {
     return xsddmxFsl1;
   }
-  public void setXsddmxFsl2(Integer xsddmxFsl2)
+  public void setXsddmxFsl2(BigDecimal xsddmxFsl2)
   {
     this.xsddmxFsl2 = xsddmxFsl2;
   }
 
-  public Integer getXsddmxFsl2()
+  public BigDecimal getXsddmxFsl2()
   {
     return xsddmxFsl2;
   }
@@ -729,12 +729,12 @@ public class ErpXsddmx
   {
     return xsddmxBse;
   }
-  public void setXsddmxSl(Integer xsddmxSl)
+  public void setXsddmxSl(BigDecimal xsddmxSl)
   {
     this.xsddmxSl = xsddmxSl;
   }
 
-  public Integer getXsddmxSl()
+  public BigDecimal getXsddmxSl()
   {
     return xsddmxSl;
   }

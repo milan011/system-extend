@@ -1,9 +1,7 @@
 package com.extend.erp.service.impl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
 
 import cn.hutool.core.convert.Convert;
 import cn.hutool.core.date.DateUtil;
@@ -11,8 +9,11 @@ import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.extend.erp.domain.ErpLsnbbm;
 import com.extend.erp.domain.ErpXsddmx;
+import com.extend.erp.domain.ErpXsfp;
 import com.ruoyi.common.annotation.DataSource;
 import com.ruoyi.common.enums.DataSourceType;
+import com.ruoyi.common.exception.ServiceException;
+import com.ruoyi.common.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.extend.erp.mapper.ErpXsddMapper;
@@ -80,9 +81,17 @@ public class ErpXsddServiceImpl extends ServiceImpl<ErpXsddMapper, ErpXsdd> impl
   public int createXsddByOms(Map<String, Object> map) {
     ErpXsdd erpXsdd = new ErpXsdd();
     List<ErpXsddmx> erpXsddmxList = new ArrayList<ErpXsddmx>();
+
+    //是否存在该订单编号
+    ErpXsdd xsdd = baseMapper.getXsddInfoByDdbh(Convert.toStr(map.get("code")));
+    if (StringUtils.isNotNull(xsdd)){
+      throw new ServiceException("订单重复！");
+    }
+
     //当前销售订单流水号
     ErpLsnbbm lsnbbm = lsnbbmService.selectErpLsnbbmByLsnbbmNmbh("XSDDLS");
     Integer lastDdls = Convert.toInt(lsnbbm.getLsnbbmDqnm());
+
 
     //日期设置
     String currentDate = DateUtil.format(DateUtil.date(), "yyyyMMdd");
@@ -92,12 +101,26 @@ public class ErpXsddServiceImpl extends ServiceImpl<ErpXsddMapper, ErpXsdd> impl
     erpXsdd.setXsddDdls(Convert.toStr(lastDdls+1));
     erpXsdd.setXsddDdbh(Convert.toStr(map.get("code")));
     erpXsdd.setXsddDjrq(Convert.toStr(map.get("orderDate")));
+    erpXsdd.setXsddSprq(Convert.toStr(map.get("orderDate")));
+    erpXsdd.setXsddXgsj(currentDate + ' ' + currentTime);
+    erpXsdd.setXsddPjlx("BZYWDD");
+    erpXsdd.setXsddDdbz("LD");
+    erpXsdd.setXsddLxbh("01");
+    erpXsdd.setXsddLxr("原件");
+    erpXsdd.setXsddShlc("免审");
+    erpXsdd.setXsddShbz("1");
+    erpXsdd.setXsddDdzt("2");
+    erpXsdd.setXsddYwbh("02");
+    erpXsdd.setXsddDhdd(Convert.toStr(map.get("address")));
+    erpXsdd.setXsddShrq(Convert.toStr(map.get("orderDate")));
     erpXsdd.setXsddShdkhmc(Convert.toStr(map.get("customerSell")));
     erpXsdd.setXsddShdkh(Convert.toStr(map.get("customerSellCode")));
     erpXsdd.setXsddSodkhmc(Convert.toStr(map.get("customerSell")));
     erpXsdd.setXsddSodkh(Convert.toStr(map.get("customerSellCode")));
     erpXsdd.setXsddFkkhmc(Convert.toStr(map.get("customerSell")));
     erpXsdd.setXsddFkkh(Convert.toStr(map.get("customerSellCode")));
+    erpXsdd.setXsddSpkhmc(Convert.toStr(map.get("customerSell")));
+    erpXsdd.setXsddSpkh(Convert.toStr(map.get("customerSellCode")));
     erpXsdd.setXsddBmbh(Convert.toStr(map.get("depCode")));
     erpXsdd.setXsddRybh(Convert.toStr(map.get("salesmanCode")));
     erpXsdd.setXsddWbbh("RMB");
@@ -106,36 +129,75 @@ public class ErpXsddServiceImpl extends ServiceImpl<ErpXsddMapper, ErpXsdd> impl
     erpXsdd.setXsddYwrq(Convert.toStr(map.get("busDate")));
     erpXsdd.setXsddZdxm(Convert.toStr(map.get("creater")));
     erpXsdd.setXsddZkzc(Convert.toStr(map.get("policy")));
-    erpXsdd.setXsddHtbh(Convert.toStr(map.get("contractCode")));
+    erpXsdd.setXsddC1(Convert.toStr(map.get("contractCode")));
+    erpXsdd.setXsddC2(Convert.toStr(map.get("agent")));
+    erpXsdd.setXsddC3(Convert.toStr(map.get("freightSettlement")));
+    erpXsdd.setXsddC5(Convert.toStr(map.get("printPrice")));
+    erpXsdd.setXsddC6(Convert.toStr(map.get("sendProvince")));
+    erpXsdd.setXsddC8(Convert.toStr(map.get("sendUnit")));
+    erpXsdd.setXsddC9(Convert.toStr(map.get("sendware")));
     erpXsdd.setXsddBz(Convert.toStr(map.get("remark")));
 
     /*销售订单明细*/
     //map.get("goodsList").stream().forEach();
     List<?> goodsList = Convert.toList(map.get("goodsList"));
-    goodsList.forEach(goods->{
+    //goodsList.forEach(goods->{
+    for (Object goods: goodsList){
       ErpXsddmx erpXsddmx = new ErpXsddmx();
       //Map<String, Object> goodsInfo = (Map<String, Object>) goods;
       //erpXsddmx.setXsddmxWlbh(Convert.toStr(goods.get("materialCode")));
       Map<?, ?> goodsMap = new HashMap<>();
       goodsMap = Convert.convert(goodsMap.getClass(), goods);
 
+      //订单分流号
+      Integer currentFlInt = goodsList.indexOf(goods) + 1;
+      String currentFl = String.format("%010d", currentFlInt);	// 00000123
+      System.out.println(currentFlInt);
+      System.out.println(currentFl);
       erpXsddmx.setXsddmxDdls(erpXsdd.getXsddDdls());
+      erpXsddmx.setXsddmxDdfl(currentFl);
+      erpXsddmx.setXsddmxXsxh(Convert.toLong(currentFlInt));
+      erpXsddmx.setXsddmxFllx(Convert.toStr(goodsMap.get("switchEnterType")));
       erpXsddmx.setXsddmxWlbh(Convert.toStr(goodsMap.get("materialCode")));
-      erpXsddmx.setXsddmxHtbh(Convert.toStr(goodsMap.get("contractCode")));
-      erpXsddmx.setXsddmxPch(Convert.toStr(goodsMap.get("batch")));
-      erpXsddmx.setXsddmxZsl(Convert.toInt(goodsMap.get("mainNum")));
-      erpXsddmx.setXsddmxFsl1(Convert.toInt(goodsMap.get("auxNum")));
+      erpXsddmx.setXsddmxZyx1(Convert.toStr(goodsMap.get("zyx1")));
+      erpXsddmx.setXsddmxZsl(Convert.toBigDecimal(goodsMap.get("mainNum")));
+      erpXsddmx.setXsddmxFsl1(Convert.toBigDecimal(goodsMap.get("auxNum1")));
+      erpXsddmx.setXsddmxFsl2(Convert.toBigDecimal(goodsMap.get("auxNum2")));
       erpXsddmx.setXsddmxYzhsj(Convert.toBigDecimal(goodsMap.get("priceWithTax")));
       erpXsddmx.setXsddmxYzxsj(Convert.toBigDecimal(goodsMap.get("priceSold")));
+      erpXsddmx.setXsddmxBzhsj(Convert.toBigDecimal(goodsMap.get("priceWithTaxRmb")));
+      erpXsddmx.setXsddmxBzxsj(Convert.toBigDecimal(goodsMap.get("priceSoldRmb")));
       erpXsddmx.setXsddmxYse(Convert.toBigDecimal(goodsMap.get("priceTax")));
+      erpXsddmx.setXsddmxBse(Convert.toBigDecimal(goodsMap.get("priceTaxRmb")));
+      erpXsddmx.setXsddmxSl(Convert.toBigDecimal(goodsMap.get("taxRate")));
+      erpXsddmx.setXsddmxYhse(Convert.toBigDecimal(goodsMap.get("priceTotalWithTax")));
+      erpXsddmx.setXsddmxBhse(Convert.toBigDecimal(goodsMap.get("priceTotalWithTaxRmb")));
+      erpXsddmx.setXsddmxYxse(Convert.toBigDecimal(goodsMap.get("priceTotal")));
+      erpXsddmx.setXsddmxBxse(Convert.toBigDecimal(goodsMap.get("priceTotalRmb")));
+      erpXsddmx.setXsddmxYfsl(Convert.toBigDecimal(goodsMap.get("yfsl")));
+      erpXsddmx.setXsddmxYffsl1(Convert.toBigDecimal(goodsMap.get("yffsl1")));
+      erpXsddmx.setXsddmxYffsl2(Convert.toBigDecimal(goodsMap.get("yffsl2")));
+      erpXsddmx.setXsddmxYyfe(Convert.toBigDecimal(goodsMap.get("yyfe")));
+      erpXsddmx.setXsddmxByfe(Convert.toBigDecimal(goodsMap.get("byfe")));
+      erpXsddmx.setXsddmxC1(Convert.toStr(goodsMap.get("pircePolicyCode")));
+      erpXsddmx.setXsddmxJgzc(Convert.toStr(goodsMap.get("pircePolicyFlow")));
+      erpXsddmx.setXsddmxU1(Convert.toBigDecimal(goodsMap.get("basePrice")));
+      erpXsddmx.setXsddmxJgys(Convert.toStr(goodsMap.get("Jgys")));
+      erpXsddmx.setXsddmxGhbm(Convert.toStr(goodsMap.get("Ghbm")));
+      erpXsddmx.setXsddmxJhrq(Convert.toStr(map.get("orderDate")));
 
       erpXsddmxList.add(erpXsddmx);
-    });
+    }
 
     this.save(erpXsdd);
-    //erpXsddmxService.saveBatch(erpXsddmxList);
+    erpXsddmxService.saveBatch(erpXsddmxList);
 
-    return 0;
+    //最后一条销售订单流水
+    String needSetLs = Convert.toStr(lastDdls + 1);
+    lsnbbm.setLsnbbmDqnm(needSetLs);
+    lsnbbmService.updateErpLsnbbm(lsnbbm);
+
+    return 1;
   }
 
 

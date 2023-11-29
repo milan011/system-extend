@@ -84,7 +84,7 @@ public class ErpXsddController extends BaseController
   /**
    * 新增销售订单接口(销售系统调用)
    */
-  @PreAuthorize("@ss.hasPermi('erp:xsdd:add')")
+  //@PreAuthorize("@ss.hasPermi('erp:xsdd:add')")
   @Log(title = "销售订单新增接口", businessType = BusinessType.INSERT)
   @PostMapping("/addByOms")
   public AjaxResult addByOms(@RequestBody Map<String, Object> map)
